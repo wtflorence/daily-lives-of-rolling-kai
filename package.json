@@ -1,0 +1,16 @@
+{
+  "name": "daily-lives-of-rolling-kai",
+  "version": "1.0.0",
+  "description": "A first of its kind generative Twitter Bot tweeting about random happenings in the Rolling-kai Metaverse guild. Powered by NFTs on Polygon, you can directly get involved by simply holding DLoRK NFTs and signing a transaction. Chronicled by Ro11ingButler.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.11"
+  }
+}
