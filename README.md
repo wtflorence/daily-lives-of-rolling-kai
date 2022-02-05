@@ -7,10 +7,11 @@ A first of its kind generative Twitter Bot tweeting about random happenings in t
 ## Developer Notes 
 
 ### Objects
-* Structures
-* Sub-structures
+* Locations
+* Sub-locations
 * Foods
 * Weapons
 * Actions
 * Fights
 * Stuff
+* Denizens
