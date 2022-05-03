@@ -1,5 +1,7 @@
 'use strict'
 
+const axios = require('axios').default;
+
 let objects = [];
 let items = [];
 let monsters = [];
@@ -21,10 +23,12 @@ let denizens = []
 // Miraxcle cooked a steamed mutton in Tavern General's Kitchen. They served it to everyone in Cadre Council.
 // Bilbo stayed inside the bathroom, but he's taking too long inside.
 
-function goSolo(resources) {
+async function goSolo(resources) {
 	let actions = resources.actions
 	let locations = resources.locations
 	let denizens = resources.denizens
+	let den = await axios.get('http://localhost:3000/api/daily-lives/denizens')
+	// console.log(den.data)
 
 	let action = actions[Math.floor(Math.random() * actions.length)] // draw random action
 	let location = locations[Math.floor(Math.random() * locations.length)] // draw random location
@@ -283,7 +287,7 @@ function generateAmbient(ambient) {
 	return ambient_phrase
 }
 
-function randomAmbient(phrase, resources) {
+async function randomAmbient(phrase, resources) {
 	let ambient = resources.ambient[Math.floor(Math.random() * resources.ambient.length)]
 
 	let ambient_array = [

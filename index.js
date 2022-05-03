@@ -1,10 +1,17 @@
 // require('dotenv').config()
 
-const tweetHelper = require('./tweetHelper')
+const tweetHelper = require('./tweetHelper/test2')
 
-for (var i = 15 - 1; i >= 0; i--) {
-	console.log(tweetHelper.generate());
+// for (var i = 15 - 1; i >= 0; i--) {
+// 	console.log(tweetHelper.generate());
+// }
+
+async function go() {
+	console.log(await tweetHelper.generate());
 }
+
+go()
+
 
 // const Twit = require('twit');
 // const TwitterBot = require('node-twitterbot').TwitterBot;

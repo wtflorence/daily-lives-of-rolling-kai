@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "node-twitterbot": "^0.2.2",
+    "simple-gacha": "^1.1.2",
     "twit": "^2.2.11"
   }
 }
