@@ -14,6 +14,10 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
+                name: "Rain fell",
+                weight: 10
+            },
+            {
                 name: "A cold breeze wafted in the night",
                 weight: 10
             },
