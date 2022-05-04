@@ -101,6 +101,10 @@ class Movement extends Gachable {
                 weight: 10
             },
             {
+                name: "stood their ground",
+                weight: 10
+            },
+            {
                 name: "froze",
                 weight: 10
             },

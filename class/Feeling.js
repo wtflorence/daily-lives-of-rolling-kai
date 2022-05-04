@@ -37,6 +37,54 @@ class Feeling extends Gachable {
                 weight: 10
             },
             {
+                name: "comfortable",
+                weight: 10
+            },
+            {
+                name: "fine",
+                weight: 10
+            },
+            {
+                name: "alright",
+                weight: 10
+            },
+            {
+                name: "confused",
+                weight: 10
+            },
+            {
+                name: "alert",
+                weight: 10
+            },
+            {
+                name: "apprehensive",
+                weight: 10
+            },
+            {
+                name: "glorious",
+                weight: 10
+            },
+            {
+                name: "bad",
+                weight: 10
+            },
+            {
+                name: "secured",
+                weight: 10
+            },
+            {
+                name: "safe",
+                weight: 10
+            },
+            {
+                name: "at ease",
+                weight: 10
+            },
+            {
+                name: "okay",
+                weight: 10
+            },
+            {
                 name: "weird",
                 weight: 10
             },
@@ -56,10 +104,7 @@ class Feeling extends Gachable {
     }
 
     decideSimpleFeeling() {
-        const feeling = this.gachaDrawName(this.feelings)
-        const linking = this.decideLinking()
-
-        return `They ${linking} ${feeling}.`
+        return this.gachaDrawName(this.feelings)
     }
 }
 

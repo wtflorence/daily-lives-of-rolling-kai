@@ -11,10 +11,59 @@ class Event extends Gachable {
         const denizen = this.gachaDraw(denizens)
         return `${denizen.name} ${movement} ${location}.`
     }
+    
+    simpleArriveSoloFeelingChain = (denizens, movement, location, feeling) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${denizen.name} ${movement} ${location}. They ${l} ${f}.`
+    }
+        
+    simpleArriveSoloFeelingAndChain = (denizens, movement, location, feeling) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${denizen.name} ${movement} ${location} and they ${l} ${f}.`
+    }
+
+    simpleArriveSoloFeelingAsChain = (denizens, movement, location, feeling) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${denizen.name} ${l} ${f} as they ${movement} ${location}.`
+    }
 
     simpleWaitSolo = (denizens, movement, location) => {
         const denizen = this.gachaDraw(denizens)
         return `${denizen.name} ${movement} at ${location}.`
+    }
+    
+    simpleWaitSoloFeelingChain = (denizens, movement, location, feeling) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${denizen.name} ${movement} at ${location}. They ${l} ${f}.`
+    }
+
+    simpleWaitSoloFeelingAsChain = (denizens, movement, location, feeling) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${denizen.name} ${movement} at ${location} as they ${l} ${f}.`
+    }
+            
+    simpleWaitSoloFeelingAndChain = (denizens, movement, location, feeling) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${denizen.name} ${movement} at ${location} and they ${l} ${f}.`
+    }
+
+    simpleAmbientArriveSoloFeelingChain = (denizens, movement, feeling, ambient) => {
+        const denizen = this.gachaDraw(denizens)
+        const f = feeling.decideSimpleFeeling()
+        const l = feeling.decideLinking()
+        return `${ambient} and ${denizen.name}, who is feeling ${f}, ${movement}.`
     }
 
     simpleArriveWaitChain(denizens, movement, location){
@@ -75,6 +124,34 @@ class Event extends Gachable {
             {
                 name: this.simpleAmbientArriveAsChain(denizens, movement.decideSimpleMovement(), location.decideLocation(), ambient.decideSimpleAmbient()),
                 weight: 10
+            },
+            {
+                name: this.simpleArriveSoloFeelingChain(denizens, movement.decideSimpleMovement(), location.decideLocation(), feeling),
+                weight: 10
+            },
+            {
+                name: this.simpleArriveSoloFeelingAndChain(denizens, movement.decideSimpleMovement(), location.decideLocation(), feeling),
+                weight: 10
+            },
+            {
+                name: this.simpleArriveSoloFeelingAsChain(denizens, movement.decideSimpleMovement(), location.decideLocation(), feeling),
+                weight: 10
+            },
+            {
+                name: this.simpleWaitSoloFeelingChain(denizens, movement.decideSimpleWait(), location.decideLocation(), feeling),
+                weight: 10
+            },
+            {
+                name: this.simpleWaitSoloFeelingAsChain(denizens, movement.decideSimpleWait(), location.decideLocation(), feeling),
+                weight: 10
+            },
+            {
+                name: this.simpleWaitSoloFeelingAndChain(denizens, movement.decideSimpleWait(), location.decideLocation(), feeling),
+                weight: 10
+            },
+            {
+                name: this.simpleAmbientArriveSoloFeelingChain(denizens, movement.decideSimpleWait(), feeling, ambient.decideSimpleAmbient()),
+                weight: 1000
             },
         ]
 
