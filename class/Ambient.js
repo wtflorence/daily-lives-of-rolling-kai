@@ -98,8 +98,12 @@ class Ambient extends Gachable {
                 weight: 6
             },
             {
-                name: "A faint wolf howl echoed",
+                name: "A faint howl echoed",
                 weight: 6
+            },
+            {
+                name: "A glimmer of light pulsated",
+                weight: 3
             },
             {
                 name: "A glimmer of light pulsated",
