@@ -86,8 +86,24 @@ class Ambient extends Gachable {
                 weight: 6
             },
             {
-                name: "Water splashed",
+                name: "A denizen spoke in a hushed tone",
                 weight: 6
+            },
+            {
+                name: "Something sparked",
+                weight: 6
+            },
+            {
+                name: "A rock fell",
+                weight: 6
+            },
+            {
+                name: "A faint wolf howl echoed",
+                weight: 6
+            },
+            {
+                name: "A glimmer of light pulsated",
+                weight: 3
             },
         ]
     }
