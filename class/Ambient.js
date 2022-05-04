@@ -69,6 +69,26 @@ class Ambient extends Gachable {
                 name: "The earth vibrated",
                 weight: 7
             },
+            {
+                name: "A gust of wind blew",
+                weight: 7
+            },
+            {
+                name: "Light vanished",
+                weight: 6
+            },
+            {
+                name: "Fire silently crackled",
+                weight: 6
+            },
+            {
+                name: "Something popped",
+                weight: 6
+            },
+            {
+                name: "Water splashed",
+                weight: 6
+            },
         ]
     }
 
