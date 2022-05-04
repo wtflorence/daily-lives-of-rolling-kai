@@ -65,6 +65,10 @@ class Ambient extends Gachable {
                 name: "The ground vibrated",
                 weight: 7
             },
+            {
+                name: "The earth vibrated",
+                weight: 7
+            },
         ]
     }
 
