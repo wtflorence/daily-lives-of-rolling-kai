@@ -22,11 +22,11 @@ class Ambient extends Gachable {
                 weight: 1
             },
             {
-                name: "Rain was imminent",
+                name: "Rain is imminent",
                 weight: 1
             },
             {
-                name: "The sun rose magnificently at the horizon",
+                name: "The sun rose magnificently in the horizon",
                 weight: 10
             },
             {
@@ -46,7 +46,7 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
-                name: "Random chatter could be heard about",
+                name: "Random chatter can be heard about",
                 weight: 2
             },
             {
@@ -54,7 +54,15 @@ class Ambient extends Gachable {
                 weight: 1
             },
             {
-                name: "A bell rang from the distance",
+                name: "A bell rang from a distant",
+                weight: 7
+            },
+            {
+                name: "Metals clanked",
+                weight: 7
+            },
+            {
+                name: "The ground vibrated",
                 weight: 7
             },
         ]
