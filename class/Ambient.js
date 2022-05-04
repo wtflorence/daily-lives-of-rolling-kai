@@ -14,10 +14,6 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
-                name: "Rain fell",
-                weight: 10
-            },
-            {
                 name: "A cold breeze wafted in the night",
                 weight: 10
             },
@@ -52,6 +48,14 @@ class Ambient extends Gachable {
             {
                 name: "Random chatter can be heard about",
                 weight: 2
+            },
+            {
+                name: "The stench of blood filled the air",
+                weight: 1
+            },
+            {
+                name: "The bell rang",
+                weight: 7
             },
         ]
     }
