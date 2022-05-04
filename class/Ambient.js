@@ -49,6 +49,14 @@ class Ambient extends Gachable {
                 name: "Random chatter could be heard about",
                 weight: 2
             },
+            {
+                name: "The stench of blood filled the air",
+                weight: 1
+            },
+            {
+                name: "A bell rang from a distant",
+                weight: 7
+            },
         ]
     }
 
