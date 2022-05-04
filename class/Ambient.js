@@ -94,7 +94,7 @@ class Ambient extends Gachable {
                 weight: 6
             },
             {
-                name: "A rock fell",
+                name: "A rock fell with a thud",
                 weight: 6
             },
             {
@@ -106,8 +106,32 @@ class Ambient extends Gachable {
                 weight: 3
             },
             {
-                name: "A glimmer of light pulsated",
+                name: "Thunder boomed",
                 weight: 3
+            },
+            {
+                name: "Sirens blared",
+                weight: 6
+            },
+            {
+                name: "The ground shook",
+                weight: 7
+            },
+            {
+                name: "The stars shone birghtly",
+                weight: 7
+            },
+            {
+                name: "Footsteps thumped",
+                weight: 7
+            },
+            {
+                name: "The night deepen",
+                weight: 7
+            },
+            {
+                name: "The sun ablazed",
+                weight: 7
             },
         ]
     }
