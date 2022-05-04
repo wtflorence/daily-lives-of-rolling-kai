@@ -33,8 +33,12 @@ class Feeling extends Gachable {
                 weight: 10
             },
             {
-                name: "cute",
+                name: "prepared",
                 weight: 10
+            },
+            {
+                name: "cute",
+                weight: 1
             },
             {
                 name: "comfortable",

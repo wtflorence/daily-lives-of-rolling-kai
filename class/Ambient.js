@@ -54,7 +54,7 @@ class Ambient extends Gachable {
                 weight: 1
             },
             {
-                name: "A bell rang from a distant",
+                name: "A bell rang from the distance",
                 weight: 7
             },
         ]
