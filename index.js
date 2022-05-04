@@ -7,7 +7,10 @@ const tweetHelper = require('./tweetHelper/test2')
 // }
 
 async function go() {
-	console.log(await tweetHelper.generate());
+	// for (var i = 15 - 1; i >= 0; i--) {
+	const phrase = await tweetHelper.generate()
+	console.log(`${phrase}: ${phrase.length}`);
+	// }
 }
 
 go()
