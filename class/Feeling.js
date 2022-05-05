@@ -132,6 +132,10 @@ class Feeling extends Gachable {
                 name: "already fed up",
                 weight: 7
             },
+            {
+                name: "at wit's end",
+                weight: 7
+            },
         ]
     }
 
