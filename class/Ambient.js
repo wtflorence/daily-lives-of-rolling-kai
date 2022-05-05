@@ -133,6 +133,30 @@ class Ambient extends Gachable {
                 name: "The rays of the sun ablazed",
                 weight: 7
             },
+            {
+                name: "A shadow moved",
+                weight: 6
+            },
+            {
+                name: "Series of explosion continued",
+                weight: 1
+            },
+            {
+                name: "Firefight ensued",
+                weight: 1
+            },
+            {
+                name: "Sun's rays beamed",
+                weight: 7
+            },
+            {
+                name: "Rain fell",
+                weight: 7
+            },
+            {
+                name: "Glasses clinked",
+                weight: 7
+            },
         ]
     }
 
