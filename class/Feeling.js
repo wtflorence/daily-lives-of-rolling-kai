@@ -118,7 +118,19 @@ class Feeling extends Gachable {
             },
             {
                 name: "aloof",
-                weight: 10
+                weight: 7
+            },
+            {
+                name: "blood is boiling",
+                weight: 7
+            },
+            {
+                name: "on cloud nine",
+                weight: 6
+            },
+            {
+                name: "already fed up",
+                weight: 7
             },
         ]
     }
