@@ -100,6 +100,50 @@ class Feeling extends Gachable {
                 name: "like they're about to throw up",
                 weight: 10
             },
+            {
+                name: "restless",
+                weight: 7
+            },
+            {
+                name: "invincible",
+                weight: 7
+            },
+            {
+                name: "vulnerable",
+                weight: 7
+            },
+            {
+                name: "nasty",
+                weight: 8
+            },
+            {
+                name: "aloof",
+                weight: 7
+            },
+            {
+                name: "blood is boiling",
+                weight: 7
+            },
+            {
+                name: "on cloud nine",
+                weight: 6
+            },
+            {
+                name: "already fed up",
+                weight: 7
+            },
+            {
+                name: "at wit's end",
+                weight: 7
+            },
+            {
+                name: "feeling burnt out",
+                weight: 7
+            },
+            {
+                name: "chilled out",
+                weight: 7
+            },
         ]
     }
 
