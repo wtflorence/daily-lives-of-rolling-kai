@@ -15,12 +15,24 @@ class Gachable {
         return pick
     }
 
-    gachafy(array){
+    gachaDrawTwo(loot) {
+        const d1 = gacha.simple(loot).pick
+        let d2
+        
+        do {
+            d2 = gacha.simple(loot).pick
+        }
+        while (d2.name == d1.name)
+        
+        return [d1, d2]
+    }
+
+    gachafy(array) {
         const loot = []
-        for (const item of array){
+        for (const item of array) {
             loot.push(
                 {
-                    name: item.name,
+                    name: item,
                     weight: 10
                 }
             )

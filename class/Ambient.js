@@ -10,6 +10,10 @@ class Ambient extends Gachable {
                 weight: 1
             },
             {
+                name: "Clouds stirred",
+                weight: 10
+            },
+            {
                 name: "The cold air stirred",
                 weight: 10
             },

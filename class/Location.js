@@ -220,7 +220,7 @@ const data = [
     )
 ]
 
-gachable = new Gachable()
-const location = gachable.gachaDraw(data)
-
-module.exports = location
+// Return array of Locations
+// Draw from this array
+// Then run decideLocation() to return name
+module.exports = data

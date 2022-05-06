@@ -8,8 +8,8 @@ const tweetHelper = require('./tweetHelper/test2')
 
 async function go() {
 	// for (var i = 15 - 1; i >= 0; i--) {
-	const phrase = await tweetHelper.generate()
-	console.log(`${phrase}: ${phrase.length}`);
+		const phrase = await tweetHelper.generate()
+		console.log(`${phrase}: ${phrase.length}`);
 	// }
 }
 

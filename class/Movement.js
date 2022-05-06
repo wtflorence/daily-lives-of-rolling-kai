@@ -38,10 +38,6 @@ class Movement extends Gachable {
                 weight: 1
             },
             {
-                name: "has arrived to",
-                weight: 10
-            },
-            {
                 name: "walked to",
                 weight: 10
             },
@@ -82,7 +78,7 @@ class Movement extends Gachable {
                 weight: 1
             },
             {
-                name: "has arrived to",
+                name: "had arrived to",
                 weight: 10
             },
         ]

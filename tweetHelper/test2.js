@@ -9,6 +9,7 @@ exports.generate = async () => {
     const Gachable = await require("../class/Gachable")
     const Movement = await require("../class/Movement")
     const Ambient = await require("../class/Ambient")
+    const Fight = await require("../class/Fight")
     const denizensResult = await axios.get('http://localhost:3000/api/daily-lives/denizens')
     
     // const gachable = new Gachable()
@@ -18,6 +19,7 @@ exports.generate = async () => {
     const ambient = new Ambient()
     const event = new Event()
     const feeling = new Feeling()
+    const fight = new Fight()
     const location = Location
 
     // const _denizen = gachable.gachaDraw(denizens.data)
@@ -25,7 +27,7 @@ exports.generate = async () => {
     // const _movement = movement.decideSimpleMovement()
     // const _ambient = ambient.decideSimpleAmbient()
 
-    const phrase = event.pickRandomEvent(denizens, movement, location, feeling, ambient)
+    const phrase = event.pickRandomEvent(denizens, movement, location, feeling, ambient, fight)
     // const phrase = event.simpleArriveSolo(_denizen, _location, _movement) + " " + feeling.decideSimpleFeeling("")
 
     return phrase
