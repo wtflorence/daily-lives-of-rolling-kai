@@ -9,6 +9,8 @@ exports.generate = async () => {
     const Gachable = await require("../class/Gachable")
     const Movement = await require("../class/Movement")
     const Ambient = await require("../class/Ambient")
+    const Action = await require("../class/Action")
+    const Topic = await require("../class/Topic")
     const Fight = await require("../class/Fight")
     const denizensResult = await axios.get('http://localhost:3000/api/daily-lives/denizens')
     
@@ -17,6 +19,8 @@ exports.generate = async () => {
     const denizens = denizensResult.data
     const movement = new Movement()
     const ambient = new Ambient()
+    const action = new Action()
+    const topic = new Topic()
     const event = new Event()
     const feeling = new Feeling()
     const fight = new Fight()
@@ -27,7 +31,7 @@ exports.generate = async () => {
     // const _movement = movement.decideSimpleMovement()
     // const _ambient = ambient.decideSimpleAmbient()
 
-    const phrase = event.pickRandomEvent(denizens, movement, location, feeling, ambient, fight)
+    const phrase = event.pickRandomEvent(denizens, movement, location, feeling, ambient, fight, action, topic)
     // const phrase = event.simpleArriveSolo(_denizen, _location, _movement) + " " + feeling.decideSimpleFeeling("")
 
     return phrase

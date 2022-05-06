@@ -517,6 +517,38 @@ class Fight extends Gachable {
                 weight: 10
             },
         ]
+
+        this.curse = [
+            {
+                name: "cursed",
+                weight: 10
+            },
+            
+            {
+                name: "swore",
+                weight: 8
+            },
+            {
+                name: "bad-mouthed",
+                weight: 5
+            },           
+            {
+                name: "hissed",
+                weight: 2
+            },           
+            {
+                name: "gritted their teeth",
+                weight: 5
+            },         
+            {
+                name: "raged",
+                weight: 10
+            },           
+            {
+                name: "hissed",
+                weight: 10
+            },
+        ]
     }
 
     decideAttack = () => {
@@ -557,6 +589,10 @@ class Fight extends Gachable {
 
     decideFaint = () => {
         return this.gachaDrawName(this.faint)
+    }
+
+    decideCurse = () => {
+        return this.gachaDrawName(this.curse)
     }
 
     decideDefaultWeapon = () => {

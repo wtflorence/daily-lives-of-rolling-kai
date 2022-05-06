@@ -54,7 +54,7 @@ class Movement extends Gachable {
                 weight: 1
             },
             {
-                name: "crept to",
+                name: "crept towards",
                 weight: 1
             },
             {
@@ -117,7 +117,7 @@ class Movement extends Gachable {
                 weight: 10
             },
             {
-                name: "marvelled the scenery",
+                name: "marvelled at the scenery",
                 weight: 10
             },
             {

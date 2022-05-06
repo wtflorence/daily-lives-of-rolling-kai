@@ -121,10 +121,11 @@ class Event extends Gachable {
     }
 
     // fights
+
     fightOneSidedD1Win(denizens, ambient, location, fight) {
         let d1
         let d2
-        
+
         [d1, d2] = this.gachaDrawTwo(denizens)
 
 
@@ -136,8 +137,34 @@ class Event extends Gachable {
 
     // end fights
 
-    pickRandomEvent(denizens, movement, location, feeling, ambient, fight) {
-        const single = [
+
+
+    // duo
+    simpleDuoTalkLocation(denizens, topic, location, feeling, action) {
+        let d1
+        let d2
+
+        [d1, d2] = this.gachaDrawTwo(denizens)
+        const local = this.gachaDraw(location)
+
+        return `${d1.name} met ${d2.name} at ${local.decideLocation()}. They ${action.decideSpeak()} about ${topic.decideTopic()} ${topic.decideDuration()}. In the end, ${d2.name} ${action.decideThink()} about ${topic.decideTopicEnder()}.`
+
+    }
+    simpleAmbientLocationDuoTalk(denizens, topic, location, feeling, action, movement, ambient) {
+        let d1
+        let d2
+
+        [d1, d2] = this.gachaDrawTwo(denizens)
+        const local = this.gachaDraw(location)
+
+        return `${ambient.decideSimpleAmbient()} as ${d1.name} ${movement.decideSimpleMovement()} ${local.decideLocation()}. They met ${d2.name} and ${action.decideSpeak()} about ${topic.decideTopic()}, ${topic.decideTopic()}, and ${topic.decideTopicEnder()}. ${d1.name} ${feeling.decideLinking()} ${feeling.decideSimpleFeeling()} from this.`
+
+    }
+    // end duo
+
+
+    pickRandomEvent(denizens, movement, location, feeling, ambient, fight, action, topic) {
+        const solo = [
             {
                 name: this.simpleArriveSolo(denizens, movement.decideSimpleMovement(), location),
                 weight: 10
@@ -148,7 +175,7 @@ class Event extends Gachable {
             },
         ]
 
-        const dualChain = [
+        const soloDualChain = [
             {
                 name: this.simpleArriveWaitChain(denizens, movement, location),
                 weight: 10
@@ -196,7 +223,7 @@ class Event extends Gachable {
             },
         ]
 
-        const tripleChain = [
+        const soloTripleChain = [
             {
                 name: this.simpleAmbientArriveSoloFeelingChain(denizens, movement.decideSimpleWait(), feeling, ambient.decideSimpleAmbient()),
                 weight: 10
@@ -210,22 +237,37 @@ class Event extends Gachable {
             },
         ]
 
+        const duo = [
+            {
+                name: this.simpleDuoTalkLocation(denizens, topic, location, feeling, action),
+                weight: 10
+            },
+            {
+                name: this.simpleAmbientLocationDuoTalk(denizens, topic, location, feeling, action, movement, ambient),
+                weight: 10
+            },
+        ]
+
         const events = [
             {
-                name: single,
+                name: solo,
+                weight: 1
+            },
+            {
+                name: soloDualChain,
                 weight: 10
             },
             {
-                name: dualChain,
-                weight: 10
-            },
-            {
-                name: tripleChain,
+                name: soloTripleChain,
                 weight: 10
             },
             {
                 name: fightScene,
-                weight: 1000
+                weight: 10
+            },
+            {
+                name: duo,
+                weight: 10
             },
         ]
 

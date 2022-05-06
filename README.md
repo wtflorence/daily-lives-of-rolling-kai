@@ -1,6 +1,10 @@
 # Daily Lives of Rolling-kai
 
-A first of its kind generative Twitter Bot tweeting about random happenings in the Rolling-kai Metaverse Guild. Powered by NFTs on Polygon, you can directly get involved by simply holding a Menacing Chibi Honorary. Chronicled by Ro11ingButler.
+A first of its kind procedurally-generative Twitter Bot powered by NFTs. Tweets about happenings in the @rollingkai1214 Metaverse Guild on an hourly basis. 
+
+Breathe more life to your Menacing Chibi Honorary by simply holding it in your wallet. 
+
+Chronicled by Ro11ingButler.
 
 
 

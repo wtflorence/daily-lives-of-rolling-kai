@@ -58,109 +58,25 @@ class Ambient extends Gachable {
                 weight: 1
             },
             {
-                name: "A bell rang from a distant",
+                name: "A bell rang in the distance",
                 weight: 7
-            },
-            {
-                name: "Metals clanked",
-                weight: 7
-            },
-            {
-                name: "The ground vibrated",
-                weight: 7
-            },
-            {
-                name: "The earth vibrated",
-                weight: 7
-            },
-            {
-                name: "A gust of wind blew",
-                weight: 7
-            },
-            {
-                name: "Light vanished",
-                weight: 6
-            },
-            {
-                name: "Fire silently crackled",
-                weight: 6
-            },
-            {
-                name: "Something popped",
-                weight: 6
-            },
-            {
-                name: "A denizen spoke in a hushed tone",
-                weight: 6
-            },
-            {
-                name: "Something sparked",
-                weight: 6
-            },
-            {
-                name: "A rock fell with a thud",
-                weight: 6
-            },
-            {
-                name: "A faint howl echoed",
-                weight: 6
-            },
-            {
-                name: "A glimmer of light pulsated",
-                weight: 3
             },
             {
                 name: "Thunder boomed",
                 weight: 3
             },
             {
-                name: "Sirens blared",
-                weight: 6
-            },
-            {
-                name: "The ground shook",
+                name: "The stars shone brightly in the night",
                 weight: 7
-            },
+            }, 
             {
-                name: "The stars shone birghtly",
-                weight: 7
-            },
-            {
-                name: "Footsteps thumped",
-                weight: 7
-            },
-            {
-                name: "The night deepen",
-                weight: 7
-            },
-            {
-                name: "The rays of the sun ablazed",
-                weight: 7
-            },
-            {
-                name: "A shadow moved",
-                weight: 6
-            },
-            {
-                name: "Series of explosion continued",
-                weight: 1
-            },
-            {
-                name: "Firefight ensued",
-                weight: 1
-            },
-            {
-                name: "Sun's rays beamed",
+                name: "The night deepened",
                 weight: 7
             },
             {
                 name: "Rain fell",
                 weight: 7
-            },
-            {
-                name: "Glasses clinked",
-                weight: 7
-            },
+            }, 
         ]
     }
 
