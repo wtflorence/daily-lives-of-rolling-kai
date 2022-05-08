@@ -76,42 +76,11 @@ class Movement extends Gachable {
             {
                 name: "sleepwalked to",
                 weight: 1
-            }, 
-        ]
-
-        this.otw = [
-            {
-                name: "en route to",
-                weight: 10
             },
             {
-                name: "on the way to",
+                name: "had arrived to",
                 weight: 10
             },
-            {
-                name: "going to",
-                weight: 10
-            },
-            {
-                name: "traveling to",
-                weight: 10
-            },
-            {
-                name: "passing through",
-                weight: 10
-            },
-            {
-                name: "patrolling",
-                weight: 10
-            },
-            {
-                name: "checking out",
-                weight: 10
-            },
-            {
-                name: "about to reach",
-                weight: 10
-            }, 
         ]
 
         this.wait = [
@@ -167,50 +136,43 @@ class Movement extends Gachable {
                 name: "did nothing",
                 weight: 10
             },
-        ]
-
-        this.continue = [
             {
-                name: "pressed on",
-                weight: 10
+                name: "held back",
+                weight: 7
             },
             {
-                name: "moved on",
-                weight: 10
+                name: "paused",
+                weight: 7
             },
             {
-                name: "moved forward",
-                weight: 10
+                name: "halted",
+                weight: 7
             },
             {
-                name: "continued",
-                weight: 10
+                name: "gazed in awe",
+                weight: 7
             },
             {
-                name: "carried on",
-                weight: 10
+                name: "stood frozen",
+                weight: 7
             },
             {
-                name: "proceeded",
-                weight: 10
-            }, 
+                name: "stopped dead",
+                weight: 7
+            },
+            {
+                name: "dumbfounded",
+                weight: 7
+            },
         ]
     }
 
-    decideMovement(){
+    decideSimpleMovement(){
         return this.gachaDrawName(this.movements)
     }
 
-    decideWait(){
+    decideSimpleWait(){
         return this.gachaDrawName(this.wait)
-    }
-
-    decideContinue(){
-        return this.gachaDrawName(this.continue)
-    }
-
-    decideOtw(){
-        return this.gachaDrawName(this.otw)
     }
 
 
