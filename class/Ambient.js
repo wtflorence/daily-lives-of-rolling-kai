@@ -149,6 +149,31 @@ class Ambient extends Gachable {
                 name: "Rain fell",
                 weight: 7
             }, 
+            {
+                name: "Dust covered almost everything",
+                weight: 5
+            },
+            {
+                name: "Clouds drifted accoss the lilac sky",
+                weight: 5
+            },
+            {
+                name: "A brewing storm looms over the horizon",
+                weight: 5
+            },
+            {
+                name: "Typical No Man's land humidity wafted in",
+                weight: 5
+            },
+            {
+                name: "The sunset cast golden light",
+                weight: 5
+            },
+            {
+                name: "Snow storm raged on a moonless night",
+                weight: 1
+            },
+            
         ]
 
         this.sound = [
@@ -187,6 +212,10 @@ class Ambient extends Gachable {
             {
                 name: "It was quiet as night",
                 weight: 5
+            },
+            {
+                name: "Bomb detonated somewhere",
+                weight: 3
             },
             // {
             //     name: "",
