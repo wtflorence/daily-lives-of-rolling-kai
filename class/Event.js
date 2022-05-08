@@ -1,5 +1,4 @@
 const Gachable = require("./Gachable")
-const Feeling = require("./Feeling")
 
 class Event extends Gachable {
 
@@ -7,12 +6,53 @@ class Event extends Gachable {
         super()
     }
 
+
+    // solo 
+
     simpleArriveSolo = (denizens, movement, location) => {
         const denizen = this.gachaDraw(denizens)
         const local = this.gachaDraw(location)
         const loc = local.decideLocation()
         return `${denizen.name} ${movement} ${loc}.`
     }
+
+    simpleWaitSolo = (denizens, movement, location) => {
+        const denizen = this.gachaDraw(denizens)
+        const local = this.gachaDraw(location)
+        const loc = local.decideLocation()
+        return `${denizen.name} ${movement} at ${loc}.`
+    }
+
+    simpleArriveThoughtChain = (denizens, movement, location, action, topic) => {
+        const denizen = this.gachaDraw(denizens)
+        const local = this.gachaDraw(location)
+        const loc = local.decideLocation()
+        return `${denizen.name} ${movement} ${loc}. They ${action.decideThink()} ${topic.decideDuration()} about ${topic.decideTopic()} and ${topic.decideTopicEnder()}`
+    }
+
+    simpleThoughTopictWaitWhisperTopicEnderChain = (denizens, movement, location, action, topic, ambient) => {
+        const denizen = this.gachaDraw(denizens)
+        const local = this.gachaDraw(location)
+        const loc = local.decideLocation()
+        return `${denizen.name} ${action.decideThink()} about ${topic.decideTopic()} on the way to ${loc}. They ${movement.decideWait()}, ${action.decideSpeak()} briefly, and ${movement.decideContinue()}. ${ambient.decideSound()}.`
+    }
+
+    simpleThoughtTopicAmbientContinueMovementThinkingTopicEnderChain = (denizens, movement, location, action, topic, ambient) => {
+        const denizen = this.gachaDraw(denizens)
+        const local = this.gachaDraw(location)
+        const loc = local.decideLocation()
+        return `${denizen.name} ${action.decideThink()} about ${topic.decideTopic()}. ${ambient.decideAmbient()} as they ${movement.decideContinue()}, and when they ${movement.decideMovement()} ${loc}, they kept ${action.decideThinking()} about ${topic.decideTopicEnder()}.`
+    }
+
+    simpleOtwThoughtAmbientTopicEnderExpressionChain = (denizens, movement, location, action, topic, ambient) => {
+        const denizen = this.gachaDraw(denizens)
+        const local = this.gachaDraw(location)
+        const loc = local.decideLocation()
+        // Cherub is on the way to Dead Man's Plaza and The place was dead silent and They suddenly thought over life and its implications. They shuddered at the thought.
+        return `${denizen.name} is ${movement.decideOtw()} ${loc} and ${(ambient.decideSound()).toLowerCase()}. They suddenly ${action.decideThink()} about ${topic.decideTopic()} and ${topic.decideTopicEnder()}. They ${action.decideExpression()} at ${topic.decideTopicType()}.`
+    }
+
+    // end solo
 
     simpleArriveSoloFeelingChain = (denizens, movement, location, feeling) => {
         const denizen = this.gachaDraw(denizens)
@@ -39,13 +79,6 @@ class Event extends Gachable {
         const f = feeling.decideSimpleFeeling()
         const l = feeling.decideLinking()
         return `${denizen.name} ${l} ${f} as they ${movement} ${loc}.`
-    }
-
-    simpleWaitSolo = (denizens, movement, location) => {
-        const denizen = this.gachaDraw(denizens)
-        const local = this.gachaDraw(location)
-        const loc = local.decideLocation()
-        return `${denizen.name} ${movement} at ${loc}.`
     }
 
     simpleWaitSoloFeelingChain = (denizens, movement, location, feeling) => {
@@ -85,8 +118,8 @@ class Event extends Gachable {
         const denizen = this.gachaDraw(denizens)
         const local = this.gachaDraw(location)
         const loc = local.decideLocation()
-        const m1 = movement.decideSimpleMovement()
-        const m2 = movement.decideSimpleWait()
+        const m1 = movement.decideMovement()
+        const m2 = movement.decideWait()
         return `${denizen.name} ${m1} ${loc} and ${m2}.`
     }
 
@@ -94,8 +127,8 @@ class Event extends Gachable {
         const denizen = this.gachaDraw(denizens)
         const local = this.gachaDraw(location)
         const loc = local.decideLocation()
-        const m1 = movement.decideSimpleMovement()
-        const m2 = movement.decideSimpleWait()
+        const m1 = movement.decideMovement()
+        const m2 = movement.decideWait()
         return `${denizen.name} ${m2}. Then they ${m1} ${loc}.`
     }
 
@@ -132,7 +165,7 @@ class Event extends Gachable {
         const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
         const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
 
-        return `${ambient.decideSimpleAmbient()} as ${d1.name} ${fight.decideInitiate()} a ${fight.decideBattle()}. Taking the initiative, ${d2.name} ${fight.decideAttack()}. ${d1.name} ${fight.decideDodge()} then ${fight.decideAttack()} back. ${d2.name} ${fight.decideCaught()} ${fight.decideDamage()}! ${d1.name} ${fight.decideAttack()} ${d2.name} with their ${d1Weapon} and ${d2.name} ${fight.decideFaint()}`
+        return `${ambient.decideAmbient()} as ${d1.name} ${fight.decideInitiate()} a ${fight.decideBattle()}. Taking the initiative, ${d1.name} ${fight.decideAttack()}. ${d2.name} ${fight.decideDodge()} then ${fight.decideAttack()} back. ${d1.name} ${fight.decideCaught()} ${fight.decideDamage()}! ${d1.name} ${fight.decideAttack()} ${d2.name} with their ${d1Weapon} and ${d2.name} ${fight.decideFaint()}`
     }
 
     // end fights
@@ -157,8 +190,19 @@ class Event extends Gachable {
         [d1, d2] = this.gachaDrawTwo(denizens)
         const local = this.gachaDraw(location)
 
-        return `${ambient.decideSimpleAmbient()} as ${d1.name} ${movement.decideSimpleMovement()} ${local.decideLocation()}. They met ${d2.name} and ${action.decideSpeak()} about ${topic.decideTopic()}, ${topic.decideTopic()}, and ${topic.decideTopicEnder()}. ${d1.name} ${feeling.decideLinking()} ${feeling.decideSimpleFeeling()} from this.`
+        return `${ambient.decideAmbient()} as ${d1.name} ${movement.decideMovement()} ${local.decideLocation()}. They met ${d2.name} and ${action.decideSpeak()} about ${topic.decideTopic()}, ${topic.decideTopic()}, and ${topic.decideTopicEnder()}. ${d1.name} ${feeling.decideLinking()} ${feeling.decideSimpleFeeling()} from this.`
 
+    }
+
+    duoArriveLocationTopicExpression = (denizens, topic, location, feeling, action, movement, ambient) => {
+        let d1
+        let d2
+
+        [d1, d2] = this.gachaDrawTwo(denizens)
+        const local = this.gachaDraw(location)
+        const loc = local.decideLocation()
+
+        return `${d1.name} and ${d2.name} ${movement.decideMovement()} ${loc}. ${ambient.decideAmbient()} and ${(ambient.decideSound()).toLowerCase()}. They ${movement.decideWait()} and ${action.decideSpeak()} about ${topic.decideTopic()}, ${topic.decideTopic()}, and ${topic.decideTopic()} ${topic.decideDuration()}.`
     }
     // end duo
 
@@ -166,11 +210,32 @@ class Event extends Gachable {
     pickRandomEvent(denizens, movement, location, feeling, ambient, fight, action, topic) {
         const solo = [
             {
-                name: this.simpleArriveSolo(denizens, movement.decideSimpleMovement(), location),
+                // Cherub stopped at Reptile School
+                name: this.simpleArriveSolo(denizens, movement.decideMovement(), location),
+                weight: 10
+            },
+            {   // Ro11ingBoy froze at Dead Man's Plaza
+                name: this.simpleWaitSolo(denizens, movement.decideWait(), location),
                 weight: 10
             },
             {
-                name: this.simpleWaitSolo(denizens, movement.decideSimpleWait(), location),
+                // Hicami have arrived to Mech School. They pondered for about an hour about volcanoes and its consequences
+                name: this.simpleArriveThoughtChain(denizens, movement.decideMovement(), location, action, topic),
+                weight: 10
+            },
+            {
+                // Ro11ingBoy wondered about art on the way to Dusk School. They observed, spoke briefly, and proceeded. Noise clamoured somewhere
+                name: this.simpleThoughTopictWaitWhisperTopicEnderChain(denizens, movement, location, action, topic, ambient),
+                weight: 10
+            },
+            {
+                // cherub thought about life. the sun rose magnificently on the horizon as they pressed on. they have arrived at the tavern and kept thinking about its ways
+                name: this.simpleThoughtTopicAmbientContinueMovementThinkingTopicEnderChain(denizens, movement, location, action, topic, ambient),
+                weight: 10
+            },
+            {
+                // Cherub is on the way to Dead Man's Plaza and The place was dead silent and They suddenly thought over life and its implications. They shuddered at the thought.
+                name: this.simpleOtwThoughtAmbientTopicEnderExpressionChain(denizens, movement, location, action, topic, ambient),
                 weight: 10
             },
         ]
@@ -178,54 +243,54 @@ class Event extends Gachable {
         const soloDualChain = [
             {
                 name: this.simpleArriveWaitChain(denizens, movement, location),
-                weight: 10
+                weight: 2
             },
             {
                 name: this.simpleWaitArriveChain(denizens, movement, location),
-                weight: 10
+                weight: 2
             },
             {
-                name: this.simpleArriveAmbientChain(denizens, movement.decideSimpleMovement(), location, ambient.decideSimpleAmbient()),
-                weight: 10
+                name: this.simpleArriveAmbientChain(denizens, movement.decideMovement(), location, ambient.decideAmbient()),
+                weight: 5
             },
             {
-                name: this.simpleAmbientArriveChain(denizens, movement.decideSimpleMovement(), location, ambient.decideSimpleAmbient()),
-                weight: 10
+                name: this.simpleAmbientArriveChain(denizens, movement.decideMovement(), location, ambient.decideAmbient()),
+                weight: 5
             },
             {
-                name: this.simpleAmbientArriveAsChain(denizens, movement.decideSimpleMovement(), location, ambient.decideSimpleAmbient()),
-                weight: 10
+                name: this.simpleAmbientArriveAsChain(denizens, movement.decideMovement(), location, ambient.decideAmbient()),
+                weight: 5
             },
             {
-                name: this.simpleArriveSoloFeelingChain(denizens, movement.decideSimpleMovement(), location, feeling),
-                weight: 10
+                name: this.simpleArriveSoloFeelingChain(denizens, movement.decideMovement(), location, feeling),
+                weight: 5
             },
 
             {
-                name: this.simpleWaitSoloFeelingChain(denizens, movement.decideSimpleWait(), location, feeling),
+                name: this.simpleWaitSoloFeelingChain(denizens, movement.decideWait(), location, feeling),
+                weight: 5
+            },
+            {
+                name: this.simpleWaitSoloFeelingAsChain(denizens, movement.decideWait(), location, feeling),
+                weight: 5
+            },
+            {
+                name: this.simpleWaitSoloFeelingAndChain(denizens, movement.decideWait(), location, feeling),
                 weight: 10
             },
             {
-                name: this.simpleWaitSoloFeelingAsChain(denizens, movement.decideSimpleWait(), location, feeling),
+                name: this.simpleArriveSoloFeelingAndChain(denizens, movement.decideMovement(), location, feeling),
                 weight: 10
             },
             {
-                name: this.simpleWaitSoloFeelingAndChain(denizens, movement.decideSimpleWait(), location, feeling),
-                weight: 10
-            },
-            {
-                name: this.simpleArriveSoloFeelingAndChain(denizens, movement.decideSimpleMovement(), location, feeling),
-                weight: 10
-            },
-            {
-                name: this.simpleArriveSoloFeelingAsChain(denizens, movement.decideSimpleMovement(), location, feeling),
+                name: this.simpleArriveSoloFeelingAsChain(denizens, movement.decideMovement(), location, feeling),
                 weight: 10
             },
         ]
 
         const soloTripleChain = [
             {
-                name: this.simpleAmbientArriveSoloFeelingChain(denizens, movement.decideSimpleWait(), feeling, ambient.decideSimpleAmbient()),
+                name: this.simpleAmbientArriveSoloFeelingChain(denizens, movement.decideWait(), feeling, ambient.decideAmbient()),
                 weight: 10
             },
         ]
@@ -246,12 +311,17 @@ class Event extends Gachable {
                 name: this.simpleAmbientLocationDuoTalk(denizens, topic, location, feeling, action, movement, ambient),
                 weight: 10
             },
+            {
+                // change rest
+                name: this.duoArriveLocationTopicExpression(denizens, topic, location, feeling, action, movement, ambient),
+                weight: 1000
+            },
         ]
 
         const events = [
             {
                 name: solo,
-                weight: 1
+                weight: 3
             },
             {
                 name: soloDualChain,
@@ -267,7 +337,7 @@ class Event extends Gachable {
             },
             {
                 name: duo,
-                weight: 10
+                weight: 1000
             },
         ]
 

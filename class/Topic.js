@@ -1124,6 +1124,41 @@ class Topic extends Gachable {
                 weight: 1
             },
         ]
+
+        this.topicType = [
+            {
+                name: "the topic",
+                weight: 10
+            },
+            {
+                name: "the subject",
+                weight: 10
+            },
+            {
+                name: "the idea",
+                weight: 10
+            },
+            {
+                name: "the thought",
+                weight: 10
+            },
+            {
+                name: "its occurence",
+                weight: 10
+            },
+            {
+                name: "the matter at hand",
+                weight: 3
+            },
+            {
+                name: "the concept",
+                weight: 10
+            },
+            {
+                name: "its concept",
+                weight: 10
+            },
+        ]
     }
 
 
@@ -1138,6 +1173,9 @@ class Topic extends Gachable {
 
     decideTopicEnder() {
         return this.gachaDrawName(this.topicEnder)
+    }
+    decideTopicType() {
+        return this.gachaDrawName(this.topicType)
     }
 
 }

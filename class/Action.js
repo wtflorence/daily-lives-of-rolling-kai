@@ -89,13 +89,111 @@ class Action extends Gachable {
                 weight: 10
             },
             {
-                name: "thought over",
+                name: "tried to remember",
+                weight: 10
+            },
+        ]
+        
+        this.thinking = [
+            {
+                name: "thinking",
                 weight: 10
             },
             {
-                name: "considered",
+                name: "musing",
+                weight: 10
+            },
+            {
+                name: "wondering",
+                weight: 10
+            },
+            {
+                name: "contemplating",
+                weight: 10
+            },
+            {
+                name: "speculating",
+                weight: 5
+            },
+            {
+                name: "pondering",
+                weight: 10
+            },
+            {
+                name: "reflecting",
+                weight: 10
+            },
+            {
+                name: "meditatating",
                 weight: 1
             },
+            {
+                name: "mulling over",
+                weight: 10
+            },
+            {
+                name: "trying to remember",
+                weight: 10
+            },
+            {
+                name: "thinking over",
+                weight: 10
+            },
+        ]
+
+        this.expression = [
+            {
+                name: "clicked their tongue",
+                weight: 10
+            },
+            {
+                name: "winced",
+                weight: 10
+            },
+            {
+                name: "shrugged",
+                weight: 10
+            },
+            {
+                name: "shuddered",
+                weight: 10
+            },
+            {
+                name: "raised their brows",
+                weight: 10
+            },
+            {
+                name: "hissed",
+                weight: 10
+            },
+            {
+                name: "spat",
+                weight: 10
+            },
+            {
+                name: "smiled",
+                weight: 10
+            },
+            {
+                name: "smiled pensively",
+                weight: 3
+            },
+            {
+                name: "grinned",
+                weight: 10
+            },
+            {
+                name: "made weird noises",
+                weight: 10
+            },
+            {
+                name: "made a face",
+                weight: 10
+            }, 
+            {
+                name: "smirked",
+                weight: 2
+            }, 
         ]
 
 
@@ -107,6 +205,14 @@ class Action extends Gachable {
 
     decideThink() {
         return this.gachaDrawName(this.think)
+    }
+
+    decideThinking() {
+        return this.gachaDrawName(this.thinking)
+    }
+    
+    decideExpression() {
+        return this.gachaDrawName(this.expression)
     }
 }
 

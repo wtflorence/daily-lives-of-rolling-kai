@@ -76,11 +76,42 @@ class Movement extends Gachable {
             {
                 name: "sleepwalked to",
                 weight: 1
-            },
+            }, 
+        ]
+
+        this.otw = [
             {
-                name: "had arrived to",
+                name: "en route to",
                 weight: 10
             },
+            {
+                name: "on the way to",
+                weight: 10
+            },
+            {
+                name: "going to",
+                weight: 10
+            },
+            {
+                name: "traveling to",
+                weight: 10
+            },
+            {
+                name: "passing through",
+                weight: 10
+            },
+            {
+                name: "patrolling",
+                weight: 10
+            },
+            {
+                name: "checking out",
+                weight: 10
+            },
+            {
+                name: "about to reach",
+                weight: 10
+            }, 
         ]
 
         this.wait = [
@@ -137,14 +168,49 @@ class Movement extends Gachable {
                 weight: 10
             },
         ]
+
+        this.continue = [
+            {
+                name: "pressed on",
+                weight: 10
+            },
+            {
+                name: "moved on",
+                weight: 10
+            },
+            {
+                name: "moved forward",
+                weight: 10
+            },
+            {
+                name: "continued",
+                weight: 10
+            },
+            {
+                name: "carried on",
+                weight: 10
+            },
+            {
+                name: "proceeded",
+                weight: 10
+            }, 
+        ]
     }
 
-    decideSimpleMovement(){
+    decideMovement(){
         return this.gachaDrawName(this.movements)
     }
 
-    decideSimpleWait(){
+    decideWait(){
         return this.gachaDrawName(this.wait)
+    }
+
+    decideContinue(){
+        return this.gachaDrawName(this.continue)
+    }
+
+    decideOtw(){
+        return this.gachaDrawName(this.otw)
     }
 
 
