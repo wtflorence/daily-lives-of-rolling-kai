@@ -132,6 +132,30 @@ class Feeling extends Gachable {
                 name: "burnt out",
                 weight: 7
             },
+            {
+                name: "as if they're gonna vommit",
+                weight: 5
+            },
+            {
+                name: "like they're willing to die",
+                weight: 5
+            },
+            {
+                name: "as if they're on the run",
+                weight: 5
+            },
+            {
+                name: "as though they were being hunted",
+                weight: 5
+            },
+            {
+                name: "like they were powerless",
+                weight: 5
+            },
+            {
+                name: "as if they were stunned",
+                weight: 5
+            },
         ]
     }
 
