@@ -138,31 +138,39 @@ class Movement extends Gachable {
             },
             {
                 name: "held back",
-                weight: 7
+                weight: 5
             },
             {
                 name: "paused",
-                weight: 7
+                weight: 5
             },
             {
                 name: "halted",
-                weight: 7
+                weight: 5
             },
             {
                 name: "gazed in awe",
-                weight: 7
+                weight: 5
             },
             {
                 name: "stood frozen",
-                weight: 7
+                weight: 5
             },
             {
                 name: "stopped dead",
-                weight: 7
+                weight: 5
             },
             {
                 name: "dumbfounded",
-                weight: 7
+                weight: 5
+            },
+            {
+                name: "startled",
+                weight: 5
+            },
+            {
+                name: "staggered",
+                weight: 5
             },
         ]
     }
