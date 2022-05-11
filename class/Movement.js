@@ -81,6 +81,22 @@ class Movement extends Gachable {
                 name: "had arrived to",
                 weight: 10
             },
+            {
+                name: "ran towards",
+                weight: 7
+            },
+            {
+                name: "darted to",
+                weight: 7
+            },
+            {
+                name: "retreated to",
+                weight: 7
+            },
+            {
+                name: "travelled accross",
+                weight: 7
+            },
         ]
 
         this.wait = [
