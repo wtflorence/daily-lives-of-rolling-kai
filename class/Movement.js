@@ -114,11 +114,7 @@ class Movement extends Gachable {
             }, 
         ]
 
-        this.wait = [
-            {
-                name: "felt paralysed",
-                weight: 10
-            },
+        this.wait = [ 
             {
                 name: "waited",
                 weight: 10
@@ -146,25 +142,9 @@ class Movement extends Gachable {
             {
                 name: "stopped their tracks",
                 weight: 10
-            },
-            {
-                name: "marvelled at the scenery",
-                weight: 10
-            },
+            }, 
             {
                 name: "rested",
-                weight: 10
-            },
-            {
-                name: "observed",
-                weight: 10
-            },
-            {
-                name: "daydreamed",
-                weight: 10
-            },
-            {
-                name: "did nothing",
                 weight: 10
             },
         ]
@@ -195,6 +175,34 @@ class Movement extends Gachable {
                 weight: 10
             }, 
         ]
+
+        
+        this.hurried = [
+            {
+                name: "hurried",
+                weight: 10
+            },
+            {
+                name: "ran",
+                weight: 10
+            },
+            {
+                name: "leaped",
+                weight: 10
+            },
+            {
+                name: "jumped",
+                weight: 10
+            },
+            {
+                name: "dashed",
+                weight: 10
+            },
+            {
+                name: "jogged",
+                weight: 10
+            }, 
+        ]
     }
 
     decideMovement(){
@@ -211,6 +219,10 @@ class Movement extends Gachable {
 
     decideOtw(){
         return this.gachaDrawName(this.otw)
+    }
+
+    decideHurried(){
+        return this.gachaDrawName(this.hurried)
     }
 
 

@@ -1159,6 +1159,77 @@ class Topic extends Gachable {
                 weight: 10
             },
         ]
+
+        
+        this.urgency = [
+            {
+                name: "right away",
+                weight: 10
+            },
+            {
+                name: "ASAP",
+                weight: 10
+            },
+            {
+                name: "immediately",
+                weight: 10
+            },
+            {
+                name: "as soon as possible",
+                weight: 10
+            },
+            {
+                name: "as fast as possible",
+                weight: 10
+            },
+            {
+                name: "right now",
+                weight: 10
+            },
+            {
+                name: "at that very moment",
+                weight: 10
+            },
+            {
+                name: "instantly",
+                weight: 10
+            },
+        ]
+
+        this.times = [
+            {
+                name: "On days like these",
+                weight: 10
+            },
+            {
+                name: "In times like these",
+                weight: 10
+            },
+            {
+                name: "In these hard times",
+                weight: 10
+            },
+            {
+                name: "In these trying times",
+                weight: 10
+            },
+            {
+                name: "In these difficult times",
+                weight: 10
+            },
+            {
+                name: "With the situation at hand",
+                weight: 10
+            },
+            {
+                name: "At the current state of affairs",
+                weight: 10
+            },
+            {
+                name: "With the situation right now",
+                weight: 10
+            }, 
+        ]
     }
 
 
@@ -1174,8 +1245,17 @@ class Topic extends Gachable {
     decideTopicEnder() {
         return this.gachaDrawName(this.topicEnder)
     }
+
     decideTopicType() {
         return this.gachaDrawName(this.topicType)
+    }
+    
+    decideUrgency() {
+        return this.gachaDrawName(this.urgency)
+    }
+
+    decideTimes() {
+        return this.gachaDrawName(this.times)
     }
 
 }

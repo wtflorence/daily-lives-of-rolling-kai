@@ -21,11 +21,7 @@ class Fight extends Gachable {
             {
                 name: "charged",
                 weight: 10
-            },
-            {
-                name: "overwhelmed",
-                weight: 10
-            },
+            }, 
             {
                 name: "advanced",
                 weight: 10
@@ -43,10 +39,6 @@ class Fight extends Gachable {
                 weight: 10
             },
             {
-                name: "attacked",
-                weight: 10
-            },
-            {
                 name: "penetrated",
                 weight: 1
             },
@@ -57,11 +49,7 @@ class Fight extends Gachable {
             {
                 name: "jumped",
                 weight: 10
-            },
-            {
-                name: "attacked",
-                weight: 10
-            },
+            }, 
             {
                 name: "poked",
                 weight: 10

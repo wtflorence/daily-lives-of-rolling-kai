@@ -132,6 +132,14 @@ class Feeling extends Gachable {
                 name: "burnt out",
                 weight: 7
             },
+            {
+                name: "lonely inside",
+                weight: 10
+            },
+            {
+                name: "lonely",
+                weight: 10
+            },
         ]
     }
 
@@ -139,7 +147,7 @@ class Feeling extends Gachable {
         return this.gachaDrawName(this.linking)
     }
 
-    decideSimpleFeeling() {
+    decideFeeling() {
         return this.gachaDrawName(this.feelings)
     }
 }

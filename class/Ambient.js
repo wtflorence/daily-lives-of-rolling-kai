@@ -46,7 +46,7 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
-                name: "The late afternoon sun cast a bright, golden glow",
+                name: "The late afternoon sun cast a bright golden glow",
                 weight: 10
             },
             {
@@ -154,11 +154,11 @@ class Ambient extends Gachable {
         this.sound = [
             {
                 name: "A bell rang in the distance",
-                weight: 5
+                weight: 1
             },
             {
                 name: "Noise clamoured somewhere",
-                weight: 3
+                weight: 1
             },
             {
                 name: "An explosion boomed in the distance",
@@ -166,7 +166,7 @@ class Ambient extends Gachable {
             },
             {
                 name: "Random chatter could be heard about",
-                weight: 2
+                weight: 1
             },
             {
                 name: "Birds chirped",
@@ -178,15 +178,15 @@ class Ambient extends Gachable {
             },
             {
                 name: "There was nothing but silence",
-                weight: 5
+                weight: 10
             },
             {
                 name: "The place was dead silent",
-                weight: 7
+                weight: 10
             },
             {
                 name: "It was quiet as night",
-                weight: 5
+                weight: 10
             },
             // {
             //     name: "",
