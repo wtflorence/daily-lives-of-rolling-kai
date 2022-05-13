@@ -54,13 +54,30 @@ class Event extends Gachable {
 
     timesDenizenBrooding = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
         const denizen = this.gachaDraw(denizens)
-        const local = this.gachaDraw(location)
-        const loc = local.decideLocation()
-                
+
         // {On days like these} {RB} {felt} {lonely inside}. They {thought} about {life} and {its secrets} but they end up {brooding} about {dinosaurs} instead. {The sun rose magnificently on the horizon} and {RB} {continued} their day.
 
         return `${topic.decideTimes()} ${denizen.name} ${feeling.decideLinking()} ${feeling.decideFeeling()}. They ${action.decideThink()} about ${topic.decideTopic()} and ${topic.decideTopicEnder()} but they ended up ${action.decideThinking()} about ${topic.decideTopic()} instead. ${ambient.decideAmbient()} and ${denizen.name} ${movement.decideContinue()} with their day.`
 
+    }
+
+    firmBelieverPositive = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
+        const denizen = this.gachaDraw(denizens)
+        const t1 = topic.decideTopic()
+
+        // {Many people} have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
+
+        return `${topic.decideLocals()} have accused ${denizen.name} of being a ${topic.decideBeliever()} of ${t1}. ${topic.decideTheCasePositive()}. ${denizen.name} ${feeling.decideLike()} ${t1} and they ${feeling.decideLinking()} ${feeling.decideFeeling()} whenever they ${action.decideThink()} about it.`
+    }
+
+    
+    firmBelieverNegative = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
+        const denizen = this.gachaDraw(denizens)
+        const t1 = topic.decideTopic()
+
+        // {Many people} have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
+
+        return `${topic.decideLocals()} have accused ${denizen.name} of being a ${topic.decideBeliever()} of ${t1}. ${topic.decideTheCaseNegative()}. ${denizen.name} ${feeling.decideHate()} ${t1} and they ${feeling.decideLinking()} ${feeling.decideFeeling()} whenever they ${action.decideThink()} about it.`
     }
 
     // end solo
@@ -265,8 +282,19 @@ class Event extends Gachable {
             {
                 // {On days like these} {RB} {felt} {lonely inside}. They {thought} about {life} and {its secrets} but they end up {brooding} about {dinosaurs} instead. {The sun rose magnificently on the horizon} and {RB} {continued} their day.
                 name: this.timesDenizenBrooding(denizens, movement, location, feeling, ambient, fight, action, topic),
+                weight: 10
+            },
+            {
+                // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
+                name: this.firmBelieverPositive(denizens, movement, location, feeling, ambient, fight, action, topic),
                 weight: 1000
             },
+            {
+                // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
+                name: this.firmBelieverNegative(denizens, movement, location, feeling, ambient, fight, action, topic),
+                weight: 1000
+            },
+
         ]
 
         const soloDualChain = [

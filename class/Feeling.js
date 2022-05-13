@@ -95,11 +95,7 @@ class Feeling extends Gachable {
             {
                 name: "like their stomach is churning",
                 weight: 10
-            },
-            {
-                name: "like they're about to throw up",
-                weight: 10
-            },
+            }, 
             {
                 name: "restless",
                 weight: 7
@@ -141,6 +137,68 @@ class Feeling extends Gachable {
                 weight: 10
             },
         ]
+
+        this.likes = [
+            {
+                name: "likes",
+                weight: 10
+            },
+            {
+                name: "loves",
+                weight: 10
+            },
+            {
+                name: "hates",
+                weight: 10
+            },
+            {
+                name: "despises",
+                weight: 10
+            },
+            {
+                name: "admires",
+                weight: 10
+            },
+            {
+                name: "respects",
+                weight: 10
+            },
+            {
+                name: "enjoys",
+                weight: 10
+            },
+            {
+                name: "adores",
+                weight: 10
+            },
+            {
+                name: "dislikes",
+                weight: 10
+            },
+            {
+                name: "loathes",
+                weight: 10
+            },
+        ]
+
+        this.hates = [ 
+            {
+                name: "hates",
+                weight: 10
+            },
+            {
+                name: "despises",
+                weight: 10
+            }, 
+            {
+                name: "dislikes",
+                weight: 10
+            },
+            {
+                name: "loathes",
+                weight: 10
+            },
+        ]
     }
 
     decideLinking() {
@@ -149,6 +207,14 @@ class Feeling extends Gachable {
 
     decideFeeling() {
         return this.gachaDrawName(this.feelings)
+    }
+
+    decideLike() {
+        return this.gachaDrawName(this.likes)
+    }
+
+    decideHate() {
+        return this.gachaDrawName(this.hate)
     }
 }
 

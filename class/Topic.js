@@ -1230,6 +1230,98 @@ class Topic extends Gachable {
                 weight: 10
             }, 
         ]
+
+        
+        this.locals = [
+            {
+                name: "Many people",
+                weight: 10
+            },
+            {
+                name: "The locals",
+                weight: 10
+            },
+            {
+                name: "Foreigners",
+                weight: 10
+            },
+            {
+                name: "Most people",
+                weight: 10
+            },
+            {
+                name: "The majority of people",
+                weight: 10
+            },
+            {
+                name: "The minority of people",
+                weight: 10
+            },
+            {
+                name: "Outsiders",
+                weight: 10
+            },
+            {
+                name: "Denizens",
+                weight: 10
+            }, 
+            {
+                name: "Most denizens",
+                weight: 10
+            }, 
+        ]
+        
+        this.believer = [
+            {
+                name: "firm believer",
+                weight: 10
+            },
+            {
+                name: "believer",
+                weight: 10
+            },
+            {
+                name: "stoic believer",
+                weight: 10
+            },
+            {
+                name: "pracitioner",
+                weight: 10
+            },
+            {
+                name: "preacher",
+                weight: 10
+            },
+            {
+                name: "teacher",
+                weight: 10
+            }, 
+        ]
+
+                
+        this.theCasePositive = [
+            {
+                name: "And that is indeed true",
+                weight: 10
+            },
+        ]
+                
+        this.theCaseNegative = [
+            {
+                name: "But that is not the case",
+                weight: 10
+            },
+            {
+                name: "But it was just fake news",
+                weight: 10
+            },
+            {
+                name: "But there is no reality to that",
+                weight: 10
+            },
+        ]
+
+        
     }
 
 
@@ -1258,6 +1350,21 @@ class Topic extends Gachable {
         return this.gachaDrawName(this.times)
     }
 
+    decideLocals() {
+        return this.gachaDrawName(this.locals)
+    }
+
+    decideBeliever() {
+        return this.gachaDrawName(this.believer)
+    }
+
+    decideTheCasePositive() {
+        return this.gachaDrawName(this.theCasePositive)
+    }
+
+    decideTheCaseNegative() {
+        return this.gachaDrawName(this.theCaseNegative)
+    }
 }
 
 module.exports = Topic
