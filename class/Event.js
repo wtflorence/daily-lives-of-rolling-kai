@@ -2,8 +2,17 @@ const Gachable = require("./Gachable")
 
 class Event extends Gachable {
 
-    constructor() {
+    constructor(denizens, movement, location, feeling, ambient, fight, action, topic) {
         super()
+
+        this.denizens = denizens
+        this.movement = movement
+        this.location = location 
+        this.feeling = feeling
+        this.ambient = ambient
+        this.fight = fight
+        this.action = action 
+        this.topic = topic
     }
 
 
@@ -248,50 +257,50 @@ class Event extends Gachable {
     // end duo
 
 
-    pickRandomEvent(denizens, movement, location, feeling, ambient, fight, action, topic) {
+    pickRandomEvent() {
         const solo = [
             {
                 // Cherub arrived to Reptile School
-                name: this.simpleArriveSolo(denizens, movement.decideMovement(), location),
+                name: this.simpleArriveSolo(this.denizens, this.movement.decideMovement(), this.location),
                 weight: 10
             },
             {   // Ro11ingBoy froze at Dead Man's Plaza
-                name: this.simpleWaitSolo(denizens, movement.decideWait(), location),
+                name: this.simpleWaitSolo(this.denizens, this.movement.decideWait(), this.location),
                 weight: 10
             },
             {
                 // Hicami have arrived to Mech School. They pondered for about an hour about volcanoes and its consequences
-                name: this.simpleArriveThoughtChain(denizens, movement.decideMovement(), location, action, topic),
+                name: this.simpleArriveThoughtChain(this.denizens, this.movement.decideMovement(), this.location, this.action, this.topic),
                 weight: 10
             },
             {
                 // Ro11ingBoy wondered about art on the way to Dusk School. They stopped, spoke briefly, and proceeded. Noise clamoured somewhere
-                name: this.simpleThoughTopictWaitWhisperTopicEnderChain(denizens, movement, location, action, topic, ambient),
+                name: this.simpleThoughTopictWaitWhisperTopicEnderChain(this.denizens, this.movement, this.location, this.action, this.topic, this.ambient),
                 weight: 10
             },
             {
                 // cherub thought about life. the sun rose magnificently on the horizon as they pressed on. they have arrived at the tavern and kept thinking about its ways
-                name: this.simpleThoughtTopicAmbientContinueMovementThinkingTopicEnderChain(denizens, movement, location, action, topic, ambient),
+                name: this.simpleThoughtTopicAmbientContinueMovementThinkingTopicEnderChain(this.denizens, this.movement, this.location, this.action, this.topic, this.ambient),
                 weight: 10
             },
             {
                 // Cherub is on the way to Dead Man's Plaza and The place was dead silent and They suddenly thought over life and its implications. They shuddered at the thought.
-                name: this.simpleOtwThoughtAmbientTopicEnderExpressionChain(denizens, movement, location, action, topic, ambient),
+                name: this.simpleOtwThoughtAmbientTopicEnderExpressionChain(this.denizens, this.movement, this.location, this.action, this.topic, this.ambient),
                 weight: 10
             },
             {
                 // {On days like these} {RB} {felt} {lonely inside}. They {thought} about {life} and {its secrets} but they end up {brooding} about {dinosaurs} instead. {The sun rose magnificently on the horizon} and {RB} {continued} their day.
-                name: this.timesDenizenBrooding(denizens, movement, location, feeling, ambient, fight, action, topic),
+                name: this.timesDenizenBrooding(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
                 weight: 10
             },
             {
                 // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
-                name: this.firmBelieverPositive(denizens, movement, location, feeling, ambient, fight, action, topic),
+                name: this.firmBelieverPositive(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
                 weight: 1000
             },
             {
                 // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
-                name: this.firmBelieverNegative(denizens, movement, location, feeling, ambient, fight, action, topic),
+                name: this.firmBelieverNegative(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
                 weight: 1000
             },
 
@@ -299,83 +308,83 @@ class Event extends Gachable {
 
         const soloDualChain = [
             {
-                name: this.simpleArriveWaitChain(denizens, movement, location),
+                name: this.simpleArriveWaitChain(this.denizens, this.movement, this.location),
                 weight: 2
             },
             {
-                name: this.simpleWaitArriveChain(denizens, movement, location),
+                name: this.simpleWaitArriveChain(this.denizens, this.movement, this.location),
                 weight: 2
             },
             {
-                name: this.simpleArriveAmbientChain(denizens, movement.decideMovement(), location, ambient.decideAmbient()),
+                name: this.simpleArriveAmbientChain(this.denizens, this.movement.decideMovement(), this.location, this.ambient.decideAmbient()),
                 weight: 5
             },
             {
-                name: this.simpleAmbientArriveChain(denizens, movement.decideMovement(), location, ambient.decideAmbient()),
+                name: this.simpleAmbientArriveChain(this.denizens, this.movement.decideMovement(), this.location, this.ambient.decideAmbient()),
                 weight: 5
             },
             {
-                name: this.simpleAmbientArriveAsChain(denizens, movement.decideMovement(), location, ambient.decideAmbient()),
+                name: this.simpleAmbientArriveAsChain(this.denizens, this.movement.decideMovement(), this.location, this.ambient.decideAmbient()),
                 weight: 5
             },
             {
-                name: this.simpleArriveSoloFeelingChain(denizens, movement.decideMovement(), location, feeling),
+                name: this.simpleArriveSoloFeelingChain(this.denizens, this.movement.decideMovement(), this.location, this.feeling),
                 weight: 5
             },
 
             {
-                name: this.simpleWaitSoloFeelingChain(denizens, movement.decideWait(), location, feeling),
+                name: this.simpleWaitSoloFeelingChain(this.denizens, this.movement.decideWait(), this.location, this.feeling),
                 weight: 5
             },
             {
-                name: this.simpleWaitSoloFeelingAsChain(denizens, movement.decideWait(), location, feeling),
+                name: this.simpleWaitSoloFeelingAsChain(this.denizens, this.movement.decideWait(), this.location, this.feeling),
                 weight: 5
             },
             {
-                name: this.simpleWaitSoloFeelingAndChain(denizens, movement.decideWait(), location, feeling),
+                name: this.simpleWaitSoloFeelingAndChain(this.denizens, this.movement.decideWait(), this.location, this.feeling),
                 weight: 10
             },
             {
-                name: this.simpleArriveSoloFeelingAndChain(denizens, movement.decideMovement(), location, feeling),
+                name: this.simpleArriveSoloFeelingAndChain(this.denizens, this.movement.decideMovement(), this.location, this.feeling),
                 weight: 10
             },
             {
-                name: this.simpleArriveSoloFeelingAsChain(denizens, movement.decideMovement(), location, feeling),
+                name: this.simpleArriveSoloFeelingAsChain(this.denizens, this.movement.decideMovement(), this.location, this.feeling),
                 weight: 10
             },
         ]
 
         const soloTripleChain = [
             {
-                name: this.simpleAmbientArriveSoloFeelingChain(denizens, movement.decideWait(), feeling, ambient.decideAmbient()),
+                name: this.simpleAmbientArriveSoloFeelingChain(this.denizens, this.movement.decideWait(), this.feeling, this.ambient.decideAmbient()),
                 weight: 10
             },
         ]
 
         const fightScene = [
             {
-                name: this.fightOneSidedD1Win(denizens, ambient, location, fight),
+                name: this.fightOneSidedD1Win(this.denizens, this.ambient, this.location, this.fight),
                 weight: 10
             },
             {
                 // {RB} {smashed to the ground} and {Hicami} {ran towards} them. {RB} {winced} and said they needed to go to {Tavern General} {right away}.
-                name: this.emergency(denizens, location, fight, action, movement, topic),
+                name: this.emergency(this.denizens, this.location, this.fight, this.action, this.movement, this.topic),
                 weight: 10
             },
         ]
 
         const duo = [
             {
-                name: this.simpleDuoTalkLocation(denizens, topic, location, feeling, action),
+                name: this.simpleDuoTalkLocation(this.denizens, this.topic, this.location, this.feeling, this.action),
                 weight: 10
             },
             {
-                name: this.simpleAmbientLocationDuoTalk(denizens, topic, location, feeling, action, movement, ambient),
+                name: this.simpleAmbientLocationDuoTalk(this.denizens, this.topic, this.location, this.feeling, this.action, this.movement, this.ambient),
                 weight: 10
             },
             {
                 // change rest
-                name: this.duoArriveLocationTopicExpression(denizens, topic, location, feeling, action, movement, ambient),
+                name: this.duoArriveLocationTopicExpression(this.denizens, this.topic, this.location, this.feeling, this.action, this.movement, this.ambient),
                 weight: 10
             },
         ]

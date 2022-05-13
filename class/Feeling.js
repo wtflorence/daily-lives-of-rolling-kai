@@ -146,11 +146,7 @@ class Feeling extends Gachable {
             {
                 name: "loves",
                 weight: 10
-            },
-            {
-                name: "hates",
-                weight: 10
-            },
+            }, 
             {
                 name: "despises",
                 weight: 10
@@ -170,15 +166,7 @@ class Feeling extends Gachable {
             {
                 name: "adores",
                 weight: 10
-            },
-            {
-                name: "dislikes",
-                weight: 10
-            },
-            {
-                name: "loathes",
-                weight: 10
-            },
+            }, 
         ]
 
         this.hates = [ 
@@ -214,7 +202,7 @@ class Feeling extends Gachable {
     }
 
     decideHate() {
-        return this.gachaDrawName(this.hate)
+        return this.gachaDrawName(this.hates)
     }
 }
 

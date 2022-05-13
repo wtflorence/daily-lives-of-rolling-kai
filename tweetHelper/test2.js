@@ -18,12 +18,12 @@ exports.generate = async () => {
     const ambient = new Ambient()
     const action = new Action()
     const topic = new Topic()
-    const event = new Event()
     const feeling = new Feeling()
     const fight = new Fight()
     const location = Location
+    
+    const event = new Event(denizens, movement, location, feeling, ambient, fight, action, topic)
 
-    const phrase = event.pickRandomEvent(denizens, movement, location, feeling, ambient, fight, action, topic)
-
+    const phrase = event.pickRandomEvent()
     return phrase
 }
