@@ -79,6 +79,20 @@ class Event extends Gachable {
         return `${topic.decideLocals()} have accused ${denizen.name} of being a ${topic.decideBeliever()} of ${t1}. ${topic.decideTheCasePositive()}. ${denizen.name} ${feeling.decideLike()} ${t1} and they ${feeling.decideLinking()} ${feeling.decideFeeling()} whenever they ${action.decideThink()} about it.`
     }
 
+    soloDream = () => {
+        const denizen = this.gachaDraw(this.denizens)
+        const t1 = this.topic.decideTopic()
+        const t2 = this.topic.decideTopic()
+        const t3 = this.topic.decideTopic()
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        // {Hicami} managed to sleep in {Guild Hall Meme Room}. They dreamed about {dinosaurs} and {the moon}. As they woke up, they {began to feel} {alright} about it.
+
+        return `${denizen.name} managed to fall asleep in ${loc}. They dreamed about ${t1}, ${t2}, and ${t3}. As they woke up, they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} about it and ${this.action.decideExpression()}.`
+    }
+
 
     firmBelieverNegative = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
         const denizen = this.gachaDraw(denizens)
@@ -334,6 +348,12 @@ class Event extends Gachable {
                 name: this.firmBelieverNegative(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
                 weight: 10
             },
+            {
+                // {Hicami} managed to sleep in {Guild Hall Meme Room}. They dreamed about {dinosaurs} and {the moon}. As they woke up, they {began to feel} {alright} about it.
+                name: this.soloDream(),
+                weight: 1000
+            }
+    
 
         ]
 
@@ -435,7 +455,7 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 3
+                weight: 3000
             },
             {
                 name: soloDualChain,
@@ -447,7 +467,7 @@ class Event extends Gachable {
             },
             {
                 name: fightScene,
-                weight: 10000
+                weight: 10
             },
             {
                 name: duo,
