@@ -218,6 +218,22 @@ class Event extends Gachable {
         return `${d1.name} ${fight.decideFaint()} and ${d2.name}, who's passing by, ${movement.decideHurried()} towards them. ${d1.name} ${action.decideExpression()} and said they needed to go to ${loc} ${topic.decideUrgency()}.`
     }
 
+    
+    regainMemory() {
+
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
+        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
+
+        // {Kuro} {struck} {RB} so hard that they regained former memory of {dinosaurs}. {RB} {winced}, {attacked} with their {bare fists} and {Kuro} {slammed to the ground}.
+        return `${d1.name} ${this.fight.decideAttack()} ${d2.name} so hard that they regained a former memory of ${this.topic.decideTopic()}. ${d2.name} ${this.action.decideExpression()}, then ${this.fight.decideAttack()} back with their ${d2Weapon}. ${d1.name} ${this.fight.decideDodge()} but it ${this.fight.decideFail()}! ${d2.name} dealt the ${this.fight.decideFinishing()} and ${this.fight.decideWin()}.`
+    }
+
     // end fights
 
 
@@ -371,6 +387,12 @@ class Event extends Gachable {
                 name: this.emergency(this.denizens, this.location, this.fight, this.action, this.movement, this.topic),
                 weight: 10
             },
+            {
+                // {Kuro} {struck} {RB} so hard that they regained former memory of {dinosaurs}. {RB} {winced}, {attacked} with their {bare fists} and {Kuro} {slammed to the ground}.
+                name: this.regainMemory(),
+                weight: 1000
+            },
+            
         ]
 
         const duo = [
@@ -392,7 +414,7 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 3000
+                weight: 3
             },
             {
                 name: soloDualChain,
@@ -404,7 +426,7 @@ class Event extends Gachable {
             },
             {
                 name: fightScene,
-                weight: 10
+                weight: 10000
             },
             {
                 name: duo,

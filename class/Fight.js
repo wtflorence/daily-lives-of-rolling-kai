@@ -537,6 +537,39 @@ class Fight extends Gachable {
                 weight: 10
             },
         ]
+
+        
+        this.finishing = [
+            {
+                name: "finishing blow",
+                weight: 10
+            },
+            
+            {
+                name: "coup de grâce",
+                weight: 10
+            },
+            {
+                name: "final blow",
+                weight: 10
+            },           
+            {
+                name: "final attack",
+                weight: 10
+            },           
+            {
+                name: "last hit",
+                weight: 10
+            },         
+            {
+                name: "last blow",
+                weight: 10
+            },           
+            {
+                name: "finishing strike",
+                weight: 10
+            },
+        ]
     }
 
     decideAttack = () => {
@@ -585,6 +618,10 @@ class Fight extends Gachable {
 
     decideDefaultWeapon = () => {
         return this.gachaDrawName(this.defaultWeapon)
+    }
+
+    decideFinishing = () => {
+        return this.gachaDrawName(this.finishing)
     }
 
 
