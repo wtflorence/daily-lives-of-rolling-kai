@@ -76,42 +76,27 @@ class Movement extends Gachable {
             {
                 name: "sleepwalked to",
                 weight: 1
-            }, 
-        ]
-
-        this.otw = [
+            },
             {
-                name: "en route to",
+                name: "had arrived to",
                 weight: 10
             },
             {
-                name: "on the way to",
-                weight: 10
+                name: "ran towards",
+                weight: 7
             },
             {
-                name: "going to",
-                weight: 10
+                name: "darted to",
+                weight: 7
             },
             {
-                name: "traveling to",
-                weight: 10
+                name: "retreated to",
+                weight: 7
             },
             {
-                name: "passing through",
-                weight: 10
+                name: "travelled accross",
+                weight: 7
             },
-            {
-                name: "patrolling",
-                weight: 10
-            },
-            {
-                name: "checking out",
-                weight: 10
-            },
-            {
-                name: "about to reach",
-                weight: 10
-            }, 
         ]
 
         this.wait = [ 
@@ -147,6 +132,34 @@ class Movement extends Gachable {
                 name: "rested",
                 weight: 10
             },
+            {
+                name: "held back",
+                weight: 5
+            },
+            {
+                name: "paused",
+                weight: 5
+            },
+            {
+                name: "halted",
+                weight: 5
+            },
+            {
+                name: "stood frozen",
+                weight: 5
+            },
+            {
+                name: "stopped dead",
+                weight: 5
+            }, 
+            {
+                name: "startled",
+                weight: 5
+            },
+            {
+                name: "staggered",
+                weight: 5
+            },
         ]
 
         this.continue = [
@@ -169,7 +182,7 @@ class Movement extends Gachable {
             {
                 name: "carried on",
                 weight: 10
-            },
+            }, 
             {
                 name: "proceeded",
                 weight: 10
@@ -201,15 +214,15 @@ class Movement extends Gachable {
             {
                 name: "jogged",
                 weight: 10
-            }, 
+            },  
         ]
     }
 
-    decideMovement(){
+    decideSimpleMovement(){
         return this.gachaDrawName(this.movements)
     }
 
-    decideWait(){
+    decideSimpleWait(){
         return this.gachaDrawName(this.wait)
     }
 
