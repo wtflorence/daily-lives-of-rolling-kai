@@ -162,6 +162,41 @@ class Movement extends Gachable {
             },
         ]
 
+        this.otw = [
+            {
+                name: "en route to",
+                weight: 10
+            },
+            {
+                name: "on the way to",
+                weight: 10
+            },
+            {
+                name: "going to",
+                weight: 10
+            },
+            {
+                name: "traveling to",
+                weight: 10
+            },
+            {
+                name: "passing through",
+                weight: 10
+            },
+            {
+                name: "patrolling",
+                weight: 10
+            },
+            {
+                name: "checking out",
+                weight: 10
+            },
+            {
+                name: "about to reach",
+                weight: 10
+            }, 
+        ]
+
         this.continue = [
             {
                 name: "pressed on",
@@ -216,13 +251,15 @@ class Movement extends Gachable {
                 weight: 10
             },  
         ]
+
+        
     }
 
-    decideSimpleMovement(){
+    decideMovement(){
         return this.gachaDrawName(this.movements)
     }
 
-    decideSimpleWait(){
+    decideWait(){
         return this.gachaDrawName(this.wait)
     }
 
