@@ -7,11 +7,11 @@ class Event extends Gachable {
 
         this.denizens = denizens
         this.movement = movement
-        this.location = location 
+        this.location = location
         this.feeling = feeling
         this.ambient = ambient
         this.fight = fight
-        this.action = action 
+        this.action = action
         this.topic = topic
     }
 
@@ -79,7 +79,7 @@ class Event extends Gachable {
         return `${topic.decideLocals()} have accused ${denizen.name} of being a ${topic.decideBeliever()} of ${t1}. ${topic.decideTheCasePositive()}. ${denizen.name} ${feeling.decideLike()} ${t1} and they ${feeling.decideLinking()} ${feeling.decideFeeling()} whenever they ${action.decideThink()} about it.`
     }
 
-    
+
     firmBelieverNegative = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
         const denizen = this.gachaDraw(denizens)
         const t1 = topic.decideTopic()
@@ -218,7 +218,7 @@ class Event extends Gachable {
         return `${d1.name} ${fight.decideFaint()} and ${d2.name}, who's passing by, ${movement.decideHurried()} towards them. ${d1.name} ${action.decideExpression()} and said they needed to go to ${loc} ${topic.decideUrgency()}.`
     }
 
-    
+
     regainMemory() {
 
         let d1, d2
@@ -232,6 +232,21 @@ class Event extends Gachable {
 
         // {Kuro} {struck} {RB} so hard that they regained former memory of {dinosaurs}. {RB} {winced}, {attacked} with their {bare fists} and {Kuro} {slammed to the ground}.
         return `${d1.name} ${this.fight.decideAttack()} ${d2.name} so hard that they regained a former memory of ${this.topic.decideTopic()}. ${d2.name} ${this.action.decideExpression()} then ${this.fight.decideAttack()} back with their ${d2Weapon}. ${d1.name} ${this.fight.decideDodge()} but it ${this.fight.decideFail()}! ${d2.name} dealt the ${this.fight.decideFinishing()} and ${this.fight.decideWin()}.`
+    }
+
+    regainMemoryHelpFight() {
+
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
+        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
+
+        // {Hicami} was fighting with {RB} when an old memory struck their mind. They recalled about {dinosaurs} and {its secrets} and this helped change the outcome of the fight. {Hicami} {dashed} {RB} and dealt a {critical hit}! {RB} {fainted}.
+        return `${d1.name} was fighting ${d2.name} when an old memory struck their mind. They recalled about ${this.topic.decideTopic()} and ${this.topic.decideTopicEnder()} and this helped change the outcome of the fight! ${d1.name} ${this.fight.decideAttack()} ${d2.name} and dealt the ${this.fight.decideFinishing()}!`
     }
 
     // end fights
@@ -312,12 +327,12 @@ class Event extends Gachable {
             {
                 // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
                 name: this.firmBelieverPositive(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
-                weight: 1000
+                weight: 10
             },
             {
                 // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
                 name: this.firmBelieverNegative(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
-                weight: 1000
+                weight: 10
             },
 
         ]
@@ -390,9 +405,15 @@ class Event extends Gachable {
             {
                 // {Kuro} {struck} {RB} so hard that they regained former memory of {dinosaurs}. {RB} {winced}, {attacked} with their {bare fists} and {Kuro} {slammed to the ground}.
                 name: this.regainMemory(),
+                weight: 10
+            },
+            {
+                // {Hicami} was fighting with {RB} when an old memory struck their mind. They recalled about {dinosaurs} and {its secrets} and this helped change the outcome of the fight. {Hicami} {dashed} {RB} and dealt a {critical hit}! {RB} {fainted}.
+                name: this.regainMemoryHelpFight(),
                 weight: 1000
             },
             
+
         ]
 
         const duo = [
