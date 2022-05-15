@@ -2,7 +2,7 @@ const Gachable = require("./Gachable")
 
 class Event extends Gachable {
 
-    constructor(denizens, movement, location, feeling, ambient, fight, action, topic) {
+    constructor(denizens, movement, location, feeling, ambient, fight, action, topic, butler) {
         super()
 
         this.denizens = denizens
@@ -13,6 +13,7 @@ class Event extends Gachable {
         this.fight = fight
         this.action = action
         this.topic = topic
+        this.butler = butler
     }
 
 
@@ -343,6 +344,11 @@ class Event extends Gachable {
     }
     // end duo
 
+    // Butler phrases
+    customButlerPhrase = () => {
+        return this.butler.decideCustom()
+    }
+    // end Butler phrases
 
     pickRandomEvent() {
         const solo = [
@@ -503,7 +509,14 @@ class Event extends Gachable {
             },
             {
                 name: this.mullingTapped(),
-                weight: 1000
+                weight: 10
+            },
+        ]
+
+        const butlerPhrases = [
+            {
+                name: this.customButlerPhrase(),
+                weight: 10
             },
         ]
 
@@ -526,8 +539,12 @@ class Event extends Gachable {
             },
             {
                 name: duo,
-                weight: 1000
+                weight: 10
             },
+            {
+                name: butlerPhrases,
+                weight: 1000
+            }
         ]
 
         const event = this.gachaDrawName(events)

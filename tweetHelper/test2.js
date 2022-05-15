@@ -10,6 +10,7 @@ exports.generate = async () => {
     const Ambient = await require("../class/Ambient")
     const Action = await require("../class/Action")
     const Topic = await require("../class/Topic")
+    const Butler = await require("../class/Butler")
     const Fight = await require("../class/Fight")
     const denizensResult = await axios.get('http://localhost:3000/api/daily-lives/denizens')
     
@@ -18,11 +19,12 @@ exports.generate = async () => {
     const ambient = new Ambient()
     const action = new Action()
     const topic = new Topic()
+    const butler = new Butler()
     const feeling = new Feeling()
     const fight = new Fight()
     const location = Location
     
-    const event = new Event(denizens, movement, location, feeling, ambient, fight, action, topic)
+    const event = new Event(denizens, movement, location, feeling, ambient, fight, action, topic, butler)
 
     const phrase = event.pickRandomEvent()
     return phrase

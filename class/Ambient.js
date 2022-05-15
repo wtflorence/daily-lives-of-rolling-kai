@@ -162,11 +162,11 @@ class Ambient extends Gachable {
                 weight: 5
             },
             {
-                name: "Clouds drifted accoss the lilac sky",
+                name: "Clouds drifted across the lilac sky",
                 weight: 5
             },
             {
-                name: "A brewing storm looms over the horizon",
+                name: "A brewing storm loomed over the horizon",
                 weight: 5
             },
             {
