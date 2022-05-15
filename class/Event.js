@@ -543,7 +543,7 @@ class Event extends Gachable {
             },
             {
                 name: butlerPhrases,
-                weight: 1000
+                weight: 10
             }
         ]
 

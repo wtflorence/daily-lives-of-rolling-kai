@@ -190,6 +190,14 @@ class Butler extends Gachable {
                 name: "YOU. ARE. IMPORTANT. (Jihoz. TAUGHT. ME. THIS.)",
                 weight: 10
             },
+            {
+                name: "AM. I. BEING. RATE. LIMITED. AGAIN? -- Ro11ingButler",
+                weight: 10
+            },
+            {
+                name: "THIS. DAY. IS. SUCH. A. MOOD.",
+                weight: 10
+            },
         ]
 
     }

@@ -1,6 +1,6 @@
 // require('dotenv').config()
 
-const tweetHelper = require('./tweetHelper/test2')
+const tweetHelper = require('./tweetHelper')
 
 // for (var i = 15 - 1; i >= 0; i--) {
 // 	console.log(tweetHelper.generate());
