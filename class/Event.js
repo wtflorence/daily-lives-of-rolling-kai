@@ -327,6 +327,20 @@ class Event extends Gachable {
         //{Rain fell} and {Hicami} spotted {RB} {splayed on the ground}. {Hicami} {grinned} and merely {waited/felt paralysed}. It felt like they {waited} there for {about an hour or two} until they came to their senses.
         return `${this.ambient.decideAmbient()} and ${d1.name}, who ${this.action.decideFound()} ${d2.name} ${this.fight.decideSplayed()}, ${this.action.decideExpression()} and ${m1}. They ${m1} there ${this.topic.decideDuration()} until they finally ${this.action.decideSnapBack()}.`
     }
+
+    mullingTapped = () => {
+        let d1, d2
+
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const m1 = this.movement.decideWait()
+
+        // {It was a fine day} in {Rolling-kai's Tavern General}.{Hicami} was {thinking} about {life} as {RB} {tapped on their shoulder/grabbed their attention/crossed their vision}. They {ignored/waved to} {RB}, {though/nonetheless/nevertheless/even so}.
+        return `${this.ambient.decideAmbient()} across ${loc}. ${d1.name} was ${this.action.decideThinking()} about ${this.topic.decideTopic()} as ${d2.name} ${this.action.decideTap()}. They ${this.action.decideRespond()} ${d2.name} and ${this.movement.decideContinue()} with their day.`
+    }
     // end duo
 
 
@@ -485,8 +499,12 @@ class Event extends Gachable {
             },
             {
                 name: this.findSplayed(),
+                weight: 10
+            },
+            {
+                name: this.mullingTapped(),
                 weight: 1000
-            }
+            },
         ]
 
         const events = [

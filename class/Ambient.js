@@ -14,6 +14,14 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
+                name: "It is a fine day",
+                weight: 10
+            },
+            {
+                name: "The day is exceptional",
+                weight: 10
+            },
+            {
                 name: "Evening shadows deepened into blue and purple",
                 weight: 10
             },
@@ -74,7 +82,7 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
-                name: "Cinder dust and gloom was omnipresent",
+                name: "Cinder dust and gloom were omnipresent",
                 weight: 1
             },
             {

@@ -250,6 +250,42 @@ class Action extends Gachable {
                 weight: 1
             }, 
         ]
+
+        // tapped on their shoulder/grabbed their attention/crossed their vision
+        this.tap = [
+            {
+                name: "tapped on their shoulder",
+                weight: 10
+            },
+            {
+                name: "grabbed their attention",
+                weight: 10
+            },
+            {
+                name: "crossed their vision",
+                weight: 10
+            },
+        ]
+
+        
+        this.respond = [
+            {
+                name: "ignored",
+                weight: 7
+            },
+            {
+                name: "waved to",
+                weight: 10
+            },
+            {
+                name: "smiled to",
+                weight: 5
+            },
+            {
+                name: "grinned to",
+                weight: 5
+            },
+        ]
     }
 
     decideSpeak() {
@@ -274,6 +310,14 @@ class Action extends Gachable {
 
     decideSnapBack() {
         return this.gachaDrawName(this.snapBack)
+    }
+
+    decideTap() {
+        return this.gachaDrawName(this.tap)
+    }
+
+    decideRespond() {
+        return this.gachaDrawName(this.respond)
     }
 }
 
