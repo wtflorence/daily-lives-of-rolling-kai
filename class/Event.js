@@ -263,6 +263,20 @@ class Event extends Gachable {
         return `${d1.name} was fighting ${d2.name} when an old memory struck their mind. They recalled about ${this.topic.decideTopic()} and ${this.topic.decideTopicEnder()} and this helped change the outcome of the fight! ${d1.name} ${this.fight.decideAttack()} ${d2.name} and dealt the ${this.fight.decideFinishing()}!`
     }
 
+    weaponCounter() {
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
+        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
+
+        // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
+        return `${d1.name} ${this.fight.decideAttack()}. ${d2.name} ${this.fight.decideDodge()} then ${this.fight.decideAttack()} back. But ${d1.name} ${this.fight.decideBlock()} ${d2Weapon} and countered with their ${d1Weapon}! ${d2.name} ${this.fight.decideAttack()} one last time but ${d1.name} delivered the ${this.fight.decideFinishing()} first. Then it was over. ${d1.name} ${this.fight.decideWin()}.`
+    }
+
     // end fights
 
 
@@ -351,9 +365,9 @@ class Event extends Gachable {
             {
                 // {Hicami} managed to sleep in {Guild Hall Meme Room}. They dreamed about {dinosaurs} and {the moon}. As they woke up, they {began to feel} {alright} about it.
                 name: this.soloDream(),
-                weight: 1000
+                weight: 10
             }
-    
+
 
         ]
 
@@ -430,9 +444,14 @@ class Event extends Gachable {
             {
                 // {Hicami} was fighting with {RB} when an old memory struck their mind. They recalled about {dinosaurs} and {its secrets} and this helped change the outcome of the fight. {Hicami} {dashed} {RB} and dealt a {critical hit}! {RB} {fainted}.
                 name: this.regainMemoryHelpFight(),
-                weight: 1000
+                weight: 10
             },
-            
+            {
+                // {Hicami} was fighting with {RB} when an old memory struck their mind. They recalled about {dinosaurs} and {its secrets} and this helped change the outcome of the fight. {Hicami} {dashed} {RB} and dealt a {critical hit}! {RB} {fainted}.
+                name: this.weaponCounter(),
+                weight: 10
+            },
+
 
         ]
 
@@ -455,7 +474,7 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 3000
+                weight: 3
             },
             {
                 name: soloDualChain,
