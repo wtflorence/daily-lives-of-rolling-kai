@@ -196,7 +196,60 @@ class Action extends Gachable {
             }, 
         ]
 
+        this.found = [
+            {
+                name: "found",
+                weight: 10
+            },
+            {
+                name: "spotted",
+                weight: 10
+            },
+            {
+                name: "discovered",
+                weight: 10
+            },
+            {
+                name: "caught",
+                weight: 10
+            },
+            {
+                name: "located",
+                weight: 10
+            },
+            {
+                name: "encountered",
+                weight: 10
+            }, 
+        ]
 
+        
+        this.snapBack = [
+            {
+                name: "came to their senses",
+                weight: 10
+            },
+            {
+                name: "snapped back to reality",
+                weight: 7
+            },
+            {
+                name: "recovered from the shock",
+                weight: 1
+            },
+            {
+                name: "sank back to reality",
+                weight: 5
+            },
+            {
+                name: "returned to reality",
+                weight: 5
+            },
+            {
+                name: "caught the horror of the situation",
+                weight: 1
+            }, 
+        ]
     }
 
     decideSpeak() {
@@ -213,6 +266,14 @@ class Action extends Gachable {
     
     decideExpression() {
         return this.gachaDrawName(this.expression)
+    }
+
+    decideFound() {
+        return this.gachaDrawName(this.found)
+    }
+
+    decideSnapBack() {
+        return this.gachaDrawName(this.snapBack)
     }
 }
 

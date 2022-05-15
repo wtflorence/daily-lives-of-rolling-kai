@@ -313,6 +313,20 @@ class Event extends Gachable {
 
         return `${d1.name} and ${d2.name} ${movement.decideMovement()} ${loc}. ${ambient.decideAmbient()} and ${(ambient.decideSound()).toLowerCase()}. They ${movement.decideWait()} and ${action.decideSpeak()} about ${topic.decideTopic()}, ${topic.decideTopic()}, and ${topic.decideTopic()} ${topic.decideDuration()}.`
     }
+
+    findSplayed = () => {
+        let d1, d2
+
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const m1 = this.movement.decideWait()
+
+        //{Rain fell} and {Hicami} spotted {RB} {splayed on the ground}. {Hicami} {grinned} and merely {waited/felt paralysed}. It felt like they {waited} there for {about an hour or two} until they came to their senses.
+        return `${this.ambient.decideAmbient()} and ${d1.name}, who ${this.action.decideFound()} ${d2.name} ${this.fight.decideSplayed()}, ${this.action.decideExpression()} and ${m1}. They ${m1} there ${this.topic.decideDuration()} until they finally ${this.action.decideSnapBack()}.`
+    }
     // end duo
 
 
@@ -469,6 +483,10 @@ class Event extends Gachable {
                 name: this.duoArriveLocationTopicExpression(this.denizens, this.topic, this.location, this.feeling, this.action, this.movement, this.ambient),
                 weight: 10
             },
+            {
+                name: this.findSplayed(),
+                weight: 1000
+            }
         ]
 
         const events = [
@@ -490,7 +508,7 @@ class Event extends Gachable {
             },
             {
                 name: duo,
-                weight: 10
+                weight: 1000
             },
         ]
 

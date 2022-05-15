@@ -570,6 +570,13 @@ class Fight extends Gachable {
                 weight: 10
             },
         ]
+                
+        this.splayed = [ 
+            {
+                name: "splayed on the ground",
+                weight: 10
+            },  
+        ]
     }
 
     decideAttack = () => {
@@ -624,7 +631,9 @@ class Fight extends Gachable {
         return this.gachaDrawName(this.finishing)
     }
 
-
+    decideSplayed() {
+        return this.gachaDrawName(this.splayed)
+    }
 
 }
 

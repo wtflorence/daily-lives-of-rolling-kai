@@ -153,10 +153,6 @@ class Movement extends Gachable {
                 weight: 5
             }, 
             {
-                name: "startled",
-                weight: 5
-            },
-            {
                 name: "staggered",
                 weight: 5
             },

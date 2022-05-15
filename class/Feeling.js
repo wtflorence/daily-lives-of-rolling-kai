@@ -5,6 +5,7 @@ class Feeling extends Gachable {
     constructor(personality) {
         super()
         this.personality = personality
+
         this.linking = [
             {
                 name: "felt",
@@ -187,6 +188,7 @@ class Feeling extends Gachable {
                 weight: 10
             },
         ]
+
     }
 
     decideLinking() {
@@ -204,6 +206,7 @@ class Feeling extends Gachable {
     decideHate() {
         return this.gachaDrawName(this.hates)
     }
+
 }
 
 module.exports = Feeling
