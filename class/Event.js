@@ -518,6 +518,10 @@ class Event extends Gachable {
                 name: this.customButlerPhrase(),
                 weight: 10
             },
+            // {
+            //     name: this.chibiLore(),
+            //     weight: 10
+            // },
         ]
 
         const events = [
