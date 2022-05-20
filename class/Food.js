@@ -2400,4 +2400,4 @@ class Food extends Gachable {
 
 }
 
-module.exports = Butler
+module.exports = Food
