@@ -15,6 +15,10 @@ class Fight extends Gachable {
                 weight: 10
             },
             {
+                name: "smacked",
+                weight: 10
+            },
+            {
                 name: "blasted",
                 weight: 10
             },

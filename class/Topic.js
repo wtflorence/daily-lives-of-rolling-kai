@@ -242,6 +242,18 @@ class Topic extends Gachable {
                 weight: 10
             },
             {
+                name: "nightmares",
+                weight: 10
+            },
+            {
+                name: "gardening",
+                weight: 10
+            },
+            {
+                name: "rocket science",
+                weight: 10
+            },
+            {
                 name: "holidays",
                 weight: 10
             },

@@ -523,27 +523,27 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 3
+                weight: 5
             },
             {
                 name: soloDualChain,
-                weight: 10
+                weight: 100
             },
             {
                 name: soloTripleChain,
-                weight: 10
+                weight: 100
             },
             {
                 name: fightScene,
-                weight: 10
+                weight: 100
             },
             {
                 name: duo,
-                weight: 10
+                weight: 100
             },
             {
                 name: butlerPhrases,
-                weight: 10
+                weight: 1
             }
         ]
 

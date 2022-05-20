@@ -170,10 +170,6 @@ class Ambient extends Gachable {
                 weight: 5
             },
             {
-                name: "Typical No Man's land humidity wafted in",
-                weight: 5
-            },
-            {
                 name: "The sunset cast golden light",
                 weight: 5
             },
