@@ -385,6 +385,10 @@ class Event extends Gachable {
                 weight: 10
             },
             {
+                name: `Free "${menu1}" only in Rolling-kai's Tavern General.`,
+                weight: 2
+            },
+            {
                 name: `Rolling-kai's Tavern General is serving a very special menu for today: "${menu1}".`,
                 weight: 2
             },

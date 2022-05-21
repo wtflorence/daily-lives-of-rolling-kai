@@ -1094,8 +1094,127 @@ class Food extends Gachable {
             },
         ]
 
-        this.liquidIngredients = [
-
+        this.liquidSuffix = [
+            {
+                name: "Tea",
+                weight: 10
+            },
+            {
+                name: "Coffee",
+                weight: 10
+            },
+            {
+                name: "Milk Tea",
+                weight: 10
+            },
+            {
+                name: "Smoothie",
+                weight: 10
+            },
+            {
+                name: "Jam",
+                weight: 10
+            },
+            {
+                name: "Jelly",
+                weight: 10
+            },
+            {
+                name: "Gelatin",
+                weight: 10
+            },
+            {
+                name: "Punch",
+                weight: 10
+            },
+            {
+                name: "Juice",
+                weight: 10
+            },
+            {
+                name: "Wine",
+                weight: 10
+            },
+            {
+                name: "Ale",
+                weight: 10
+            },
+            {
+                name: "Cider",
+                weight: 10
+            },
+            {
+                name: "Beer",
+                weight: 10
+            },
+            {
+                name: "Spirit",
+                weight: 10
+            },
+            {
+                name: "Chocolate",
+                weight: 10
+            },
+            {
+                name: "Milk",
+                weight: 10
+            },
+            {
+                name: "Soda",
+                weight: 10
+            },
+            {
+                name: "Barley",
+                weight: 10
+            },
+            {
+                name: "Brandy",
+                weight: 10
+            },
+            {
+                name: "Tonic",
+                weight: 10
+            },
+            {
+                name: "Potion",
+                weight: 10
+            },
+            {
+                name: "Vodka",
+                weight: 10
+            },
+            {
+                name: "Whiskey",
+                weight: 10
+            },
+            {
+                name: "Cocktail",
+                weight: 10
+            },
+            {
+                name: "Energy Drink S",
+                weight: 2
+            },
+            {
+                name: "Energy Drink M",
+                weight: 2
+            },
+            {
+                name: "Energy Drink L",
+                weight: 2
+            },
+            {
+                name: "Energy Drink XL",
+                weight: 2
+            },
+            {
+                name: "Liquor",
+                weight: 10
+            },
+            {
+                name: "Love Potion",
+                weight: 10
+            },
         ]
 
         this.cookType = [
@@ -1265,7 +1384,7 @@ class Food extends Gachable {
             },
             {
                 name: "Engine-Cooked",
-                weight: 10
+                weight: 5
             },
             {
                 name: "Blanched",
@@ -2143,10 +2262,6 @@ class Food extends Gachable {
                 weight: 3
             },
             {
-                name: "Edible",
-                weight: 5
-            },
-            {
                 name: "Eldritch",
                 weight: 4
             },
@@ -2838,6 +2953,10 @@ class Food extends Gachable {
         return this.gachaDrawName(this.foodSuffix)
     }
 
+    decideLiquidSuffix() {
+        return this.gachaDrawName(this.liquidSuffix)
+    }
+
     decideFoodPrefix() {
         return this.gachaDrawName(this.foodPrefix)
     }
@@ -2861,6 +2980,7 @@ class Food extends Gachable {
 
         const food = this.decideFood()
         const prefix = this.decideFoodPrefix()
+        const liquidSuffix = this.decideLiquidSuffix()
         const cookType = this.decideCookType()
 
         const foodStuff = [
@@ -2905,6 +3025,14 @@ class Food extends Gachable {
                 weight: 3
             },
             {
+                name: `${prefix} ${food} & ${x1.name} ${liquidSuffix}`,
+                weight: 3
+            },
+            {
+                name: `${cookType} ${food} & ${x1.name} ${liquidSuffix}`,
+                weight: 3
+            },
+            {
                 name: `${cookType} ${food}`,
                 weight: 7
             },
@@ -2914,6 +3042,14 @@ class Food extends Gachable {
             },
             {
                 name: `${cookType} ${food} ${s1.name}`,
+                weight: 10
+            },
+            {
+                name: `${x1.name} ${liquidSuffix}`,
+                weight: 10
+            },
+            {
+                name: `${prefix} ${x1.name} ${liquidSuffix}`,
                 weight: 10
             },
         ]
