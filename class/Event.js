@@ -2,7 +2,7 @@ const Gachable = require("./Gachable")
 
 class Event extends Gachable {
 
-    constructor(denizens, movement, location, feeling, ambient, fight, action, topic, butler) {
+    constructor(denizens, movement, location, feeling, ambient, fight, action, topic, butler, food) {
         super()
 
         this.denizens = denizens
@@ -14,6 +14,7 @@ class Event extends Gachable {
         this.action = action
         this.topic = topic
         this.butler = butler
+        this.food = food
     }
 
 
@@ -350,6 +351,61 @@ class Event extends Gachable {
     }
     // end Butler phrases
 
+    // Food phrases
+    todaysMenu = () => {
+
+        const menu1 = this.food.decideFoodStuff()
+        const menu2 = this.food.decideFoodStuff()
+        const menu3 = this.food.decideFoodStuff()
+        const menu4 = this.food.decideFoodStuff()
+
+        const phrases = [
+            {
+                name: `TODAY'S. MENU. "${menu1}".`,
+                weight: 10
+            },
+            {
+                name: `TODAY'S. MENU.\n${menu1}: 0.0${Math.floor((Math.random() * 100) + 1)} $ETH\n${menu2}: 0.0${Math.floor((Math.random() * 100) + 1)} $ETH\n${menu3}: 0.0${Math.floor((Math.random() * 100) + 1)} $ETH\n${menu4}: 0.0${Math.floor((Math.random() * 100) + 1)} $ETH`,
+                weight: 10
+            },
+            {
+                name: `FOR. TODAY'S. MENU. "${menu1}".`,
+                weight: 10
+            },
+            {
+                name: `THE. TAVERN'S. MENU. FOR. TODAY. IS. "${menu1}".`,
+                weight: 10
+            },
+            {
+                name: `TODAY'S. SPECIALTY. IS. "${menu1}".`,
+                weight: 10
+            },
+            {
+                name: `THE. MENU. FOR. TODAY. IS. "${menu1}".`,
+                weight: 10
+            },
+            {
+                name: `Rolling-kai's Tavern General is serving a very special menu for today: "${menu1}".`,
+                weight: 2
+            },
+            {
+                name: `GRAB. YOUR. "${menu1}". NOW. FOR. A. DISCOUNTED. PRICE. OF 0.00${Math.floor((Math.random() * 100) + 1)} $ETH.`,
+                weight: 10
+            },
+            {
+                name: `NOW. SERVING. FOR. TABLE. #${Math.floor((Math.random() * 100) + 1)}: "${menu1}".`,
+                weight: 10
+            },
+            {
+                name: `ONE. "${menu1}". COMING. RIGHT. UP.`,
+                weight: 10
+            },
+        ]
+
+        return this.gachaDrawName(phrases)
+    }
+    // end Food phrases
+
     pickRandomEvent() {
         const solo = [
             {
@@ -518,10 +574,13 @@ class Event extends Gachable {
                 name: this.customButlerPhrase(),
                 weight: 10
             },
-            // {
-            //     name: this.chibiLore(),
-            //     weight: 10
-            // },
+        ]
+
+        const food = [
+            {
+                name: this.todaysMenu(),
+                weight: 10
+            },
         ]
 
         const events = [
@@ -548,7 +607,11 @@ class Event extends Gachable {
             {
                 name: butlerPhrases,
                 weight: 1
-            }
+            },
+            {
+                name: food,
+                weight: 1000000
+            },
         ]
 
         const event = this.gachaDrawName(events)

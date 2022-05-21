@@ -5,7 +5,7 @@ class Food extends Gachable {
     constructor() {
         super()
 
-        this.food = [ 
+        this.food = [
             {
                 name: "Turkey",
                 weight: 10
@@ -13,7 +13,263 @@ class Food extends Gachable {
             {
                 name: "Sirloin",
                 weight: 10
-            }, 
+            },
+            {
+                name: "Chicken",
+                weight: 10
+            },
+            {
+                name: "Lamb",
+                weight: 10
+            },
+            {
+                name: "Goose",
+                weight: 10
+            },
+            {
+                name: "Meatballs",
+                weight: 10
+            },
+            {
+                name: "Bird",
+                weight: 10
+            },
+            {
+                name: "Meat",
+                weight: 10
+            },
+            {
+                name: "Mutton",
+                weight: 10
+            },
+            {
+                name: "Radish",
+                weight: 10
+            },
+            {
+                name: "Pumpkin",
+                weight: 10
+            },
+            {
+                name: "Veggie",
+                weight: 10
+            },
+            {
+                name: "Vegetable",
+                weight: 10
+            },
+            {
+                name: "Carrot",
+                weight: 10
+            },
+            {
+                name: "Rice",
+                weight: 1
+            },
+            {
+                name: "Egg",
+                weight: 10
+            },
+            {
+                name: "Egg and Rice",
+                weight: 10
+            },
+            {
+                name: "Bacon and Rice",
+                weight: 10
+            },
+            {
+                name: "Mushroom",
+                weight: 10
+            },
+            {
+                name: "Herb",
+                weight: 10
+            },
+            {
+                name: "Clam",
+                weight: 10
+            },
+            {
+                name: "Seafood",
+                weight: 10
+            },
+            {
+                name: "Salmon",
+                weight: 10
+            },
+            {
+                name: "Crab",
+                weight: 10
+            },
+            {
+                name: "Fish",
+                weight: 10
+            },
+            {
+                name: "Poultry",
+                weight: 10
+            },
+            {
+                name: "Meaty Rice",
+                weight: 10
+            },
+            {
+                name: "Meat and Rice",
+                weight: 10
+            },
+            {
+                name: "Fish and Rice",
+                weight: 10
+            },
+            {
+                name: "Venison",
+                weight: 10
+            },
+            {
+                name: "Rabbit",
+                weight: 10
+            },
+            {
+                name: "Deer",
+                weight: 10
+            },
+            {
+                name: "Elk",
+                weight: 10
+            },
+            {
+                name: "Raindeer",
+                weight: 10
+            },
+            {
+                name: "Wolf",
+                weight: 10
+            },
+            {
+                name: "Boar",
+                weight: 10
+            },
+            {
+                name: "Goat",
+                weight: 10
+            },
+            {
+                name: "Peas",
+                weight: 10
+            },
+            {
+                name: "Cod",
+                weight: 10
+            },
+            {
+                name: "Pheasant",
+                weight: 10
+            },
+            {
+                name: "Pelican",
+                weight: 10
+            },
+            {
+                name: "Heron",
+                weight: 10
+            },
+            {
+                name: "Lobster",
+                weight: 10
+            },
+            {
+                name: "Critters",
+                weight: 2
+            },
+            {
+                name: "Bone and Blood",
+                weight: 2
+            },
+            {
+                name: "Fungus",
+                weight: 2
+            },
+            {
+                name: "Eel",
+                weight: 10
+            },
+            {
+                name: "Lichen",
+                weight: 2
+            },
+            {
+                name: "Crawfish",
+                weight: 10
+            },
+            {
+                name: "Crayfish",
+                weight: 10
+            },
+            {
+                name: "Toadstool",
+                weight: 10
+            },
+            {
+                name: "Toad",
+                weight: 10
+            },
+            {
+                name: "Frog",
+                weight: 10
+            },
+            {
+                name: "Bullfrog",
+                weight: 10
+            },
+            {
+                name: "Beetles",
+                weight: 10
+            },
+            {
+                name: "Salamander",
+                weight: 10
+            },
+            {
+                name: "Pangolin",
+                weight: 1
+            },
+            {
+                name: "Turtle",
+                weight: 10
+            },
+            {
+                name: "Snake",
+                weight: 10
+            },
+            {
+                name: "Vine",
+                weight: 5
+            },
+            {
+                name: "Fruit",
+                weight: 10
+            },
+            {
+                name: "Cheese",
+                weight: 10
+            },
+            {
+                name: "Bacon",
+                weight: 10
+            },
+            {
+                name: "Fish Fillet",
+                weight: 10
+            },
+            {
+                name: "Chicken Fillet",
+                weight: 10
+            },
+            {
+                name: "Horse",
+                weight: 10
+            },
         ]
 
         this.monster = [
@@ -707,8 +963,135 @@ class Food extends Gachable {
             },
         ]
 
-        this.solidIngredients = [
-
+        this.foodPrefix = [
+            {
+                name: 'Salted',
+                weight: 10
+            },
+            {
+                name: 'Peppered',
+                weight: 10
+            },
+            {
+                name: 'Creamy',
+                weight: 10
+            },
+            {
+                name: 'Fragrant',
+                weight: 10
+            },
+            {
+                name: 'Delicious',
+                weight: 10
+            },
+            {
+                name: 'Mouth-watering',
+                weight: 10
+            },
+            {
+                name: 'Copious',
+                weight: 10
+            },
+            {
+                name: 'Generous',
+                weight: 10
+            },
+            {
+                name: 'Glazed',
+                weight: 10
+            },
+            {
+                name: 'Spicy',
+                weight: 10
+            },
+            {
+                name: 'Spicy Peppered',
+                weight: 10
+            },
+            {
+                name: 'Sweet',
+                weight: 10
+            },
+            {
+                name: 'Sweet and Sour',
+                weight: 10
+            },
+            {
+                name: 'Honey',
+                weight: 10
+            },
+            {
+                name: 'Honey Buttered',
+                weight: 10
+            },
+            {
+                name: 'Buttered',
+                weight: 10
+            },
+            {
+                name: 'Dubious',
+                weight: 10
+            },
+            {
+                name: 'Crispy',
+                weight: 10
+            },
+            {
+                name: 'Hot',
+                weight: 10
+            },
+            {
+                name: 'Juicy',
+                weight: 10
+            },
+            {
+                name: 'Luscious',
+                weight: 10
+            },
+            {
+                name: 'Soft',
+                weight: 10
+            },
+            {
+                name: 'Velvety',
+                weight: 10
+            },
+            {
+                name: 'Milky',
+                weight: 10
+            },
+            {
+                name: 'Oily',
+                weight: 1
+            },
+            {
+                name: 'Greasy',
+                weight: 1
+            },
+            {
+                name: 'Smooth',
+                weight: 10
+            },
+            {
+                name: 'Aromatic',
+                weight: 10
+            },
+            {
+                name: 'Savory',
+                weight: 10
+            },
+            {
+                name: 'Delightful',
+                weight: 10
+            },
+            {
+                name: 'Sweet-Scented',
+                weight: 10
+            },
+            {
+                name: 'Sweet-Smelling',
+                weight: 10
+            },
         ]
 
         this.liquidIngredients = [
@@ -716,6 +1099,14 @@ class Food extends Gachable {
         ]
 
         this.cookType = [
+            {
+                name: "Gourmet",
+                weight: 10
+            },
+            {
+                name: "Salt-Grilled",
+                weight: 10
+            },
             {
                 name: "Simmered",
                 weight: 10
@@ -1006,7 +1397,15 @@ class Food extends Gachable {
             },
         ]
 
-        this.modifiers = [
+        this.modifier = [
+            {
+                name: "Elysian",
+                weight: 4
+            },
+            {
+                name: "Tainted",
+                weight: 2
+            },
             {
                 name: "Gargantuan",
                 weight: 2
@@ -1026,7 +1425,7 @@ class Food extends Gachable {
             {
                 name: "Abyss",
                 weight: 1
-            }, 
+            },
             {
                 name: "Tree",
                 weight: 5
@@ -1034,7 +1433,7 @@ class Food extends Gachable {
             {
                 name: "Nether",
                 weight: 2
-            }, 
+            },
             {
                 name: "Killer",
                 weight: 2
@@ -1042,587 +1441,587 @@ class Food extends Gachable {
             {
                 name: "Enchanted",
                 weight: 3
-            }, 
+            },
             {
                 name: "Mystical",
                 weight: 3
-            }, 
+            },
             {
                 name: "Cloud",
                 weight: 4
-            }, 
+            },
             {
                 name: "Rainbow",
                 weight: 5
-            }, 
+            },
             {
                 name: "Volcanic",
                 weight: 10
-            }, 
+            },
             {
                 name: "Winter",
                 weight: 10
-            },  
+            },
             {
                 name: "Arcane",
                 weight: 3
-            }, 
+            },
             {
                 name: "Desert",
                 weight: 10
-            }, 
+            },
             {
                 name: "Great",
                 weight: 10
-            }, 
+            },
             {
                 name: "Mountain",
                 weight: 10
-            }, 
+            },
             {
                 name: "Sky",
                 weight: 10
-            }, 
+            },
             {
                 name: "Abyssal",
                 weight: 1
-            }, 
+            },
             {
                 name: "Hellish",
                 weight: 1
-            }, 
+            },
             {
                 name: "Phantom",
                 weight: 4
-            }, 
+            },
             {
                 name: "Molten",
                 weight: 10
-            }, 
+            },
             {
                 name: "Rain",
                 weight: 10
-            }, 
+            },
             {
                 name: "Radiant",
                 weight: 10
-            }, 
+            },
             {
                 name: "Moss",
                 weight: 10
-            }, 
+            },
             {
                 name: "Iron",
                 weight: 10
-            }, 
+            },
             {
                 name: "Metallic",
                 weight: 10
-            }, 
+            },
             {
                 name: "River",
                 weight: 10
-            }, 
+            },
             {
                 name: "Marsh",
                 weight: 10
-            }, 
+            },
             {
                 name: "Arctic",
                 weight: 8
-            }, 
+            },
             {
                 name: "Forest",
                 weight: 10
-            }, 
+            },
             {
                 name: "Savannah",
                 weight: 10
-            }, 
+            },
             {
                 name: "Lesser",
                 weight: 10
-            }, 
+            },
             {
                 name: "Greater",
                 weight: 7
-            }, 
+            },
             {
                 name: "God",
                 weight: 1
-            }, 
+            },
             {
                 name: "Pygmy",
                 weight: 10
-            }, 
+            },
             {
                 name: "Gypsy",
                 weight: 10
-            }, 
+            },
             {
                 name: "Silk",
                 weight: 10
-            }, 
+            },
             {
                 name: "Moon",
                 weight: 10
-            }, 
+            },
             {
                 name: "Sun",
                 weight: 10
-            }, 
+            },
             {
                 name: "Ethereal",
                 weight: 5
-            }, 
+            },
             {
                 name: "Crescent",
                 weight: 5
-            }, 
+            },
             {
                 name: "Masked",
                 weight: 4
-            }, 
+            },
             {
                 name: "Solar",
                 weight: 10
-            }, 
+            },
             {
                 name: "Lunar",
                 weight: 10
-            }, 
+            },
             {
                 name: "Grim",
                 weight: 3
-            }, 
+            },
             {
                 name: "Southern",
                 weight: 10
-            }, 
+            },
             {
                 name: "Northern",
                 weight: 10
-            }, 
+            },
             {
                 name: "Western",
                 weight: 10
-            }, 
+            },
             {
                 name: "Eastern",
                 weight: 10
-            }, 
+            },
             {
                 name: "Shadow",
                 weight: 10
-            }, 
+            },
             {
                 name: "Spirit",
                 weight: 10
-            }, 
+            },
             {
                 name: "Snow",
                 weight: 10
-            }, 
+            },
             {
                 name: "Ember",
                 weight: 10
-            }, 
+            },
             {
                 name: "Hell",
                 weight: 1
-            }, 
+            },
             {
                 name: "Primal",
                 weight: 8
-            }, 
+            },
             {
                 name: "False",
                 weight: 8
-            }, 
+            },
             {
                 name: "True",
                 weight: 9
-            }, 
+            },
             {
                 name: "Ice",
                 weight: 10
-            }, 
+            },
             {
                 name: "Void",
                 weight: 1
-            }, 
+            },
             {
                 name: "Planar",
                 weight: 10
-            }, 
+            },
             {
                 name: "Star",
                 weight: 3
-            }, 
+            },
             {
                 name: "Pulse",
                 weight: 4
-            }, 
+            },
             {
                 name: "Dark",
                 weight: 10
-            }, 
+            },
             {
                 name: "Light",
                 weight: 10
-            }, 
+            },
             {
                 name: "Fog",
                 weight: 10
-            }, 
+            },
             {
                 name: "Cave",
                 weight: 10
-            }, 
+            },
             {
                 name: "Underground",
                 weight: 10
-            }, 
+            },
             {
                 name: "Interplanetary",
                 weight: 1
-            }, 
+            },
             {
                 name: "Galactic",
                 weight: 1
-            }, 
+            },
             {
                 name: "Galaxy",
                 weight: 3
-            }, 
+            },
             {
                 name: "Golden",
                 weight: 10
-            }, 
+            },
             {
                 name: "Silver",
                 weight: 10
-            }, 
+            },
             {
                 name: "Phase",
                 weight: 5
-            }, 
+            },
             {
                 name: "Night",
                 weight: 10
-            }, 
+            },
             {
                 name: "Day",
                 weight: 10
-            }, 
+            },
             {
                 name: "Canyon",
                 weight: 10
-            }, 
+            },
             {
                 name: "Death",
                 weight: 3
-            }, 
+            },
             {
                 name: "Crowned",
                 weight: 10
-            }, 
+            },
             {
                 name: "Stone",
                 weight: 8
-            }, 
+            },
             {
                 name: "Saber",
                 weight: 4
-            }, 
+            },
             {
                 name: "Shade",
                 weight: 4
-            }, 
+            },
             {
                 name: "Aether",
                 weight: 3
-            }, 
+            },
             {
                 name: "Astral",
                 weight: 1
-            }, 
+            },
             {
                 name: "Ghoulish",
                 weight: 9
-            }, 
+            },
             {
                 name: "Wild",
                 weight: 10
-            }, 
+            },
             {
                 name: "Demonic",
                 weight: 2
-            }, 
+            },
             {
                 name: "Infernal",
                 weight: 2
-            }, 
+            },
             {
                 name: "Draconic",
                 weight: 4
-            }, 
+            },
             {
                 name: "Dwarf",
                 weight: 8
-            }, 
+            },
             {
                 name: "Elven",
                 weight: 9
-            }, 
+            },
             {
                 name: "Dream",
                 weight: 10
-            }, 
+            },
             {
                 name: "Storm",
                 weight: 6
-            }, 
+            },
             {
                 name: "Giant",
                 weight: 10
-            }, 
+            },
             {
                 name: "Tiny",
                 weight: 10
-            }, 
+            },
             {
                 name: "Rare",
                 weight: 10
-            }, 
+            },
             {
                 name: "Ground",
                 weight: 10
-            }, 
+            },
             {
                 name: "Zombie",
                 weight: 5
-            }, 
+            },
             {
                 name: "Heavenly",
                 weight: 2
-            }, 
+            },
             {
                 name: "Chaos",
                 weight: 1
-            }, 
+            },
             {
                 name: "Swamp",
                 weight: 10
-            }, 
+            },
             {
                 name: "Boulder",
                 weight: 10
-            }, 
+            },
             {
                 name: "Sinister",
                 weight: 10
-            }, 
+            },
             {
                 name: "Thorny",
                 weight: 10
-            }, 
+            },
             {
                 name: "Evil",
                 weight: 10
-            }, 
+            },
             {
                 name: "Imperial",
                 weight: 10
-            }, 
+            },
             {
                 name: "Royal",
                 weight: 10
-            }, 
+            },
             {
                 name: "Mythical",
                 weight: 2
-            }, 
+            },
             {
                 name: "Legendary",
                 weight: 1
-            }, 
+            },
             {
                 name: "Demon",
                 weight: 4
-            }, 
+            },
             {
                 name: "Sewer",
                 weight: 10
-            }, 
+            },
             {
                 name: "Farm",
                 weight: 10
-            }, 
+            },
             {
                 name: "Tame",
                 weight: 10
-            }, 
+            },
             {
                 name: "Two-headed",
                 weight: 3
-            }, 
+            },
             {
                 name: "Grassland",
                 weight: 10
-            }, 
+            },
             {
                 name: "Plateau",
                 weight: 10
-            }, 
+            },
             {
                 name: "White",
                 weight: 10
-            }, 
+            },
             {
                 name: "Red",
                 weight: 10
-            }, 
+            },
             {
                 name: "Dark",
                 weight: 10
-            }, 
+            },
             {
                 name: "Black",
                 weight: 10
-            }, 
+            },
             {
                 name: "Green",
                 weight: 10
-            }, 
+            },
             {
                 name: "Blue",
                 weight: 10
-            }, 
+            },
             {
                 name: "Grey",
                 weight: 10
-            }, 
+            },
             {
                 name: "Twin-headed",
                 weight: 3
-            }, 
+            },
             {
                 name: "Dimensional",
                 weight: 4
-            }, 
+            },
             {
                 name: "Gigantic",
                 weight: 1
-            }, 
+            },
             {
                 name: "Lone",
                 weight: 10
-            }, 
+            },
             {
                 name: "Divine",
                 weight: 1
-            }, 
+            },
             {
                 name: "Holy",
                 weight: 1
-            }, 
+            },
             {
                 name: "Unholy",
                 weight: 1
-            }, 
+            },
             {
                 name: "Sacred",
                 weight: 1
-            }, 
+            },
             {
                 name: "Common",
                 weight: 10
-            },  
+            },
             {
                 name: "Metaverse",
                 weight: 10
-            }, 
+            },
             {
                 name: "Crypto",
                 weight: 10
-            }, 
+            },
             {
                 name: "Garden",
                 weight: 10
-            }, 
+            },
             {
                 name: "Chubby",
                 weight: 10
-            }, 
+            },
             {
                 name: "Dire",
                 weight: 10
-            }, 
+            },
             {
                 name: "Fat",
                 weight: 10
-            }, 
+            },
             {
                 name: "Mimic",
                 weight: 1
-            }, 
+            },
             {
                 name: "Ancient",
                 weight: 1
-            }, 
+            },
             {
                 name: "Guardian",
                 weight: 2
-            }, 
+            },
             {
                 name: "Demi",
                 weight: 4
-            }, 
+            },
             {
                 name: "Sanguine",
                 weight: 6
-            }, 
+            },
             {
                 name: "Undead",
                 weight: 8
-            }, 
+            },
             {
                 name: "Mystic",
                 weight: 5
-            }, 
+            },
             {
                 name: "Original",
                 weight: 2
-            }, 
+            },
             {
                 name: "Devil",
                 weight: 4
-            }, 
+            },
             {
                 name: "Woodland",
                 weight: 10
-            }, 
+            },
             {
                 name: "Nature",
                 weight: 10
-            }, 
+            },
             {
                 name: "Magical",
                 weight: 10
-            }, 
+            },
             {
                 name: "Atrocious",
                 weight: 5
-            }, 
+            },
             {
                 name: "Spooky",
                 weight: 10
-            }, 
+            },
             {
                 name: "Foreign",
                 weight: 10
-            }, 
+            },
             {
                 name: "Baby",
                 weight: 5
@@ -1706,7 +2105,7 @@ class Food extends Gachable {
             {
                 name: "Yokai",
                 weight: 5
-            }, 
+            },
             {
                 name: "Vampiric",
                 weight: 6
@@ -1773,7 +2172,35 @@ class Food extends Gachable {
             },
         ]
 
-        this.suffix = [
+        this.foodSuffix = [
+            {
+                name: 'Macaroni',
+                weight: 10
+            },
+            {
+                name: 'Bowl',
+                weight: 10
+            },
+            {
+                name: "Ratatouille",
+                weight: 10
+            },
+            {
+                name: "Mueniere",
+                weight: 10
+            },
+            {
+                name: "Diet",
+                weight: 10
+            },
+            {
+                name: "Chowder",
+                weight: 10
+            },
+            {
+                name: "Omelet",
+                weight: 10
+            },
             {
                 name: "Gazpacho",
                 weight: 10
@@ -2075,11 +2502,11 @@ class Food extends Gachable {
                 weight: 10
             },
             {
-                name: "Yaki soba",
+                name: "Yaki Soba",
                 weight: 5
             },
             {
-                name: "Yaki udon",
+                name: "Yaki Udon",
                 weight: 10
             },
             {
@@ -2250,7 +2677,7 @@ class Food extends Gachable {
                 name: "Pancakes",
                 weight: 5
             },
-            
+
             {
                 name: "Pankeyks",
                 weight: 5
@@ -2258,7 +2685,7 @@ class Food extends Gachable {
             {
                 name: "Special",
                 weight: 6
-            },            
+            },
             {
                 name: "House Special",
                 weight: 6
@@ -2358,6 +2785,7 @@ class Food extends Gachable {
                 weight: 10
             },
         ]
+
         this.drink = []
 
         this.garnish = []
@@ -2392,11 +2820,106 @@ class Food extends Gachable {
 
     decideFood() {
         return this.gachaDrawName(this.food)
-    } 
+    }
+
+    decideCookType() {
+        return this.gachaDrawName(this.cookType)
+    }
+
+    decideMonster() {
+        return this.gachaDrawName(this.monster)
+    }
+
+    decideModifier() {
+        return this.gachaDrawName(this.modifier)
+    }
+
+    decideFoodSuffix() {
+        return this.gachaDrawName(this.foodSuffix)
+    }
+
+    decideFoodPrefix() {
+        return this.gachaDrawName(this.foodPrefix)
+    }
+
+    decideFoodType() {
+        return this.gachaDrawName(this.foodType)
+    }
 
     decideEat() {
         return this.gachaDrawName(this.eat)
-    } 
+    }
+
+    decideFoodStuff() {
+
+        let m1, m2
+        [m1, m2] = this.gachaDrawTwo(this.modifier)
+        let x1, x2
+        [x1, x2] = this.gachaDrawTwo(this.monster)
+        let s1, s2
+        [s1, s2] = this.gachaDrawTwo(this.foodSuffix)
+
+        const food = this.decideFood()
+        const prefix = this.decideFoodPrefix()
+        const cookType = this.decideCookType()
+
+        const foodStuff = [
+            {
+                name: `${cookType} ${m1.name} ${x1.name}`,
+                weight: 10
+            },
+            {
+                name: `${cookType} ${m1.name} ${m2.name} ${x1.name}`,
+                weight: 10
+            },
+            {
+                name: `${cookType} ${prefix} ${m1.name} ${m2.name} ${x1.name} ${s1.name}`,
+                weight: 1
+            },
+            {
+                name: `${cookType} ${m1.name} ${m2.name} ${x1.name} ${s1.name}`,
+                weight: 3
+            },
+            {
+                name: `${cookType} ${m2.name} ${x1.name} ${s1.name}`,
+                weight: 6
+            },
+            {
+                name: `${cookType} ${prefix} ${m2.name} ${x1.name} ${s1.name}`,
+                weight: 4
+            },
+            {
+                name: `${prefix} ${food} ${s1.name}`,
+                weight: 10
+            },
+            {
+                name: `${cookType} ${prefix} ${food}`,
+                weight: 10
+            },
+            {
+                name: `${food} ${s1.name} & ${prefix} ${x1.name} ${s2.name}`,
+                weight: 10
+            },
+            {
+                name: `${prefix} ${food} & ${x1.name} ${s1.name}`,
+                weight: 3
+            },
+            {
+                name: `${cookType} ${food}`,
+                weight: 7
+            },
+            {
+                name: `${m1.name} ${x1.name} ${s1.name}`,
+                weight: 10
+            },
+            {
+                name: `${cookType} ${food} ${s1.name}`,
+                weight: 10
+            },
+        ]
+
+        return this.gachaDrawName(foodStuff)
+    }
 
 }
 
