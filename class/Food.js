@@ -2817,75 +2817,75 @@ class Food extends Gachable {
 
         this.eat = [
             {
-                name: "ate",
+                name: "ate it",
                 weight: 10
             },
             {
-                name: "wolfed down",
+                name: "wolfed it down",
                 weight: 10
             },
             {
-                name: "globbered",
+                name: "globbered it down",
                 weight: 10
             },
             {
-                name: "gobbled up",
+                name: "gobbled it up",
                 weight: 10
             },
             {
-                name: "attacked",
+                name: "attacked it",
                 weight: 10
             },
             {
-                name: "bit down",
+                name: "bit it down",
                 weight: 10
             },
             {
-                name: "chewed",
+                name: "chewed it",
                 weight: 10
             },
             {
-                name: "chewed down",
+                name: "took a bite",
                 weight: 10
             },
             {
-                name: "devoured",
+                name: "chewed it down",
                 weight: 10
             },
             {
-                name: "ingested",
+                name: "devoured it",
                 weight: 10
             },
             {
-                name: "nibbled",
+                name: "ingested it",
                 weight: 10
             },
             {
-                name: "swallowed",
+                name: "nibbled it",
                 weight: 10
             },
             {
-                name: "munched",
+                name: "swallowed it",
                 weight: 10
             },
             {
-                name: "wolfed",
+                name: "munched on it",
                 weight: 10
             },
             {
-                name: "chowed",
+                name: "wolfed it down",
                 weight: 10
             },
             {
-                name: "chowed down",
+                name: "chowed it down",
                 weight: 10
             },
             {
-                name: "gobbled",
+                name: "gobbled it up",
                 weight: 10
             },
             {
-                name: "partook",
+                name: "partook it",
                 weight: 10
             },
         ]
@@ -2931,6 +2931,17 @@ class Food extends Gachable {
                 weight: 10
             },
         ]
+
+        this.mealShare = [
+            {
+                name: "sharing",
+                weight: 10
+            },
+            {
+                name: "eating",
+                weight: 10
+            },
+        ]
     }
 
     decideFood() {
@@ -2967,6 +2978,10 @@ class Food extends Gachable {
 
     decideEat() {
         return this.gachaDrawName(this.eat)
+    }
+    
+    decideMealShare() {
+        return this.gachaDrawName(this.mealShare)
     }
 
     decideFoodStuff() {

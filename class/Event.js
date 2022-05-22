@@ -20,9 +20,10 @@ class Event extends Gachable {
 
     // solo 
 
-    simpleArriveSolo = (denizens, movement, location) => {
-        const denizen = this.gachaDraw(denizens)
-        const local = this.gachaDraw(location)
+    simpleArriveSolo = () => {
+        const denizen = this.gachaDraw(this.denizens)
+        const movement = this.movement.decideMovement()
+        const local = this.gachaDraw(this.location)
         const loc = local.decideLocation()
         return `${denizen.name} ${movement} ${loc}.`
     }
@@ -93,6 +94,13 @@ class Event extends Gachable {
         // {Hicami} managed to sleep in {Guild Hall Meme Room}. They dreamed about {dinosaurs} and {the moon}. As they woke up, they {began to feel} {alright} about it.
 
         return `${denizen.name} managed to fall asleep in ${loc}. They dreamed about ${t1}, ${t2}, and ${t3}. As they woke up, they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} about it and ${this.action.decideExpression()}.`
+    }
+
+    butlerServeSolo = () => {
+
+        const d1 = this.gachaDraw(this.denizens)
+
+        return `The Butler served ${d1.name} some "${this.food.decideFoodStuff()}". Even though ${d1.name} ${this.feeling.decideHate()} it, they still ${this.food.decideEat()} and ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()}. It reminded them of ${this.topic.decideTopic()}.`
     }
 
 
@@ -343,6 +351,19 @@ class Event extends Gachable {
         // {It was a fine day} in {Rolling-kai's Tavern General}.{Hicami} was {thinking} about {life} as {RB} {tapped on their shoulder/grabbed their attention/crossed their vision}. They {ignored/waved to} {RB}, {though/nonetheless/nevertheless/even so}.
         return `${this.ambient.decideAmbient()} across ${loc}. ${d1.name} was ${this.action.decideThinking()} about ${this.topic.decideTopic()} as ${d2.name} ${this.action.decideTap()}. They ${this.action.decideRespond()} ${d2.name} and ${this.movement.decideContinue()} with their day.`
     }
+
+    eatTogether = () => {
+        let d1, d2
+
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const food = this.food.decideFoodStuff()
+
+        return `${d1.name} and ${d2.name} were ${this.food.decideMealShare()} "${food}" at ${loc}. ${this.ambient.decideAmbient()} and they ${this.action.decideSpeak()} about ${this.topic.decideTopic()} and ${this.topic.decideTopicEnder()}.`
+    }
     // end duo
 
     // Butler phrases
@@ -414,7 +435,7 @@ class Event extends Gachable {
         const solo = [
             {
                 // Cherub arrived to Reptile School
-                name: this.simpleArriveSolo(this.denizens, this.movement.decideMovement(), this.location),
+                name: this.simpleArriveSolo(),
                 weight: 10
             },
             {   // Ro11ingBoy froze at Dead Man's Plaza
@@ -460,8 +481,11 @@ class Event extends Gachable {
                 // {Hicami} managed to sleep in {Guild Hall Meme Room}. They dreamed about {dinosaurs} and {the moon}. As they woke up, they {began to feel} {alright} about it.
                 name: this.soloDream(),
                 weight: 10
+            },
+            {
+                name: this.butlerServeSolo(),
+                weight: 100000
             }
-
 
         ]
 
@@ -571,6 +595,10 @@ class Event extends Gachable {
                 name: this.mullingTapped(),
                 weight: 10
             },
+            {
+                name: this.eatTogether(),
+                weight: 10
+            },
         ]
 
         const butlerPhrases = [
@@ -590,7 +618,7 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 5
+                weight: 5000000
             },
             {
                 name: soloDualChain,
@@ -614,7 +642,7 @@ class Event extends Gachable {
             },
             {
                 name: food,
-                weight: 1000000
+                weight: 5
             },
         ]
 
