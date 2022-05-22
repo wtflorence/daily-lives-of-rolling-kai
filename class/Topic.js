@@ -1313,22 +1313,22 @@ class Topic extends Gachable {
                 
         this.theCasePositive = [
             {
-                name: "And that is indeed true",
+                name: "and that is indeed true",
                 weight: 10
             },
         ]
                 
         this.theCaseNegative = [
             {
-                name: "But that is not the case",
+                name: "but that is not the case",
                 weight: 10
             },
             {
-                name: "But it was just fake news",
+                name: "but it was just fake news",
                 weight: 10
             },
             {
-                name: "But there is no reality to that",
+                name: "but there is no reality to that",
                 weight: 10
             },
         ]

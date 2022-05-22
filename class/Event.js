@@ -73,13 +73,13 @@ class Event extends Gachable {
 
     }
 
-    firmBelieverPositive = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
-        const denizen = this.gachaDraw(denizens)
-        const t1 = topic.decideTopic()
+    firmBelieverPositive = () => {
+        const denizen = this.gachaDraw(this.denizens)
+        const t1 = this.topic.decideTopic()
 
         // {Many people} have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
 
-        return `${topic.decideLocals()} have accused ${denizen.name} of being a ${topic.decideBeliever()} of ${t1}. ${topic.decideTheCasePositive()}. ${denizen.name} ${feeling.decideLike()} ${t1} and they ${feeling.decideLinking()} ${feeling.decideFeeling()} whenever they ${action.decideThink()} about it.`
+        return `${this.topic.decideLocals()} have accused ${denizen.name} of being a ${this.topic.decideBeliever()} of ${t1} ${this.topic.decideTheCasePositive()}. ${denizen.name} ${this.feeling.decideLike()} ${t1} and they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} whenever they ${this.action.decideThink()} about it.`
     }
 
     soloDream = () => {
@@ -104,13 +104,13 @@ class Event extends Gachable {
     }
 
 
-    firmBelieverNegative = (denizens, movement, location, feeling, ambient, fight, action, topic) => {
-        const denizen = this.gachaDraw(denizens)
-        const t1 = topic.decideTopic()
+    firmBelieverNegative = () => {
+        const denizen = this.gachaDraw(this.denizens)
+        const t1 = this.topic.decideTopic()
 
         // {Many people} have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
 
-        return `${topic.decideLocals()} have accused ${denizen.name} of being a ${topic.decideBeliever()} of ${t1}. ${topic.decideTheCaseNegative()}. ${denizen.name} ${feeling.decideHate()} ${t1} and they ${feeling.decideLinking()} ${feeling.decideFeeling()} whenever they ${action.decideThink()} about it.`
+        return `${this.topic.decideLocals()} have accused ${denizen.name} of being a ${this.topic.decideBeliever()} of ${t1} ${this.topic.decideTheCaseNegative()}. ${denizen.name} ${this.feeling.decideHate()} ${t1} and they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} whenever they ${this.action.decideThink()} about it.`
     }
 
     // end solo
@@ -445,46 +445,46 @@ class Event extends Gachable {
             {
                 // Hicami have arrived to Mech School. They pondered for about an hour about volcanoes and its consequences
                 name: this.simpleArriveThoughtChain(this.denizens, this.movement.decideMovement(), this.location, this.action, this.topic),
-                weight: 10
+                weight: 25
             },
             {
                 // Ro11ingBoy wondered about art on the way to Dusk School. They stopped, spoke briefly, and proceeded. Noise clamoured somewhere
                 name: this.simpleThoughTopictWaitWhisperTopicEnderChain(this.denizens, this.movement, this.location, this.action, this.topic, this.ambient),
-                weight: 10
+                weight: 15
             },
             {
                 // cherub thought about life. the sun rose magnificently on the horizon as they pressed on. they have arrived at the tavern and kept thinking about its ways
                 name: this.simpleThoughtTopicAmbientContinueMovementThinkingTopicEnderChain(this.denizens, this.movement, this.location, this.action, this.topic, this.ambient),
-                weight: 10
+                weight: 15
             },
             {
                 // Cherub is on the way to Dead Man's Plaza and The place was dead silent and They suddenly thought over life and its implications. They shuddered at the thought.
                 name: this.simpleOtwThoughtAmbientTopicEnderExpressionChain(this.denizens, this.movement, this.location, this.action, this.topic, this.ambient),
-                weight: 10
+                weight: 33
             },
             {
                 // {On days like these} {RB} {felt} {lonely inside}. They {thought} about {life} and {its secrets} but they end up {brooding} about {dinosaurs} instead. {The sun rose magnificently on the horizon} and {RB} {continued} their day.
                 name: this.timesDenizenBrooding(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
-                weight: 10
+                weight: 45
             },
             {
                 // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
-                name: this.firmBelieverPositive(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
-                weight: 10
+                name: this.firmBelieverPositive(),
+                weight: 45
             },
             {
                 // Many people have accused {RB} of being a {firm believer} of {dinosaurs}. {But that is not the case/That is indeed true/But it was just fake news/But there is no reality to that}. {RB} {likes/loves/hates} {dinosaurs} and they feel {like they are about to throw up} whenever they {thought} about it
-                name: this.firmBelieverNegative(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
-                weight: 10
+                name: this.firmBelieverNegative(),
+                weight: 45
             },
             {
                 // {Hicami} managed to sleep in {Guild Hall Meme Room}. They dreamed about {dinosaurs} and {the moon}. As they woke up, they {began to feel} {alright} about it.
                 name: this.soloDream(),
-                weight: 10
+                weight: 85
             },
             {
                 name: this.butlerServeSolo(),
-                weight: 100000
+                weight: 1000000000000000000000
             }
 
         ]
@@ -618,11 +618,11 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 5000000
+                weight: 5000000000000
             },
             {
                 name: soloDualChain,
-                weight: 100
+                weight: 10
             },
             {
                 name: soloTripleChain,
@@ -642,7 +642,7 @@ class Event extends Gachable {
             },
             {
                 name: food,
-                weight: 5
+                weight: 7
             },
         ]
 
