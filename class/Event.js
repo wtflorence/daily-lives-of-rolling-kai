@@ -103,6 +103,14 @@ class Event extends Gachable {
         return `The Butler served ${d1.name} some "${this.food.decideFoodStuff()}". Even though ${d1.name} ${this.feeling.decideHate()} it, they still ${this.food.decideEat()} and ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()}. It reminded them of ${this.topic.decideTopic()}.`
     }
 
+    
+    butlerServeSoloLike = () => {
+
+        const d1 = this.gachaDraw(this.denizens)
+
+        return `The Butler served ${d1.name} some "${this.food.decideFoodStuff()}" and ${d1.name} ${this.feeling.decideLike()} it a lot. In fact, when they ${this.food.decideEat()}, they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} as it reminded them of ${this.topic.decideTopic()}.`
+    }
+
 
     firmBelieverNegative = () => {
         const denizen = this.gachaDraw(this.denizens)
@@ -284,7 +292,36 @@ class Event extends Gachable {
         const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
 
         // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
-        return `${d1.name} ${this.fight.decideAttack()}. ${d2.name} ${this.fight.decideDodge()} then ${this.fight.decideAttack()} back. But ${d1.name} ${this.fight.decideBlock()} ${d2Weapon} and countered with their ${d1Weapon}! ${d2.name} ${this.fight.decideAttack()} one last time but ${d1.name} delivered the ${this.fight.decideFinishing()} first. Then it was over. ${d1.name} ${this.fight.decideWin()}.`
+        return `${d1.name} ${this.fight.decideAttack()}. ${d2.name} ${this.fight.decideDodge()} then ${this.fight.decideAttack()} back. But ${d1.name} ${this.fight.decideBlock()} ${d2Weapon} and countered with their ${d1Weapon}! ${d2.name} ${this.fight.decideAttack()} one last time but ${d1.name} delivered the ${this.fight.decideFinishing()} first. It's over. ${d1.name} ${this.fight.decideWin()}.`
+    }
+
+    
+    suddenAttack() {
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
+        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
+
+        // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
+        return `${d1.name} ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()}. They ${this.fight.decideAttack()} ${d2.name} out of the blue in ${loc}! ${d2.name} ${this.fight.decideBlock()} ${d1.name}'s ${d1Weapon} in the nick of time and ${this.fight.decideAttack()} back screaming "${this.topic.decideTopic()} is ${this.topic.decideTopic()}!"`
+    }
+
+    spillFood() {
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
+        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
+
+        // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
+        return `${d1.name} ${this.movement.decideMovement()} towards ${loc}. They accidentally bumped against ${d2.name} and spilled their "${this.food.decideFoodStuff()}"! ${d2.name} got enraged about this and ${this.fight.decideAttack()} ${d1.name} to the face!` // fix face and enraged
     }
 
     // end fights
@@ -310,6 +347,19 @@ class Event extends Gachable {
         const local = this.gachaDraw(location)
 
         return `${ambient.decideAmbient()} as ${d1.name} ${movement.decideMovement()} ${local.decideLocation()}. They met ${d2.name} and ${action.decideSpeak()} about ${topic.decideTopic()}, ${topic.decideTopic()}, and ${topic.decideTopicEnder()}. ${d1.name} ${feeling.decideLinking()} ${feeling.decideFeeling()} from this.`
+
+    }
+
+    duoRepeat() {
+        let d1
+        let d2
+
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+        const t = this.topic.decideTopic()
+
+        return `${d1.name} found ${d2.name} at ${loc}, continuously repeating "${t}, ${t}, ${t}..!" to themselves. ${d1.name} ${this.action.decideExpression()} and ${d2.name} ${this.action.decideSnapBack()}.`
 
     }
 
@@ -484,9 +534,12 @@ class Event extends Gachable {
             },
             {
                 name: this.butlerServeSolo(),
-                weight: 1000000000000000000000
+                weight: 100
+            },
+            {
+                name: this.butlerServeSoloLike(),
+                weight: 100
             }
-
         ]
 
         const soloDualChain = [
@@ -569,36 +622,47 @@ class Event extends Gachable {
                 name: this.weaponCounter(),
                 weight: 10
             },
-
-
+            {
+                name: this.suddenAttack(),
+                weight: 10
+            },
+            {
+                name: this.spillFood(),
+                weight: 10000
+            },
         ]
 
         const duo = [
             {
                 name: this.simpleDuoTalkLocation(this.denizens, this.topic, this.location, this.feeling, this.action),
-                weight: 10
+                weight: 100
             },
             {
                 name: this.simpleAmbientLocationDuoTalk(this.denizens, this.topic, this.location, this.feeling, this.action, this.movement, this.ambient),
-                weight: 10
+                weight: 100
             },
             {
                 // change rest
                 name: this.duoArriveLocationTopicExpression(this.denizens, this.topic, this.location, this.feeling, this.action, this.movement, this.ambient),
-                weight: 10
+                weight: 100
             },
             {
                 name: this.findSplayed(),
-                weight: 10
+                weight: 25
             },
             {
                 name: this.mullingTapped(),
-                weight: 10
+                weight: 35
             },
             {
                 name: this.eatTogether(),
-                weight: 10
+                weight: 85
             },
+            {
+                name: this.duoRepeat(),
+                weight: 100000
+            },
+            
         ]
 
         const butlerPhrases = [
@@ -618,7 +682,7 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 5000000000000
+                weight: 5
             },
             {
                 name: soloDualChain,
@@ -626,15 +690,15 @@ class Event extends Gachable {
             },
             {
                 name: soloTripleChain,
-                weight: 100
+                weight: 10
             },
             {
                 name: fightScene,
-                weight: 100
+                weight: 10
             },
             {
                 name: duo,
-                weight: 100
+                weight: 100000
             },
             {
                 name: butlerPhrases,
@@ -642,7 +706,7 @@ class Event extends Gachable {
             },
             {
                 name: food,
-                weight: 7
+                weight: 10
             },
         ]
 

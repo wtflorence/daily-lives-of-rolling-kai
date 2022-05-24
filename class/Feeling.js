@@ -149,10 +149,6 @@ class Feeling extends Gachable {
                 weight: 10
             }, 
             {
-                name: "despises",
-                weight: 10
-            },
-            {
                 name: "admires",
                 weight: 10
             },
