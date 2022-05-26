@@ -120,8 +120,15 @@ class Event extends Gachable {
 
     indecisiveEat = () => {
         const d1 = this.gachaDraw(this.denizens)
-        // 5. {character} entered the {tavern} and is being indecisive with what they want to eat. {character} took too long to decide and ordered the entire menu
+
         return `${d1.name} ${this.movement.decideMovement()} the Tavern with a rather ${this.action.decideIndecision()} expression on their face. They ${this.action.decideExpression()} ${this.topic.decideDuration()}, and ${this.topic.decideInTheEnd()}, they simply ${this.action.decideOrderType()}.`
+    }
+
+    localsAdmire = () => {
+        const d1 = this.gachaDraw(this.denizens)
+        const t1 = this.topic.decideTopic()
+
+        return `${this.topic.decideLocals()} admire ${d1.name}'s ${this.topic.decideMastery()} in ${t1}. ${d1.name} even claims that they're the "${this.food.decideModifier()} ${this.food.decideModifier()} ${this.food.decideModifier()} ${this.food.decideMonster()} of ${t1}" and ${this.topic.decideNoArgument()}.`
     }
 
     // end solo
@@ -137,7 +144,7 @@ class Event extends Gachable {
     simpleArriveSoloFeelingAndChain = () => {
         const denizen = this.gachaDraw(this.denizens)
         const local = this.gachaDraw(this.location)
-        const loc = local.decideLocation()
+        const loc = local.decideLocation() 
         return `${denizen.name} ${this.movement.decideMovement()} ${loc} and they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()}.`
     }
 
@@ -310,9 +317,9 @@ class Event extends Gachable {
         [d1, d2] = this.gachaDrawTwo(this.denizens)
         const local = this.gachaDraw(this.location)
 
-        return `${d1.name} met ${d2.name} at ${local.decideLocation()}. They ${this.action.decideSpeak()} about ${this.topic.decideTopic()} ${this.topic.decideDuration()}. ${_.upperFirst(this.topic.decideInTheEnd())}, ${d2.name} ${this.action.decideThink()} about ${this.topic.decideTopicEnder()}.`
-
+        return `${d1.name} met ${d2.name} at ${local.decideLocation()} and they ${this.action.decideSpeak()} about ${this.topic.decideTopic()} ${this.topic.decideDuration()}. ${_.upperFirst(this.topic.decideInTheEnd())}, ${d2.name} ${this.action.decideThink()} about ${this.topic.decideTopicEnder()}.`
     }
+
     simpleAmbientLocationDuoTalk() {
         let d1
         let d2
@@ -473,15 +480,15 @@ class Event extends Gachable {
             },
             {
                 name: this.timesDenizenBrooding(this.denizens, this.movement, this.location, this.feeling, this.ambient, this.fight, this.action, this.topic),
-                weight: 45
+                weight: 65
             },
             {
                 name: this.firmBelieverPositive(),
-                weight: 45
+                weight: 50
             },
             {
                 name: this.firmBelieverNegative(),
-                weight: 45
+                weight: 50
             },
             {
                 name: this.soloDream(),
@@ -489,7 +496,7 @@ class Event extends Gachable {
             },
             {
                 name: this.butlerServeSolo(),
-                weight: 100
+                weight: 85
             },
             {
                 name: this.butlerServeSoloLike(),
@@ -546,7 +553,11 @@ class Event extends Gachable {
             },
             {
                 name: this.indecisiveEat(),
-                weight: 10000000000
+                weight: 85
+            },
+            {
+                name: this.localsAdmire(),
+                weight: 6500000000
             },
         ]
  
@@ -635,15 +646,15 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 5000000
+                weight: 10000000000
             }, 
             {
                 name: fightScene,
-                weight: 75
+                weight: 100
             },
             {
                 name: duo,
-                weight: 75
+                weight: 100
             },
             {
                 name: butlerPhrases,

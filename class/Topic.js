@@ -1282,6 +1282,14 @@ class Topic extends Gachable {
                 weight: 10
             }, 
             {
+                name: "The denizens of Rolling-kai",
+                weight: 10
+            }, 
+            {
+                name: "The explorers of Astra Explorers",
+                weight: 1
+            }, 
+            {
                 name: "Most denizens",
                 weight: 10
             }, 
@@ -1342,11 +1350,7 @@ class Topic extends Gachable {
             {
                 name: "after a while",
                 weight: 10
-            },
-            {
-                name: "after all",
-                weight: 10
-            },
+            }, 
             {
                 name: "at the end",
                 weight: 10
@@ -1395,8 +1399,102 @@ class Topic extends Gachable {
                 weight: 10
             },
         ]
+                        
+        this.mastery = [
+            {
+                name: "mastery",
+                weight: 10
+            },
+            {
+                name: "proficiency",
+                weight: 10
+            },
+            {
+                name: "ability",
+                weight: 10
+            },
+            {
+                name: "unparalleled skill",
+                weight: 10
+            },
+            {
+                name: "genius",
+                weight: 10
+            },
+            {
+                name: "finesse",
+                weight: 10
+            },
+            {
+                name: "virtuosity",
+                weight: 10
+            },
+            {
+                name: "wizardry",
+                weight: 10
+            },
+            {
+                name: "adroitness",
+                weight: 10
+            },
+            {
+                name: "expertness",
+                weight: 10
+            },
+            {
+                name: "mastership",
+                weight: 10
+            },
+            {
+                name: "power",
+                weight: 10
+            },
+            {
+                name: "capacity",
+                weight: 10
+            },
+        ]
 
+        this.noArgument = [
+            {
+                name: "no one could really argue about it",
+                weight: 30
+            },
+            {
+                name: "there's really no argument about it",
+                weight: 10
+            },
+            {
+                name: "there's really no argument about that",
+                weight: 10
+            },
+            {
+                name: "they're saying that it's not really negotiable",
+                weight: 10
+            },
+            {
+                name: "no one ever denies that",
+                weight: 10
+            },
+            {
+                name: "everyone agrees to that",
+                weight: 10
+            },
+            {
+                name: "the majority agrees to that",
+                weight: 10
+            },
+            {
+                name: "everyone respects that",
+                weight: 10
+            }, 
+            {
+                name: "everyone liked that",
+                weight: 10
+            }, 
+        ]
         
+
     }
 
 
@@ -1432,7 +1530,15 @@ class Topic extends Gachable {
     decideBeliever() {
         return this.gachaDrawName(this.believer)
     }
+    
+    decideMastery() {
+        return this.gachaDrawName(this.mastery)
+    } 
 
+    decideNoArgument() {
+        return this.gachaDrawName(this.noArgument)
+    }
+    
     decideTheCasePositive() {
         return this.gachaDrawName(this.theCasePositive)
     }
