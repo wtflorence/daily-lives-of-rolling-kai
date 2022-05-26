@@ -14,11 +14,11 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
-                name: "It is a fine day",
+                name: "It was a fine day",
                 weight: 10
             },
             {
-                name: "The day is exceptional",
+                name: "The day was exceptional",
                 weight: 10
             },
             {

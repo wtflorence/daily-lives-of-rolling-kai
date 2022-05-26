@@ -370,6 +370,10 @@ class Topic extends Gachable {
                 weight: 10
             },
             {
+                name: "skin care",
+                weight: 10
+            },
+            {
                 name: "their signature move",
                 weight: 10
             },

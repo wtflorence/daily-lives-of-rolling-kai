@@ -249,6 +249,49 @@ class Action extends Gachable {
                 name: "caught the horror of the situation",
                 weight: 1
             }, 
+        ]     
+
+        this.bump = [
+            {
+                name: "bumped",
+                weight: 10
+            },
+            {
+                name: "nudged",
+                weight: 10
+            },
+            {
+                name: "crashed",
+                weight: 10
+            },
+            {
+                name: "jerked",
+                weight: 10
+            },
+            {
+                name: "thumped",
+                weight: 10
+            },
+            {
+                name: "smacked",
+                weight: 10
+            },
+            {
+                name: "slammed",
+                weight: 10
+            },
+            {
+                name: "knocked",
+                weight: 10
+            },
+            {
+                name: "whacked",
+                weight: 10
+            },
+            {
+                name: "smashed",
+                weight: 10
+            },
         ]
 
         // tapped on their shoulder/grabbed their attention/crossed their vision
@@ -286,6 +329,45 @@ class Action extends Gachable {
                 weight: 5
             },
         ]
+        
+        this.rage = [
+            {
+                name: "got enraged",
+                weight: 10
+            },
+            {
+                name: "got mad",
+                weight: 10
+            },
+            {
+                name: "went apeshit",
+                weight: 10
+            },
+            {
+                name: "got angry",
+                weight: 10
+            },
+            {
+                name: "got provoked",
+                weight: 10
+            },
+            {
+                name: "got riled-up",
+                weight: 10
+            },
+            {
+                name: "got irritated",
+                weight: 10
+            },
+            {
+                name: "got infuriated",
+                weight: 10
+            },
+            {
+                name: "went beastmode",
+                weight: 10
+            },
+        ]
     }
 
     decideSpeak() {
@@ -318,6 +400,14 @@ class Action extends Gachable {
 
     decideRespond() {
         return this.gachaDrawName(this.respond)
+    }
+
+    decideBump() {
+        return this.gachaDrawName(this.bump)
+    }
+
+    decideRage() {
+        return this.gachaDrawName(this.rage)
     }
 }
 

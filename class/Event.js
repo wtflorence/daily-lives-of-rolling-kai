@@ -1,4 +1,5 @@
 const Gachable = require("./Gachable")
+const _ = require('lodash');
 
 class Event extends Gachable {
 
@@ -232,7 +233,6 @@ class Event extends Gachable {
 
 
         const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
-        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
 
         return `${ambient.decideAmbient()} as ${d1.name} ${fight.decideInitiate()} a ${fight.decideBattle()}. Taking the initiative, ${d1.name} ${fight.decideAttack()}. ${d2.name} ${fight.decideDodge()} then ${fight.decideAttack()} back. ${d1.name} ${fight.decideCaught()} ${fight.decideDamage()}! ${d1.name} ${fight.decideAttack()} ${d2.name} with their ${d1Weapon} and ${d2.name} ${fight.decideFaint()}`
     }
@@ -256,10 +256,6 @@ class Event extends Gachable {
         let d1, d2
         [d1, d2] = this.gachaDrawTwo(this.denizens)
 
-        const local = this.gachaDraw(this.location)
-        const loc = local.decideLocation()
-
-        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
         const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
 
         // {Kuro} {struck} {RB} so hard that they regained former memory of {dinosaurs}. {RB} {winced}, {attacked} with their {bare fists} and {Kuro} {slammed to the ground}.
@@ -271,12 +267,6 @@ class Event extends Gachable {
         let d1, d2
         [d1, d2] = this.gachaDrawTwo(this.denizens)
 
-        const local = this.gachaDraw(this.location)
-        const loc = local.decideLocation()
-
-        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
-        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
-
         // {Hicami} was fighting with {RB} when an old memory struck their mind. They recalled about {dinosaurs} and {its secrets} and this helped change the outcome of the fight. {Hicami} {dashed} {RB} and dealt a {critical hit}! {RB} {fainted}.
         return `${d1.name} was fighting ${d2.name} when an old memory struck their mind. They recalled about ${this.topic.decideTopic()} and ${this.topic.decideTopicEnder()} and this helped change the outcome of the fight! ${d1.name} ${this.fight.decideAttack()} ${d2.name} and dealt the ${this.fight.decideFinishing()}!`
     }
@@ -284,9 +274,6 @@ class Event extends Gachable {
     weaponCounter() {
         let d1, d2
         [d1, d2] = this.gachaDrawTwo(this.denizens)
-
-        const local = this.gachaDraw(this.location)
-        const loc = local.decideLocation()
 
         const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
         const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
@@ -304,7 +291,6 @@ class Event extends Gachable {
         const loc = local.decideLocation()
 
         const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
-        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
 
         // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
         return `${d1.name} ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()}. They ${this.fight.decideAttack()} ${d2.name} out of the blue in ${loc}! ${d2.name} ${this.fight.decideBlock()} ${d1.name}'s ${d1Weapon} in the nick of time and ${this.fight.decideAttack()} back screaming "${this.topic.decideTopic()} is ${this.topic.decideTopic()}!"`
@@ -317,11 +303,8 @@ class Event extends Gachable {
         const local = this.gachaDraw(this.location)
         const loc = local.decideLocation()
 
-        const d1Weapon = this.gachaDrawName(this.gachafy(d1.flavour.weapons))
-        const d2Weapon = this.gachaDrawName(this.gachafy(d2.flavour.weapons))
-
         // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
-        return `${d1.name} ${this.movement.decideMovement()} towards ${loc}. They accidentally bumped against ${d2.name} and spilled their "${this.food.decideFoodStuff()}"! ${d2.name} got enraged about this and ${this.fight.decideAttack()} ${d1.name} to the face!` // fix face and enraged
+        return `${d1.name} ${this.movement.decideMovement()} towards ${loc}. They accidentally ${this.action.decideBump()} against ${d2.name} and spilled their "${this.food.decideFoodStuff()}". ${d2.name} ${this.action.decideRage()} about this and ${this.fight.decideAttack()} ${d1.name} to the face!` // fix face and enraged
     }
 
     // end fights
@@ -413,6 +396,19 @@ class Event extends Gachable {
         const food = this.food.decideFoodStuff()
 
         return `${d1.name} and ${d2.name} were ${this.food.decideMealShare()} "${food}" at ${loc}. ${this.ambient.decideAmbient()} and they ${this.action.decideSpeak()} about ${this.topic.decideTopic()} and ${this.topic.decideTopicEnder()}.`
+    }
+
+    importanter = () => {
+        let d1, d2
+
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        const food = this.food.decideFoodStuff()
+
+        return `${this.ambient.decideAmbient()} and ${d1.name} said, "${_.upperFirst(this.topic.decideTopic())} is important but ${_.upperFirst(this.topic.decideTopic())} is importanter". However, ${d2.name} simply ${this.action.decideExpression()} and ${this.movement.decideContinue()} with their day.`
     }
     // end duo
 
@@ -539,42 +535,43 @@ class Event extends Gachable {
             {
                 name: this.butlerServeSoloLike(),
                 weight: 100
-            }
-        ]
-
-        const soloDualChain = [
+            },
+            {
+                name: this.simpleAmbientArriveSoloFeelingChain(this.denizens, this.movement.decideWait(), this.feeling, this.ambient.decideAmbient()),
+                weight: 10
+            },
             {
                 name: this.simpleArriveWaitChain(this.denizens, this.movement, this.location),
-                weight: 2
+                weight: 5
             },
             {
                 name: this.simpleWaitArriveChain(this.denizens, this.movement, this.location),
-                weight: 2
+                weight: 5
             },
             {
                 name: this.simpleArriveAmbientChain(this.denizens, this.movement.decideMovement(), this.location, this.ambient.decideAmbient()),
-                weight: 5
+                weight: 10
             },
             {
                 name: this.simpleAmbientArriveChain(this.denizens, this.movement.decideMovement(), this.location, this.ambient.decideAmbient()),
-                weight: 5
+                weight: 10
             },
             {
                 name: this.simpleAmbientArriveAsChain(this.denizens, this.movement.decideMovement(), this.location, this.ambient.decideAmbient()),
-                weight: 5
+                weight: 10
             },
             {
                 name: this.simpleArriveSoloFeelingChain(this.denizens, this.movement.decideMovement(), this.location, this.feeling),
-                weight: 5
+                weight: 10
             },
 
             {
                 name: this.simpleWaitSoloFeelingChain(this.denizens, this.movement.decideWait(), this.location, this.feeling),
-                weight: 5
+                weight: 10
             },
             {
                 name: this.simpleWaitSoloFeelingAsChain(this.denizens, this.movement.decideWait(), this.location, this.feeling),
-                weight: 5
+                weight: 10
             },
             {
                 name: this.simpleWaitSoloFeelingAndChain(this.denizens, this.movement.decideWait(), this.location, this.feeling),
@@ -589,14 +586,7 @@ class Event extends Gachable {
                 weight: 10
             },
         ]
-
-        const soloTripleChain = [
-            {
-                name: this.simpleAmbientArriveSoloFeelingChain(this.denizens, this.movement.decideWait(), this.feeling, this.ambient.decideAmbient()),
-                weight: 10
-            },
-        ]
-
+ 
         const fightScene = [
             {
                 name: this.fightOneSidedD1Win(this.denizens, this.ambient, this.location, this.fight),
@@ -628,7 +618,7 @@ class Event extends Gachable {
             },
             {
                 name: this.spillFood(),
-                weight: 10000
+                weight: 10
             },
         ]
 
@@ -660,8 +650,12 @@ class Event extends Gachable {
             },
             {
                 name: this.duoRepeat(),
-                weight: 100000
+                weight: 85
             },
+            {
+                name: this.importanter(),
+                weight: 85
+            }
             
         ]
 
@@ -682,23 +676,15 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 5
-            },
-            {
-                name: soloDualChain,
-                weight: 10
-            },
-            {
-                name: soloTripleChain,
-                weight: 10
-            },
+                weight: 50
+            }, 
             {
                 name: fightScene,
-                weight: 10
+                weight: 75
             },
             {
                 name: duo,
-                weight: 100000
+                weight: 75
             },
             {
                 name: butlerPhrases,
@@ -706,9 +692,11 @@ class Event extends Gachable {
             },
             {
                 name: food,
-                weight: 10
+                weight: 15
             },
         ]
+
+        // console.log(JSON.stringify(events));
 
         const event = this.gachaDrawName(events)
         return this.gachaDrawName(event)
