@@ -118,6 +118,12 @@ class Event extends Gachable {
         return `${this.topic.decideLocals()} have accused ${denizen.name} of being a ${this.topic.decideBeliever()} of ${t1} ${this.topic.decideTheCaseNegative()}. ${denizen.name} ${this.feeling.decideHate()} ${t1} and they ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} whenever they ${this.action.decideThink()} about it.`
     }
 
+    indecisiveEat = () => {
+        const d1 = this.gachaDraw(this.denizens)
+        // 5. {character} entered the {tavern} and is being indecisive with what they want to eat. {character} took too long to decide and ordered the entire menu
+        return `${d1.name} ${this.movement.decideMovement()} the Tavern with a rather ${this.action.decideIndecision()} expression on their face. They ${this.action.decideExpression()} ${this.topic.decideDuration()}, and ${this.topic.decideInTheEnd()}, they simply ${this.action.decideOrderType()}.`
+    }
+
     // end solo
 
     simpleArriveSoloFeelingChain = () => {
@@ -304,7 +310,7 @@ class Event extends Gachable {
         [d1, d2] = this.gachaDrawTwo(this.denizens)
         const local = this.gachaDraw(this.location)
 
-        return `${d1.name} met ${d2.name} at ${local.decideLocation()}. They ${this.action.decideSpeak()} about ${this.topic.decideTopic()} ${this.topic.decideDuration()}. In the end, ${d2.name} ${this.action.decideThink()} about ${this.topic.decideTopicEnder()}.`
+        return `${d1.name} met ${d2.name} at ${local.decideLocation()}. They ${this.action.decideSpeak()} about ${this.topic.decideTopic()} ${this.topic.decideDuration()}. ${_.upperFirst(this.topic.decideInTheEnd())}, ${d2.name} ${this.action.decideThink()} about ${this.topic.decideTopicEnder()}.`
 
     }
     simpleAmbientLocationDuoTalk() {
@@ -538,6 +544,10 @@ class Event extends Gachable {
                 name: this.simpleArriveSoloFeelingAsChain(),
                 weight: 10
             },
+            {
+                name: this.indecisiveEat(),
+                weight: 10000000000
+            },
         ]
  
         const fightScene = [
@@ -625,7 +635,7 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 50
+                weight: 5000000
             }, 
             {
                 name: fightScene,

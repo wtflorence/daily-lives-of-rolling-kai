@@ -167,10 +167,6 @@ class Action extends Gachable {
                 weight: 10
             },
             {
-                name: "spat",
-                weight: 10
-            },
-            {
                 name: "smiled",
                 weight: 10
             },
@@ -329,6 +325,83 @@ class Action extends Gachable {
                 weight: 5
             },
         ]
+
+                
+        this.indecision = [
+            {
+                name: "indecisive",
+                weight: 10
+            },
+            {
+                name: "reluctant",
+                weight: 10
+            },
+            {
+                name: "hesitant",
+                weight: 10
+            },
+            {
+                name: "unsure",
+                weight: 10
+            },
+            {
+                name: "unclear",
+                weight: 10
+            },
+            {
+                name: "inconclusive",
+                weight: 10
+            },
+            {
+                name: "undecided",
+                weight: 10
+            },
+            {
+                name: "wavering",
+                weight: 10
+            }, 
+        ]
+                
+        this.orderType = [
+            {
+                name: "ordered the entire menu",
+                weight: 10
+            },
+            {
+                name: "left the premises",
+                weight: 1
+            },
+            {
+                name: "left the place",
+                weight: 1
+            },
+            {
+                name: "ordered the best seller",
+                weight: 10
+            },
+            {
+                name: "ordered the least popular dish",
+                weight: 6
+            },
+            {
+                name: "ordered something random",
+                weight: 8
+            },
+            {
+                name: "ordered everything",
+                weight: 10
+            },
+            {
+                name: "ordered water",
+                weight: 2
+            },
+            {
+                name: "ordered nothing",
+                weight: 4
+            },
+        ]
+
+        
         
         this.rage = [
             {
@@ -384,6 +457,14 @@ class Action extends Gachable {
     
     decideExpression() {
         return this.gachaDrawName(this.expression)
+    }    
+
+    decideIndecision() {
+        return this.gachaDrawName(this.indecision)
+    }
+
+    decideOrderType() {
+        return this.gachaDrawName(this.orderType)
     }
 
     decideFound() {

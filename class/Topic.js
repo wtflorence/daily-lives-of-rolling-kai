@@ -1321,6 +1321,65 @@ class Topic extends Gachable {
                 weight: 10
             },
         ]
+
+        this.inTheEnd = [
+            {
+                name: "in the end",
+                weight: 10
+            },
+            {
+                name: "eventually",
+                weight: 10
+            },
+            {
+                name: "sooner or later",
+                weight: 10
+            },
+            {
+                name: "ultimately",
+                weight: 10
+            },
+            {
+                name: "after a while",
+                weight: 10
+            },
+            {
+                name: "after all",
+                weight: 10
+            },
+            {
+                name: "at the end",
+                weight: 10
+            },
+            {
+                name: "at the eleventh hour",
+                weight: 10
+            },
+            {
+                name: "at length",
+                weight: 10
+            },
+            {
+                name: "at long last",
+                weight: 10
+            },
+            {
+                name: "despite the delay",
+                weight: 10
+            },
+            {
+                name: "in conclusion",
+                weight: 10
+            },
+            {
+                name: "in spite of all",
+                weight: 10
+            },
+            {
+                name: "in the eleventh hour",
+                weight: 10
+            },
+        ]
                 
         this.theCaseNegative = [
             {
@@ -1380,6 +1439,10 @@ class Topic extends Gachable {
 
     decideTheCaseNegative() {
         return this.gachaDrawName(this.theCaseNegative)
+    }
+
+    decideInTheEnd() {
+        return this.gachaDrawName(this.inTheEnd)
     }
 }
 
