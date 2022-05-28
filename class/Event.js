@@ -140,6 +140,15 @@ class Event extends Gachable {
         return `${d1.name} ${this.movement.decideMovement()} ${loc} and ${d1.name} ${this.action.decideThink()} why they went to there in the first place. They ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} and ${this.movement.decideContinue()} with their day.`
     }
 
+    
+    spoilSelf = () => {
+        const d1 = this.gachaDraw(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        return `${d1.name} ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} as they ${this.movement.decideMovement()} Rolling-kai's Tavern General. They decided to spoil theirself and bought a "${this.food.decideFoodStuff()}". ${_.upperFirst(this.topic.decideInTheEnd())}, the food arrived. But ${d1.name} dropped it in extreme excitement.`
+    }
     // end solo
 
     simpleArriveSoloFeelingChain = () => {
@@ -570,6 +579,10 @@ class Event extends Gachable {
             },
             {
                 name: this.arriveConfused(),
+                weight: 50
+            },
+            {
+                name: this.spoilSelf(),
                 weight: 6500000000
             },
         ]

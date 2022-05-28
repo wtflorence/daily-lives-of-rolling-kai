@@ -1354,11 +1354,7 @@ class Topic extends Gachable {
             {
                 name: "at the end",
                 weight: 10
-            },
-            {
-                name: "at the eleventh hour",
-                weight: 10
-            },
+            }, 
             {
                 name: "at length",
                 weight: 10
@@ -1378,11 +1374,7 @@ class Topic extends Gachable {
             {
                 name: "in spite of all",
                 weight: 10
-            },
-            {
-                name: "in the eleventh hour",
-                weight: 10
-            },
+            }, 
         ]
                 
         this.theCaseNegative = [
