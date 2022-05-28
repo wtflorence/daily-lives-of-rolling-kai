@@ -131,6 +131,15 @@ class Event extends Gachable {
         return `${this.topic.decideLocals()} admire ${d1.name}'s ${this.topic.decideMastery()} in ${t1}. ${d1.name} even claims that they're the "${this.food.decideModifier()} ${this.food.decideModifier()} ${this.food.decideModifier()} ${this.food.decideMonster()} of ${t1}" and ${this.topic.decideNoArgument()}.`
     }
 
+    arriveConfused = () => {
+        const d1 = this.gachaDraw(this.denizens)
+
+        const local = this.gachaDraw(this.location)
+        const loc = local.decideLocation()
+
+        return `${d1.name} ${this.movement.decideMovement()} ${loc} and ${d1.name} ${this.action.decideThink()} why they went to there in the first place. They ${this.feeling.decideLinking()} ${this.feeling.decideFeeling()} and ${this.movement.decideContinue()} with their day.`
+    }
+
     // end solo
 
     simpleArriveSoloFeelingChain = () => {
@@ -557,6 +566,10 @@ class Event extends Gachable {
             },
             {
                 name: this.localsAdmire(),
+                weight: 65
+            },
+            {
+                name: this.arriveConfused(),
                 weight: 6500000000
             },
         ]

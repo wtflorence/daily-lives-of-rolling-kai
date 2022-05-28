@@ -1462,27 +1462,27 @@ class Topic extends Gachable {
             },
             {
                 name: "there's really no argument about it",
-                weight: 10
+                weight: 5
             },
             {
                 name: "there's really no argument about that",
-                weight: 10
+                weight: 15
             },
             {
                 name: "they're saying that it's not really negotiable",
-                weight: 10
+                weight: 5
             },
             {
                 name: "no one ever denies that",
-                weight: 10
+                weight: 5
             },
             {
                 name: "everyone agrees to that",
-                weight: 10
+                weight: 5
             },
             {
                 name: "the majority agrees to that",
-                weight: 10
+                weight: 5
             },
             {
                 name: "everyone respects that",
@@ -1490,7 +1490,7 @@ class Topic extends Gachable {
             }, 
             {
                 name: "everyone liked that",
-                weight: 10
+                weight: 1
             }, 
         ]
         
