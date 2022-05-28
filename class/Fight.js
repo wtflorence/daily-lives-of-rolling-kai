@@ -519,11 +519,7 @@ class Fight extends Gachable {
             {
                 name: "swore",
                 weight: 8
-            },
-            {
-                name: "bad-mouthed",
-                weight: 5
-            },           
+            }, 
             {
                 name: "hissed",
                 weight: 2
@@ -537,11 +533,22 @@ class Fight extends Gachable {
                 weight: 10
             },           
             {
-                name: "hissed",
+                name: "spat",
+                weight: 10
+            },
+            {
+                name: "rampaged",
+                weight: 10
+            },
+            {
+                name: "fumed",
+                weight: 10
+            },
+            {
+                name: "screamed",
                 weight: 10
             },
         ]
-
         
         this.finishing = [
             {

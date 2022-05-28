@@ -2942,6 +2942,37 @@ class Food extends Gachable {
                 weight: 10
             },
         ]
+
+        this.accident = [
+            {
+                name: "dropped it",
+                weight: 10
+            },
+            {
+                name: "ate it",
+                weight: 10
+            },
+            {
+                name: "got the wrong order",
+                weight: 10
+            },
+            {
+                name: "destroyed it",
+                weight: 10
+            },
+            {
+                name: "deleted it",
+                weight: 10
+            },
+            {
+                name: "slipped",
+                weight: 10
+            },
+            {
+                name: "devoured it",
+                weight: 10
+            },
+        ]
     }
 
     decideFood() {
@@ -2972,6 +3003,10 @@ class Food extends Gachable {
         return this.gachaDrawName(this.foodPrefix)
     }
 
+    decideAccident() {
+        return this.gachaDrawName(this.accident)
+    }
+
     decideFoodType() {
         return this.gachaDrawName(this.foodType)
     }
@@ -2982,6 +3017,15 @@ class Food extends Gachable {
     
     decideMealShare() {
         return this.gachaDrawName(this.mealShare)
+    }
+    
+    decideEntity() {
+        let m1, m2
+        [m1, m2] = this.gachaDrawTwo(this.modifier)
+
+        const monster = this.gachaDraw(this.monster)
+
+        return `${m1.name} ${m2.name} ${monster.name}`
     }
 
     decideFoodStuff() {

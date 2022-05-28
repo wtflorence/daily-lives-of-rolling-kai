@@ -1,6 +1,5 @@
 const gacha = require("simple-gacha");
 
-
 class Gachable {
     constructor() {
 
@@ -18,12 +17,12 @@ class Gachable {
     gachaDrawTwo(loot) {
         const d1 = gacha.simple(loot).pick
         let d2
-        
+
         do {
             d2 = gacha.simple(loot).pick
         }
         while (d2.name == d1.name)
-        
+
         return [d1, d2]
     }
 
@@ -39,6 +38,11 @@ class Gachable {
         }
 
         return loot
+    }
+
+    decideIndefiniteArticle(string) {
+        // if vowel start, return "an"
+        return /[aeiou]/i.test(string[0]) ? "an" : "a"
     }
 }
 

@@ -1,4 +1,5 @@
 const Gachable = require('./Gachable')
+const _ = require('lodash');
 
 class Feeling extends Gachable {
 
@@ -20,23 +21,8 @@ class Feeling extends Gachable {
                 weight: 10
             },
         ]
-        this.feelings = [
-            {
-                name: "tired",
-                weight: 10
-            },
-            {
-                name: "sleepy",
-                weight: 10
-            },
-            {
-                name: "energized",
-                weight: 10
-            },
-            {
-                name: "prepared",
-                weight: 10
-            },
+
+        this.feelingsPositive = [
             {
                 name: "cute",
                 weight: 1
@@ -54,23 +40,7 @@ class Feeling extends Gachable {
                 weight: 10
             },
             {
-                name: "confused",
-                weight: 10
-            },
-            {
-                name: "alert",
-                weight: 10
-            },
-            {
-                name: "apprehensive",
-                weight: 10
-            },
-            {
                 name: "glorious",
-                weight: 10
-            },
-            {
-                name: "bad",
                 weight: 10
             },
             {
@@ -90,7 +60,29 @@ class Feeling extends Gachable {
                 weight: 10
             },
             {
-                name: "weird",
+                name: "invincible",
+                weight: 7
+            },
+            {
+                name: "excited",
+                weight: 10
+            },
+        ]
+        this.feelingsNegative = [
+            {
+                name: "confused",
+                weight: 10
+            },
+            {
+                name: "alert",
+                weight: 10
+            },
+            {
+                name: "apprehensive",
+                weight: 10
+            },
+            {
+                name: "bad",
                 weight: 10
             },
             {
@@ -100,18 +92,6 @@ class Feeling extends Gachable {
             {
                 name: "restless",
                 weight: 7
-            },
-            {
-                name: "invincible",
-                weight: 7
-            },
-            {
-                name: "vulnerable",
-                weight: 7
-            },
-            {
-                name: "nasty",
-                weight: 8
             },
             {
                 name: "aloof",
@@ -138,6 +118,38 @@ class Feeling extends Gachable {
                 weight: 10
             },
         ]
+        this.feelingsNeutral = [
+            {
+                name: "tired",
+                weight: 10
+            },
+            {
+                name: "sleepy",
+                weight: 10
+            },
+            {
+                name: "energized",
+                weight: 10
+            },
+            {
+                name: "prepared",
+                weight: 10
+            },
+            {
+                name: "weird",
+                weight: 10
+            },
+            {
+                name: "vulnerable",
+                weight: 7
+            },
+            {
+                name: "nasty",
+                weight: 8
+            },
+        ]
+        
+        this.feelings = _.union(this.feelingsNegative, this.feelingsNeutral, this.feelingsPositive)
 
         this.likes = [
             {
@@ -193,6 +205,18 @@ class Feeling extends Gachable {
 
     decideFeeling() {
         return this.gachaDrawName(this.feelings)
+    }
+    
+    decideFeelingPositive() {
+        return this.gachaDrawName(this.feelingsPositive)
+    }
+    
+    decideFeelingNegative() {
+        return this.gachaDrawName(this.feelingsNegative)
+    }
+    
+    decideFeelingNeutral() {
+        return this.gachaDrawName(this.feelingsNeutral)
     }
 
     decideLike() {

@@ -1107,36 +1107,24 @@ class Topic extends Gachable {
         this.duration = [
             // they talked about TOPIC "for a few moments"
             {
-                name: "for a few moments",
+                name: "a few moments",
                 weight: 10
             },
             {
-                name: "for a few minutes",
+                name: "a few minutes",
                 weight: 10
             },
 
             {
-                name: "for about an hour",
+                name: "about an hour",
                 weight: 10
             },
             {
-                name: "for about an hour or two",
+                name: "about an hour or two",
                 weight: 10
             },
             {
-                name: "briefly",
-                weight: 10
-            },
-            {
-                name: "hastily",
-                weight: 1
-            },
-            {
-                name: "for more than 2 hours",
-                weight: 1
-            },
-            {
-                name: "until sunrise",
+                name: "more than 2 hours",
                 weight: 1
             },
         ]
