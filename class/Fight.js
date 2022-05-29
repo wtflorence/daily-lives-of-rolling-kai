@@ -530,23 +530,19 @@ class Fight extends Gachable {
             },         
             {
                 name: "raged",
-                weight: 10
+                weight: 1
             },           
             {
                 name: "spat",
                 weight: 10
-            },
-            {
-                name: "rampaged",
-                weight: 10
-            },
+            }, 
             {
                 name: "fumed",
                 weight: 10
             },
             {
                 name: "screamed",
-                weight: 10
+                weight: 1
             },
         ]
         

@@ -82,6 +82,10 @@ class Dialogue extends Gachable {
                 weight: 100
             },  
             {
+                name: "Hbfhgshjgk...",
+                weight: 1
+            },  
+            {
                 name: "Okay...?",
                 weight: 100
             },   

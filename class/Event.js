@@ -428,14 +428,16 @@ class Event extends Gachable {
 
         return `${this.ambient.decideAmbient()} and ${d1.name} said, "${_.upperFirst(this.topic.decideTopic())} is important but ${_.upperFirst(this.topic.decideTopic())} is importanter". However, ${d2.name} simply ${this.action.decideExpression()} and ${this.movement.decideContinue()} with their day.`
     }
+    // end duo
 
+    // dialogues 
     beachSide = () => {
         let d1, d2
         [d1, d2] = this.gachaDrawTwo(this.denizens)
 
         return `${this.ambient.decideAmbient()} at the beach side as ${d1.name} and ${d2.name} ${this.action.decideSpeak()} to each other. ${d1.name} said, "${_.upperFirst(this.topic.decideTopic())}... That's the most important thing for me." ${d2.name} ${this.action.decideThink()} for ${this.topic.decideDuration()} and ${this.topic.decideInTheEnd()}, nodded.`
     }
-    
+
     youKnowWhat = () => {
         let d1, d2
         [d1, d2] = this.gachaDrawTwo(this.denizens)
@@ -443,8 +445,18 @@ class Event extends Gachable {
         return `"You know what, ${d2.name}?", ${d1.name} ${this.action.decideSpeak()}. "${this.dialogue.decideHmm()}", ${d2.name} replied. "${_.upperFirst(this.topic.decideTopic())}... It's amazing", added ${d1.name}. "${this.dialogue.decideAgree()}", concluded ${d2.name}.`
     }
 
+    didYouHearThat = () => {
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
 
-    // end duo
+        let s1, s2
+        [s1, s2] = this.gachaDrawTwo(this.ambient.sound)
+
+        return `${s1.name}. "Shh", ${d1.name} ${this.action.decideWhisper()}, "did you hear that?" ${d2.name} strained their ears and ${_.toLower(s2.name)}. "${this.dialogue.decideHmm()}", they ${this.action.decideWhisper()}.` // add more sounds
+    }
+
+    // end dialogues
+
 
     // Butler phrases
     customButlerPhrase = () => {
@@ -705,10 +717,6 @@ class Event extends Gachable {
                 name: this.importanter,
                 weight: 85
             },
-            {
-                name: this.beachSide,
-                weight: 65
-            },
         ]
 
         const butlerPhrases = [
@@ -728,7 +736,15 @@ class Event extends Gachable {
         const dialogue = [
             {
                 name: this.youKnowWhat,
-                weight: 10
+                weight: 65
+            },
+            {
+                name: this.beachSide,
+                weight: 65
+            },
+            {
+                name: this.didYouHearThat,
+                weight: 1599999999
             },
         ]
 
@@ -760,7 +776,7 @@ class Event extends Gachable {
         ]
 
         // console.log(JSON.stringify(events));
-        // console.log(solo.length + fightScene.length + duo.length + butlerPhrases.length + food.length)
+        console.log(solo.length + fightScene.length + duo.length + butlerPhrases.length + food.length + dialogue.length)
 
         const event = this.gachaDrawName(events)
         const fn = this.gachaDrawName(event)

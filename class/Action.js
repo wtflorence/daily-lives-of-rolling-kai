@@ -8,21 +8,9 @@ class Action extends Gachable {
             {
                 name: "spoke",
                 weight: 50
-            },
+            }, 
             {
-                name: "whispered",
-                weight: 5
-            },
-            {
-                name: "murmured",
-                weight: 10
-            },
-            {
-                name: "mumbled",
-                weight: 5
-            },
-            {
-                name: "told",
+                name: "began",
                 weight: 1
             },
             {
@@ -34,13 +22,30 @@ class Action extends Gachable {
                 weight: 2
             },
             {
-                name: "muttered",
-                weight: 5
-            },
-            {
                 name: "inquired",
                 weight: 5
-            }, 
+            },
+        ]
+
+
+        this.whisper = [
+            {
+                name: "whispered",
+                weight: 10
+            },
+
+            {
+                name: "muttered",
+                weight: 10
+            },
+            {
+                name: "murmured",
+                weight: 10
+            },
+            {
+                name: "mumbled",
+                weight: 10
+            },
         ]
 
         this.think = [
@@ -85,7 +90,7 @@ class Action extends Gachable {
                 weight: 10
             },
         ]
-        
+
         this.thinking = [
             {
                 name: "thinking",
@@ -126,7 +131,7 @@ class Action extends Gachable {
             {
                 name: "mulling over",
                 weight: 10
-            }, 
+            },
             {
                 name: "thinking over",
                 weight: 10
@@ -177,11 +182,11 @@ class Action extends Gachable {
             {
                 name: "made a face",
                 weight: 10
-            }, 
+            },
             {
                 name: "smirked",
                 weight: 2
-            }, 
+            },
         ]
 
         this.found = [
@@ -208,10 +213,10 @@ class Action extends Gachable {
             {
                 name: "encountered",
                 weight: 10
-            }, 
+            },
         ]
 
-        
+
         this.snapBack = [
             {
                 name: "came to their senses",
@@ -236,8 +241,8 @@ class Action extends Gachable {
             {
                 name: "caught the horror of the situation",
                 weight: 1
-            }, 
-        ]     
+            },
+        ]
 
         this.bump = [
             {
@@ -298,7 +303,7 @@ class Action extends Gachable {
             },
         ]
 
-        
+
         this.respond = [
             {
                 name: "ignored",
@@ -318,7 +323,7 @@ class Action extends Gachable {
             },
         ]
 
-                
+
         this.indecision = [
             {
                 name: "indecisive",
@@ -351,9 +356,9 @@ class Action extends Gachable {
             {
                 name: "wavering",
                 weight: 10
-            }, 
+            },
         ]
-                
+
         this.orderType = [
             {
                 name: "ordered the entire menu",
@@ -393,8 +398,8 @@ class Action extends Gachable {
             },
         ]
 
-        
-        
+
+
         this.rage = [
             {
                 name: "got enraged",
@@ -446,10 +451,10 @@ class Action extends Gachable {
     decideThinking() {
         return this.gachaDrawName(this.thinking)
     }
-    
+
     decideExpression() {
         return this.gachaDrawName(this.expression)
-    }    
+    }
 
     decideIndecision() {
         return this.gachaDrawName(this.indecision)
@@ -465,6 +470,10 @@ class Action extends Gachable {
 
     decideSnapBack() {
         return this.gachaDrawName(this.snapBack)
+    }
+
+    decideWhisper() {
+        return this.gachaDrawName(this.whisper)
     }
 
     decideTap() {

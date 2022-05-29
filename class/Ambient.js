@@ -218,7 +218,7 @@ class Ambient extends Gachable {
                 weight: 10
             },
             {
-                name: "Bomb detonated somewhere",
+                name: "A bomb detonated somewhere",
                 weight: 1
             },
             // {
