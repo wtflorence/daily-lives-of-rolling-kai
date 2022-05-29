@@ -422,6 +422,10 @@ class Topic extends Gachable {
                 weight: 10
             },
             {
+                name: "[REDACTED]",
+                weight: 1
+            },
+            {
                 name: "their traumas",
                 weight: 1
             },
@@ -548,6 +552,22 @@ class Topic extends Gachable {
             },
             {
                 name: "their diet",
+                weight: 5
+            },
+            {
+                name: "education",
+                weight: 10
+            },
+            {
+                name: "emotions",
+                weight: 10
+            },
+            {
+                name: "the law of gravity",
+                weight: 10
+            },
+            {
+                name: "mathematics",
                 weight: 10
             },
             {
@@ -721,6 +741,26 @@ class Topic extends Gachable {
             {
                 name: "sacred arts",
                 weight: 1
+            },
+            {
+                name: "the arcane",
+                weight: 1
+            },
+            {
+                name: "arcane arts",
+                weight: 1
+            },
+            {
+                name: "enchantments",
+                weight: 10
+            },
+            {
+                name: "tinkering",
+                weight: 10
+            },
+            {
+                name: "weapon modification",
+                weight: 10
             },
             {
                 name: "forbidden arts",
@@ -1338,11 +1378,7 @@ class Topic extends Gachable {
             {
                 name: "after a while",
                 weight: 10
-            }, 
-            {
-                name: "at the end",
-                weight: 10
-            }, 
+            },  
             {
                 name: "at length",
                 weight: 10

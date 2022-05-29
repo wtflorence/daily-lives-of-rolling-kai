@@ -96,6 +96,10 @@ class Action extends Gachable {
                 weight: 10
             },
             {
+                name: "remembering",
+                weight: 10
+            },
+            {
                 name: "musing",
                 weight: 10
             },
@@ -126,11 +130,7 @@ class Action extends Gachable {
             {
                 name: "mulling over",
                 weight: 10
-            },
-            {
-                name: "trying to remember",
-                weight: 10
-            },
+            }, 
             {
                 name: "thinking over",
                 weight: 10

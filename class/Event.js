@@ -168,6 +168,8 @@ class Event extends Gachable {
 
         return `${_.upperFirst(topic)}. That is what's been in ${d1.name}'s head for ${this.topic.decideDuration()} now. They ${this.action.decideSnapBack()} in vain and ${this.movement.decideContinue()} ${this.action.decideThinking()} about ${topic}.`
     }
+
+
     // end solo
 
     simpleArriveSoloFeelingChain = () => {
@@ -345,13 +347,10 @@ class Event extends Gachable {
         const local = this.gachaDraw(this.location)
         const loc = local.decideLocation()
 
-        // {RB} {attacked}. {Jigz} {dodged} then {attacked} back. {RB} {blocked} {Futuristic Sight} and counterattacked with {Immortal Aura}. Then it was over.
         return `${d1.name} ${this.movement.decideMovement()} towards ${loc}. They accidentally ${this.action.decideBump()} against ${d2.name} and spilled their "${this.food.decideFoodStuff()}". ${d2.name} ${this.action.decideRage()} about this and ${this.fight.decideAttack()} ${d1.name} to the face!` // fix face and enraged
     }
 
     // end fights
-
-
 
     // duo
     simpleDuoTalkLocation() {
@@ -428,6 +427,15 @@ class Event extends Gachable {
 
         return `${this.ambient.decideAmbient()} and ${d1.name} said, "${_.upperFirst(this.topic.decideTopic())} is important but ${_.upperFirst(this.topic.decideTopic())} is importanter". However, ${d2.name} simply ${this.action.decideExpression()} and ${this.movement.decideContinue()} with their day.`
     }
+
+    beachSide = () => {
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
+
+        return `${this.ambient.decideAmbient()} at the beach side as ${d1.name} and ${d2.name} ${this.action.decideSpeak()} to each other. ${d1.name} said, "${_.upperFirst(this.topic.decideTopic())}... That's the most important thing for me." ${d2.name} ${this.action.decideThink()} for ${this.topic.decideDuration()} and ${this.topic.decideInTheEnd()}, nodded.`
+    }
+
+
     // end duo
 
     // Butler phrases
@@ -688,8 +696,11 @@ class Event extends Gachable {
             {
                 name: this.importanter(),
                 weight: 85
-            }
-
+            },
+            {
+                name: this.beachSide(),
+                weight: 6500000
+            },
         ]
 
         const butlerPhrases = [
@@ -713,11 +724,11 @@ class Event extends Gachable {
             },
             {
                 name: fightScene,
-                weight: 1009999999
+                weight: 100
             },
             {
                 name: duo,
-                weight: 100
+                weight: 10099999999
             },
             {
                 name: butlerPhrases,
