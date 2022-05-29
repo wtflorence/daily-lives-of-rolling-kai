@@ -160,6 +160,14 @@ class Event extends Gachable {
 
         return `${d1.name} found theirself tricked by ${indefiniteArticle} ${monster}. They ${this.feeling.decideLinking()} ${f1.name} and ${f2.name} that they ${this.fight.decideAttack()} the ${monster}! ${_.upperFirst(this.topic.decideDuration())} passed and they ${this.action.decideSnapBack()}, waking up in ${loc}.`
     }
+
+    
+    inTheirHead = () => {
+        const d1 = this.gachaDraw(this.denizens)
+        const topic = this.topic.decideTopic()
+
+        return `${_.upperFirst(topic)}. That is what's been in ${d1.name}'s head for ${this.topic.decideDuration()} now. They ${this.action.decideSnapBack()} in vain and ${this.movement.decideContinue()} ${this.action.decideThinking()} about ${topic}.`
+    }
     // end solo
 
     simpleArriveSoloFeelingChain = () => {
@@ -594,11 +602,15 @@ class Event extends Gachable {
             },
             {
                 name: this.spoilSelf(),
-                weight: 45000000
+                weight: 45
             },
             {
                 name: this.trickedByEntity(),
                 weight: 65
+            },
+            {
+                name: this.inTheirHead(),
+                weight: 6500000000
             },
         ]
 
