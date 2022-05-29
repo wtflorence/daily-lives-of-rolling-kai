@@ -146,6 +146,170 @@ class Topic extends Gachable {
                 weight: 10
             },
             {
+                name: "power",
+                weight: 10
+            },
+            {
+                name: "horse racing",
+                weight: 10
+            },
+            {
+                name: "axie battles",
+                weight: 10
+            },
+            {
+                name: "fist-fighting",
+                weight: 10
+            },
+            {
+                name: "digging",
+                weight: 10
+            },
+            {
+                name: "singing",
+                weight: 10
+            },
+            {
+                name: "dancing",
+                weight: 10
+            },
+            {
+                name: "TikTok",
+                weight: 5
+            },
+            {
+                name: "Facebook",
+                weight: 5
+            },
+            {
+                name: "Reddit",
+                weight: 5
+            },
+            {
+                name: "Twitter",
+                weight: 5
+            },
+            {
+                name: "Instagram",
+                weight: 5
+            },
+            {
+                name: "cold weather",
+                weight: 10
+            },
+            {
+                name: "iced tea",
+                weight: 10
+            },
+            {
+                name: "wildlife",
+                weight: 10
+            },
+            {
+                name: "natural disasters",
+                weight: 1
+            },
+            {
+                name: "murder",
+                weight: 1
+            },
+            {
+                name: "The Bible",
+                weight: 1
+            },
+            {
+                name: "being alone",
+                weight: 10
+            },
+            {
+                name: "stress eating",
+                weight: 10
+            },
+            {
+                name: "desserts",
+                weight: 10
+            },
+            {
+                name: "the desert",
+                weight: 10
+            },
+            {
+                name: "No Man's Land",
+                weight: 10
+            },
+            {
+                name: "The Tavern",
+                weight: 10
+            },
+            {
+                name: "bebetime",
+                weight: 1
+            },
+            {
+                name: "memes",
+                weight: 10
+            },
+            {
+                name: "thriller movies",
+                weight: 10
+            },
+            {
+                name: "comedy movies",
+                weight: 10
+            },
+            {
+                name: "action movies",
+                weight: 10
+            },
+            {
+                name: "horror movies",
+                weight: 10
+            },
+            {
+                name: "forbidden movies",
+                weight: 1
+            },            
+            {
+                name: "having fun",
+                weight: 10
+            },
+            {
+                name: "trolling",
+                weight: 10
+            },
+            {
+                name: "fooling around",
+                weight: 10
+            },
+            {
+                name: "making a mess",
+                weight: 10
+            },
+            {
+                name: "starting a coup d'etat",
+                weight: 1
+            },
+            {
+                name: "pictures",
+                weight: 10
+            },
+            {
+                name: "graverobbing",
+                weight: 1
+            },
+            {
+                name: "desecrating shrines",
+                weight: 1
+            },
+            {
+                name: "shower",
+                weight: 10
+            },
+            {
+                name: "self-care",
+                weight: 10
+            },
+            {
                 name: "the rain",
                 weight: 10
             },
@@ -332,11 +496,7 @@ class Topic extends Gachable {
             {
                 name: "social media",
                 weight: 10
-            },
-            {
-                name: "where they grew up",
-                weight: 10
-            },
+            }, 
             {
                 name: "things they were into",
                 weight: 10
@@ -348,11 +508,7 @@ class Topic extends Gachable {
             {
                 name: "family",
                 weight: 10
-            },
-            {
-                name: "where they have lived",
-                weight: 10
-            },
+            }, 
             {
                 name: "accomplishments",
                 weight: 10
@@ -370,7 +526,43 @@ class Topic extends Gachable {
                 weight: 10
             },
             {
-                name: "skin care",
+                name: "skin-care",
+                weight: 10
+            },
+            {
+                name: "ancient structures",
+                weight: 10
+            },
+            {
+                name: "ancient texts",
+                weight: 10
+            },
+            {
+                name: "sacred texts",
+                weight: 10
+            },
+            {
+                name: "forbidden texts",
+                weight: 10
+            },
+            {
+                name: "scriptures",
+                weight: 10
+            },
+            {
+                name: "Buddhism",
+                weight: 1
+            },
+            {
+                name: "animals",
+                weight: 10
+            },
+            {
+                name: "wild animals",
+                weight: 10
+            },
+            {
+                name: "great heights",
                 weight: 10
             },
             {

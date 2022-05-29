@@ -13,6 +13,7 @@ exports.generate = async () => {
     const Butler = await require("../class/Butler")
     const Food = await require("../class/Food")
     const Fight = await require("../class/Fight")
+    const Dialogue = await require("../class/Dialogue")
     const denizensResult = await axios.get('http://localhost:3000/api/daily-lives/denizens')
     
     const denizens = denizensResult.data
@@ -24,9 +25,10 @@ exports.generate = async () => {
     const food = new Food()
     const feeling = new Feeling()
     const fight = new Fight()
+    const dialogue = new Dialogue()
     const location = Location
     
-    const event = new Event(denizens, movement, location, feeling, ambient, fight, action, topic, butler, food)
+    const event = new Event(denizens, movement, location, feeling, ambient, fight, action, topic, butler, food, dialogue)
 
     const phrase = event.pickRandomEvent()
     return phrase

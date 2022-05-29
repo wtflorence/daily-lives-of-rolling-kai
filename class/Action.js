@@ -40,11 +40,7 @@ class Action extends Gachable {
             {
                 name: "inquired",
                 weight: 5
-            },
-            {
-                name: "talked",
-                weight: 50
-            },
+            }, 
         ]
 
         this.think = [
