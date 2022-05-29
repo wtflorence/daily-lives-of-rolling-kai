@@ -321,7 +321,13 @@ class Event extends Gachable {
 
         return `${d1.name} ${this.fight.decideAttack()}. ${d2.name} ${this.fight.decideDodge()} then ${this.fight.decideAttack()} back. But ${d1.name} ${this.fight.decideBlock()} ${d2Weapon} and countered with their ${d1Weapon}! ${d2.name} ${this.fight.decideAttack()} one last time but ${d1.name} delivered the ${this.fight.decideFinishing()} first. It's over. ${d1.name} ${this.fight.decideWin()}.`
     }
+    
+    weaponsMeet() {
+        let d1, d2
+        [d1, d2] = this.gachaDrawTwo(this.denizens)
 
+        return `${d1.name} and ${d2.name}'s weapons clashed -- both trembling. But ${d1.name} kept ${this.action.decideThinking()}, "...${this.topic.decideTopic()}!", and ${this.fight.decideBlock()} ${d2.name}'s all other attacks! ${d1.name} scored ${this.fight.decideDamage()} and dealt the ${this.fight.decideFinishing()}! `
+    }
 
     suddenAttack() {
         let d1, d2
@@ -610,7 +616,7 @@ class Event extends Gachable {
             },
             {
                 name: this.inTheirHead(),
-                weight: 6500000000
+                weight: 65
             },
         ]
 
@@ -642,6 +648,10 @@ class Event extends Gachable {
             {
                 name: this.spillFood(),
                 weight: 10
+            },
+            {
+                name: this.weaponsMeet(),
+                weight: 100000000
             },
         ]
 
@@ -699,11 +709,11 @@ class Event extends Gachable {
         const events = [
             {
                 name: solo,
-                weight: 10000000000
+                weight: 100
             },
             {
                 name: fightScene,
-                weight: 100
+                weight: 1009999999
             },
             {
                 name: duo,
@@ -720,6 +730,7 @@ class Event extends Gachable {
         ]
 
         // console.log(JSON.stringify(events));
+        console.log(solo.length + fightScene.length + duo.length + butlerPhrases.length + food.length)
 
         const event = this.gachaDrawName(events)
         return this.gachaDrawName(event)
